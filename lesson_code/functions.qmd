@@ -1,0 +1,567 @@
+---
+title: "Untitled"
+format: html
+editor: source
+---
+
+# Function and Operator Cheat Sheet
+
+This page hosts a function cheat sheet for each lesson. 
+
+I only describe the purpose of the function. If you would like to understand its arguments (inputs) and more details, use the `help<function_name>)` function or `?<function_name>` or click on the link for each function. 
+
+## Lesson 01 - Data Wrangling 1
+
+### Getting Started 
+
+- [`help()`](https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/help) : Opens up help documentation for packages and functions. `?<function_name>` does the same. 
+
+### R Basics. 
+
+- [`\<-`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/assignOps) : Assign a value to a name.  
+
+### Vectors. 
+
+- [`c()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/c) : Generic function which combines its arguments. The default method combines its arguments to form a vector. All arguments are coerced to a common type which is the type of the returned value, and all attributes except names removed.  
+
+- [`mean()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/mean) : Generic function for the (trimmed) arithmetic mean.  
+
+- [`sort()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/sort) : Sort (or order) a vector or factor into ascending or descending order.  
+
+- [`<from>:<to>`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Colon) : Generate regular sequences.  
+
+- [`seq()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/seq) : Generate regular sequences (with more options than `:`).  
+
+- [`paste()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/paste) : Concatenate vectors after converting to character.  
+
+- [`nchar()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/nchar) : Takes a character vector as an argument and returns a vector whose elements contain the sizes of the corresponding elements of `x`.  
+
+- [`length()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/length) : Get or set the length of vectors (including lists) and factors, and of any other R object for which a method has been defined.
+
+- [`[]`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Extract) : Operator that acts on vectors, matrices, arrays, and lists to extract or replace parts.  
+
+- [`NA`](https://www.rdocumentation.org/packages/bsae/versions/3.6.2/topics/NA) : `NA` is a logical constant of length \` which contains a missing value indicator.  
+
+- [`is.na()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/NA) : Indicates which elements of a vector are missing. Returns `TRUE` if missing, otherwise `FALSE`. 
+
+- [`typeof()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/typeof) : Determined the (R internal) type or storage mode of any object.  
+
+- [`is.numeric()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/numeric) : Determines if a vector is of a class `numeric` or not.  
+
+- [`is.logical()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/logical) : Determines if a vector is of type `logical` or not.  
+
+- [`is.character()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/character) : Determines if a vector is of type `character` or not.  
+
+- [`as.numeric()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/numeric) : Converts vector to `numeric`.  
+
+- [`as.logical()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/logical) : Converts vector to `logical`.  
+
+- [`as.character()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/character) : Converts vector to `character`.  
+
+#### Arithmetic Operators 
+
+You can use arithmetic operators with `numeric` vectors as well as with single elements.  
+
+Here is a list of arithmetic operators: 
+
+<br>
+
+```{r}
+#| echo: false
+
+my_df <- data.frame(Operator = c("+", 
+                                 "-", 
+                                 "*", 
+                                 "/", 
+                                 "^", 
+                                 "%%", 
+                                 "&&"), 
+                    Name = c("Addition", 
+                             "Subtraction", 
+                             "Multiplication", 
+                             "Division", 
+                             "Exponent", 
+                             "Modulus (Remainder from division)", 
+                             "Integer Division"), 
+                    
+                    Example = c("x + y", 
+                                "x - y", 
+                                "x * y", 
+                                "x / y", 
+                                "x ^ y", 
+                                "x %% y", 
+                                "x&&y"))
+
+kableExtra::kable(my_df)
+```
+
+Source: [W3Schools](https://www.w3schools.com/)
+
+#### Comparison Operators 
+
+Comparison operators are used to compare two values.  
+
+<br> 
+
+```{r}
+#| echo: false 
+
+comp_df <- data.frame(Operator = c("==", 
+                                   "!=", 
+                                   ">", 
+                                   "<", 
+                                   ">=", 
+                                   "<=", 
+                                   "%in%"), 
+                      Name = c("Equal", 
+                               "Not equal", 
+                               "Greater than", 
+                               "Less than", 
+                               "Greater than or equal to", 
+                               "Less than or equal to", 
+                               "Have values within"), 
+                      Example = c("x == y", 
+                                  "x != y", 
+                                  "x > y", 
+                                  "x < y", 
+                                  "x >= y", 
+                                  "x <= y", 
+                                  "x %in% y")) 
+
+kableExtra::kable(comp_df)
+```
+
+<br> 
+
+#### Logical Operators  
+
+Logical operators are used to combine conditional statements.  
+
+<br> 
+
+
+```{r}
+#| echo: false 
+
+comp_df <- data.frame(Operator = c("&", 
+                                   "|", 
+                                   "!"), 
+                      Name = c("AND operator. Returns TRUE if both elements are TRUE", 
+                               "OR operator. Returns TRUE if either elements are TRUE", 
+                               "NOT operator. Returns TRUE if the condition is not TRUE"), 
+                      Example = c("x == y & a == b", 
+                                  "x == y | a == b", 
+                                  "!(x == y"))
+
+kableExtra::kable(comp_df)
+```
+
+<br>  
+
+### Packages and Libraries  
+
+<br>
+
+- [`install.packages()`](https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/install.packages) : Download and install packages from CRAN-like repositories or from local files.  
+
+- [`library()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/library) : Attach add-on packages. 
+
+- [`::`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/ns-dblcolon) : Accessing exported and internal variables i.e. R objects (including lazy loaded datasets) in a namespace. 
+
+<br> 
+
+### Data Frames and `tibble`
+
+<br>
+
+- [`head()`](https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/head) : Returns the first or last parts of a vector, matrix, table, data frame, or function.  
+
+- [`tibble::as_tibble()`](https://www.rdocumentation.org/packages/tibble/versions/3.2.1/topics/as_tibble) : Turns an existing object, such as a data frame or matrix, into a so-called tibble, a data frame with class `tbl_df`.  
+
+- [`class()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/class) : For objects which have a formal class, its name is returned. R posseses a simple generic function mechanism which can be used for an object-oriented style of programming.  
+
+<br>  
+
+### `dplyr` Basics  
+
+<br>  
+
+- [`dplyr::glimpse()`](https://dplyr.tidyverse.org/reference/glimpse.html) : Prints information about a data frame or tibble to the console.  
+
+- [`dplyr::mutate()`](https://dplyr.tidyverse.org/reference/mutate.html) : Creates new columns that are functions of existing variables. It can also modify (if the name is the same as an existing column) and delete columns (by setting their value to NULL).  
+
+- [`dplyr::filter()`](https://dplyr.tidyverse.org/reference/filter.html) : Used to subset a data frame, retaining all rows that satisfy your conidtions. To be retained, the row must produce a value of TRUE for all conditions. Note that when a condition evaluates to NA the row will be dropped, unlike base subsetting with `[`.  
+
+- [`dplyr::select()`](https://dplyr.tidyverse.org/reference/select.html) : Select (and optionally rename) variables in a data frame, using a concise mini-language that makes it easy to refer to varaibles based on their name (e.g. `<a>:<f>` selects all columns from `a` on the left to `f` on the right) or type (e.g. `where(is.numeric)` selects all `numeric` columns).  
+
+- [`tidyselect::everything()`](https://tidyselect.r-lib.org/reference/everything.html) : Selects all variables. It is also useful in ocmbination with other tidyselect operators.  
+
+- [`dplyr::arrange()`](https://dplyr.tidyverse.org/reference/arrange.html) : Orders the rows of a dta frame by the values of selected columns.  
+
+- [`dplyr::count()`](https://dplyr.tidyverse.org/reference/count.html) : Lets you quickly count the unique values of one or more variables.  
+
+- [`dplyr::group_by()`](https://dplyr.tidyverse.org/reference/group_by.html) : Most data operations are done on groups defined by variables. `group_by()` takes an existing tbl and converts it into a grouped tbl where operations are performed "by group".  
+
+- [`dplyr::ungroup()`](https://dplyr.tidyverse.org/reference/group_by.html) : Removes grouping.  
+
+- [`dplyr::summarise()`](https://dplyr.tidyverse.org/reference/summarise.html) : Returns on row for each combination of grouping variables; if there are no grouping variables, the output will have a single row summarasing all ovservations in the input. It will contain one column for each grouping variable and one column for each of the summary statistics that you have specified. `summarise()` and `summarize()` are synonyms.  
+
+### The pipe operator: `|>`  
+
+- [`|>`](https://rdrr.io/r/base/pipeOp.html) : Passes, or pipes, the result of the left-hand side expression to the right-hand side expression. If the right-hand side expression is a function call, then the left-hand-side is inserted as the first argument in the call.  
+
+## Lesson 02 - Data Wrangling 2  
+
+### Data Import and Export  
+
+- [`readr::read_csv()`](https://readr.tidyverse.org/reference/read_delim.html): Read in `.csv` files.  
+
+- [`readxl::read_excel()`](https://www.rdocumentation.org/packages/readxl/versions/1.4.3/topics/read_excel): Read in `.xlsx` or `.xls` files.  
+
+- [`haven::read_sas()`](https://www.rdocumentation.org/packages/haven/versions/2.5.4/topics/read_sas) : Read in `.sas7bdat` or `.sas7bcat` files. 
+
+- [`haven::read_xpt()`](https://www.rdocumentation.org/packages/haven/versions/2.5.4/topics/read_xpt) : Read in SAS trasnfer files (`.xpt`).  
+
+- [`haven::read_stata()`](https://haven.tidyverse.org/reference/read_dta.html) : Read in `.dta` files.  
+
+- [`readRDS()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/readRDS) : Read in native `.RDS` files.  
+
+- [`arrow::read_feather()`](https://rdocumentation.org/packages/arrow/versions/8.0.0/topics/read_feather) : Read in `.feather` files.  
+
+- [`arrow::read_parquet()`](https://rdocumentation.org/packages/arrow/versions/8.0.0/topics/read_parquet) : Read in `.parquet` files.  
+
+- [`data.table::fread()](https://www.rdocumentation.org/packages/data.table/versions/1.15.0/topics/fread) : Read in `.csv` files faster. 
+
+- [`readxl::excel_sheets()`](https://rdocumentation.org/packages/readxl/versions/1.4.3/topics/excel_sheets) : Read in excel sheets form a `.xlsx` or `.xls` file.  
+
+- [`readr::write_csv()`](https://www.rdocumentation.org/packages/readr/versions/0.1.1/topics/write_csv) : Write out `.csv` files.  
+
+- [`haven::write_sas()`](https://haven.tidyverse.org/reference/write_sas.html) : Write out `.sas7bdat` or `.sas7bcat` files.  
+
+- [`haven::write_dta()`](https://rdocumentation.org/packages/haven/versions/0.1.0/topics/write_dta) : Write out `.dta` files.  
+
+- [`saveRDS()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/readRDS) : Save native `.RDS` files. 
+
+- [`arrow::write_feather()`](https://rdocumentation.org/packages/arrow/versions/8.0.0/topics/write_feather): Write out `.feather` files.  
+
+- [`arrow::write_parquet()`](https://rdocumentation.org/packages/arrow/versions/8.0.0/topics/write_parquet): Write out `.parqeut` files.  
+
+- [`janitor::clean_names()`](https://www.rdocumentation.org/packages/janitor/versions/2.2.0/topics/clean_names) : Clean up messy variable names. 
+
+- [`dplyr::if_else()`](https://dplyr.tidyverse.org/reference/if_else.html) : Takes in logical condition - if `TRUE`,  output the value in the `true` argument, otherwise output the value in the `false` argument.  
+
+- [`dplyr::case_when()`](https://dplyr.tidyverse.org/reference/case_when.html) : Takes in multiple logical conditions - basically use when you want to do multiple if/else statements. Each case is evaluated sequentially and the first match for each element determines the correspending value in the output vector. 
+
+- [`stringr::str_c()`](https://www.rdocumentation.org/packages/stringr/versions/1.5.1/topics/str_c) : Concatenates a string.  
+
+- [`stringr::str_length()`](https://www.rdocumentation.org/packages/stringr/versions/1.5.1/topics/str_length) : Provides the length of each element of a string.  
+
+- [`dplyr::pull()`](https://dplyr.tidyverse.org/reference/pull.html) : Extracts a clumn from a data frame.   
+- [`stringr::str_detect()`](https://www.rdocumentation.org/packages/stringr/versions/1.5.1/topics/str_detect) : Returns `TRUE` if pattern is matched in string. \`FALSE\`\` otherwise. 
+
+- [`stringr::str_pad()`](https://www.rdocumentation.org/packages/stringr/versions/1.5.1/topics/str_pad) : Pads a string to be a specified width. 
+
+- [`stringr::str_trim()`](https://www.rdocumentation.org/packages/stringr/versions/1.5.1/topics/str_trim) : Removes whitespace from the start or end of a string. 
+
+- [`stringr::str_sub()`](https://www.rdocumentation.org/packages/stringr/versions/1.5.1/topics/str_sub) : Subset a string based on indices.  
+
+- [`stringr::str_to_lower()`](https://stringr.tidvyerse.org/reference/case.html) : Converts strings to lower case (`asdfjl`).
+
+- [`stringr::str_to_upper()`](https://stringr.tidvyerse.org/reference/case.html) : Converts strings to upper case (`ASDFJL`).
+
+- [`stringr::str_to_title()`](https://stringr.tidvyerse.org/reference/case.html) : Converts strings to title case (`This Is A Title`).  
+
+- [`stringr::str_to_sentence()`](https://stringr.tidvyerse.org/reference/case.html) : Converts strings to sentence case (`This is a sentence.`). 
+
+### Attributes
+
+- [`attributes()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/attributes) : Returns the attributes of an R object. 
+
+- [`names()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/names) : Returns the `names` attribute within an R object. Can also assign with `names(x)<-`. 
+
+- [`class()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/class) : Returns the S3 object class of an R object.  
+
+- [`factor()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/factor) : Creates a factor variable. 
+
+- [`as.Date()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/as.Date) : Converts character or numeric to the Date class. 
+
+- [`lubridate::ymd()`](https://www.rdocumentation.org/packages/lubridate/versions/1.9.3/topics/ymd) : Flexibly convert data to Date, with format "year", "month", "day". 
+
+- [`lubridate::ydm()`](https://www.rdocumentation.org/packages/lubridate/versions/1.9.3/topics/ymd) : Flexibly convert data to Date, with format "year", "day", "month". 
+
+- [`lubridate::myd()`](https://www.rdocumentation.org/packages/lubridate/versions/1.9.3/topics/ymd) : Flexibly convert data to Date, with format "month", "year", "day". 
+
+- [`lubridate::mdy()`](https://www.rdocumentation.org/packages/lubridate/versions/1.9.3/topics/ymd) : Flexibly convert data to Date, with format "month", "day", "year". 
+
+- [`lubridate::dmy()`](https://www.rdocumentation.org/packages/lubridate/versions/1.9.3/topics/ymd) : Flexibly convert data to Date, with format "day", "month", "year". 
+
+- [`lubridate::dym()`](https://www.rdocumentation.org/packages/lubridate/versions/1.9.3/topics/ymd) : Flexibly convert data to Date, with format "dau", "year", "month". 
+
+- [`lubridate::year()`](https://www.rdocumentation.org/packages/lubridate/versions/1.9.3/topics/year) : Extract year from date.  
+
+- [`lubridate::month()`](https://www.rdocumentation.org/packages/lubridate/versions/1.9.3/topics/month) : Extract month from date.  
+
+- [`lubridate::day()`](https://www.rdocumentation.org/packages/lubridate/versions/1.9.3/topics/day) : Extract day from date. 
+
+- [`lubridate::wday()`](https://www.rdocumentation.org/packages/lubridate/versions/1.9.3/topics/day) : Extract weekday from date. 
+
+- [`lubridate::quarter()`](https://www.rdocumentation.org/packages/lubridate/versions/1.9.2/topics/quarter) : Extract quarter from date. 
+
+### Reshaping Data 
+
+- [`tidyr::pivot_longer()`](https://tidyr.tidyverse.org/reference/pivot_longer.html): Reshapes data longer. 
+
+- [`tidyr::pivot_wider`](https://tidyr.tidyverse.org/reference/pivot_wider.html) : Reshapes data wider. 
+
+### Combining Data Frames  
+
+- [`dplyr::bind_rows()`](https://dplyr.tidyverse.org/reference/bind_rows.html) : Appends data frames together. 
+
+- [`dplyr::bind_cols()`](https://dplyr.tidyverse.org/reference/bind_cols.html) : Joins toether by column with no keys. Not recommended under most conditions. 
+
+- [`dplyr::inner_join`](https://dplyr.tidyverse.org/reference/mutate-joins.html) : Joins together by key, returns obsevation if key is present on both sides. 
+
+- [`dplyr::full_join`](https://dplyr.tidyverse.org/reference/mutate-joins.html) : Joins together by key, returns observation if key is present on either side. 
+
+- [`dplyr::left_join`](https://dplyr.tidyverse.org/reference/mutate-joins.html) : Joins together by key, returns observation if key is present on left side. 
+
+- [`dplyr::right_join`](https://dplyr.tidyverse.org/reference/mutate-joins.html) : Joins together by key, returns observation if key is present on right side. 
+
+- [`dplyr::join_by()`](https://dplyr.tidyverse.org/reference/join_by.html) : Helper function for assigning `by` within join functions. 
+
+### Lesson 03 - Data Visualization 1  
+
+#### The `ggplot2` package
+
+- [`ggplot2::ggplot()`](https://ggplot2.tidyverse.org/reference/ggplot.html) : Initializes a ggplot object and creates an empty plot. Can also optionally set aesthetics that are inherited by later functions.  
+
+- [`ggplot2::aes()`](https://ggplot2.tidyverse.org/reference/aes.html) : Aesthetic mappings describe how variables in the data are mapped to visual properties of geoms. Set in `ggplot()` and individaul layers. 
+
+- [`ggplot2::geom_point()`](https://ggplot2.tidyverse.org/reference/geom_point.html) : Layer used to create scatterplots or points on a line graph.  
+
+- [`ggplot2::geom_smooth()`](https://ggplot2.tidvyerse.org/reference/geom_smooth.html) : Layer used to create a trend line over an existing plot.  
+
+- [`ggplot2::scale_<axis>_continuous()`](https://ggplot2.tidyverse.org/reference/scale_continuous.html) : Scale used with continuous axis can set limits, breaks, and labels (among other things). 
+
+- [`ggplot2::scale_<color or fill>_hue()`](https://ggplot2.tidyverse.org/reference/scale_hue.html) : Maps each elvel to an evenly spaced hue on the color wheel.  
+
+- [`ggplot2::facet_wrap()`](https://ggplot2.tidyverse.org/reference/facet_wrap.html) : Graphs multiple panels of data in a rectangular strcuture. Use a `<var>` syntax to generate panels by `<var>`.  
+
+- [`ggplot2::geom_bar()`](https://ggplot2.tidyverse.org/reference/geom_bar.html) : Layer that creates a bar plot with one varaible.  
+
+- [`ggplot2::coord_flip()`](https://ggplot2.tidyverse.org/reference/coord_flip.html) : Flips the X and Y axes.  
+
+- [`ggplot2::theme()`](https://ggplot2.tidyverse.org/reference/theme.html) : Customize non-data components of plot. 
+
+- [`ggplot2::element_rect()`](https://ggplot2.tidyverse.org/reference/element.html) : Modify rectangular theme element.  
+
+- [`ggplot2::element_blank()`](https://ggplot2.tidyverse.org/reference/element.html) : Remove element from theme.  
+
+- [`ggplot2::theme_minimal()`](https://ggplot2.tidyverse.org/reference/ggtheme.html) : Complete theme that draws minimal lines and ticks.  
+
+### Layers
+
+- [`ggplot2::geom_col()`](https://ggplot2.tidyverse.org/reference/geom_bar.html) : Layer that creates a bar plot with two variables (minimum).  
+
+- [`forcats::fct_reorder()`](https://forcats.tidyverse.org/reference/fct_reorder.html) : Reorders a factor on the order of another variable.  
+
+- [`ggplot2::geom_segment()`](https://ggplot2.tidyverse.org/reference/geom_segment.html) : Layer that draws a straight line between points. We can use it with `geom_point()` to create a lollipop chart.  
+
+- [`ggplot2::geom_line()`](https://ggplot2.tidyverse.org/reference/geom_path.html) : Layer that creates a line graph.  
+
+- [`ggplot2::geom_histogram()`](https://ggplot2.tidyverse.org/reference/geom_histogram.html) : Layer that creates a histogram.  
+
+- [`ggplot2::geom_density()`](https://ggplot2.tidyverse.org/reference/geom_density.html) : Layer that creates a density plot.  
+
+- [`ggplot2::geom_boxplot()`](https://ggplot2.tidyverse.org/reference/geom_boxplot.html) : Layer that creates a box plot.  
+
+### Aesthetics 
+
+No new functions! See the [Aesthetic specifics ggplot2 vignette](https://ggplot2.tidyverse.org/articles/ggplot2-specs.html).  
+
+### Scales
+
+- [`ggplot2::expansion()`](https://ggplot2.tidyverse.org/reference/expansion.html) : Generate scale expansion vectors for the `expand` argument in a scale. 
+
+- [`ggplot2::scale_y_reverse()`](https://ggplot2.tidyverse.org/reference/scale_continuous.html) : Transform y axis from high to low instead of low to high. 
+
+- [`ggplot2::scale_<aesthetic>_manual()`](https://ggplot2.tidyverse.org/reference/scale_manual.html) : Scale that allows you to specific mappings from levels in the data to aesthetic values (like colors). 
+
+- [`ggplot2::scale_<color or fill>_brewer()`](https://ggplot2.tidyverse.org/reference/scale_brewer.html) : Maps values in data to an existing color pallete. 
+
+### Text and Annotations  
+
+- [`ggplot2::labs()`](https://ggplot2.tidyverse.org/reference/labs.html) : Modify axis, legend, and plot labels. 
+
+- [`ggplot2::geom_text()`](https://ggplot2.tidyverse.org/reference/geom_text.html) : Layer that adds text from the data. No rectangle present behind text.
+
+- [`ggplot2::geom_label()`](https://ggplot2.tidyverse.org/reference/geom_text.html) : Layer that adds text from the data. Rectangle present behind text.
+
+- [`dplyr::slice()`](https://dplyr.tidyverse.org/reference/slice.html) : Filtrs rows by their `integer` index locations. 
+
+- [`ggplot2::annotate()`](https://ggplot2.tidyverse.org/reference/annotate.html) : Add text (or another geom) to a graph not stemming from the data. 
+
+### Themes  
+
+- [`ggplot2::theme_gray()`](https://ggplot2.tidyverse.org/reference/ggtheme.html) : This is the default ggplot2 complete theme that we've already seen.  
+
+- [`ggplot2::theme_bw()`](https://ggplot2.tidyverse.org/reference/ggtheme.html) : A dark on-light ggplot2 theme, which may work better for presentations displayed with a projecter. 
+
+- [`ggplot2::theme_linedraw()`](https://ggplot2.tidyverse.org/reference/ggtheme.html) : Another dark-on-light ggeplot2 theme, which may work better for presentations displayed with an old-timey projecter. 
+- [`ggplot2::theme_light()`](https://ggplot2.tidyverse.org/reference/ggtheme.html) : Light theme. Because of its light grey lines and axes, it focuses more attention on the data. 
+
+- [`ggplot2::theme_dark()`](https://ggplot2.tidyverse.org/reference/ggtheme.html) : Similar to theme_light() but the dark version. Good if you want to show colors with a dark background.  
+
+- [`ggplot2::theme_minimal`](https://ggplot2.tidyverse.org/reference/ggtheme.html) : A minimilastic theme. I quite like minimalistic themes as we focus more on the data. 
+
+- [`ggplot2::theme_classic()`](https://ggplot2.tidyverse.org/reference/ggtheme.html) : Also a minimalistic theme, with solid axes but no gridlines. 
+
+- [`ggplot2::theme_void()`](https://ggplot2.tidyverse.org/reference/ggtheme.html) : A completely empty theme. Good if you don't want any axes or gridlines. 
+
+## Lesson 04 - Data Visualization 2 
+
+### Spatial Features and Mapping  
+
+- [`tigris::states()`](https://www.rdocumentation.org/packages/tigris/versions/2.1/topics/states) : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by state. 
+
+- [`tigris::core_based_statistical_areas()`](https://rdocumentation.org/packages/tigirs/versions/2.1/topics/core_based_statistical_areas) : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by Census Core-Based Statistical Area (Containing both metropolitan area and micropolitan area).  
+
+- [`tigris::congresional_districts()`](https://www.rdocumentation.org/packages/tigris/versions/0.5/topics/congressional_districts) : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by congressional district. 
+
+- [`tigris::counties()`](https://www.rdocumenation.org/packages/tigris/versions/2.1/topics/counties) : Downlods TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by county.  
+
+- [`tigris::urban_areas()`](https://www.rdocumentation.org/packages/tigris/versions/2.0/topics/urban_areas) : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by Urban Area designation.  
+
+- [`tigris::places(()`](https://www.rdocumentation.org/packages/tigris/versions/1.6/topics/places) : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by census place (cities).
+
+- [`tigris::zctas()`](https://www.rdocumentation.org/packages/tigris/versions/2.1/topics/zctas) : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by Zip Code Tbulation Area (ZCTA).  
+
+- [`tigris::voting_districts()`](https://rdrr.io/cran/tigirs/man/voting_districts.html) : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by voting district.  
+
+- [`tigris::tracts()`](https://rdrr.io/cran/tigris/man/tracts.html) : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by census tract.   
+
+- [`tigris::block_groups()`](https://www.rdocumentation.org/packages/tigris/versions/2.1/topics/block_groups) : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by block group.  
+
+- [`tigris::blocks()`](https://rdrr.io/cran/tigris/man/blocks.html) : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by census block.  
+
+- [`sf::st_read()`](https://www.rdocumentation.org/packages/sf/versions/1.0-16/topics/st_read) : Reads in shapefile data and convert to `sf` object. 
+
+- [`sf::st_as_sf()`](https://www.rdocumentation.org/packages/sf/versions/1.0-16/topics/st_as_sf) : Converts foreign object to an `sf` object. 
+
+- [`sf::st_crs()`](https://www.rdocumentation.org/packages/sf/versions/1.0-16/topics/st_crs) : Retrieve coordinate reference system from object. 
+
+- [`sf::st_transform()`](https://www.rdocumentation.org/packages/sf/versions/1.0-16/topics/st_transform) : Transform or convert coordiante of simple feature.  
+
+- [`tigris::shift_geometry()`](https://rdrr.io/cran/tigris/man/shift_geometry.html) : Shift and rescale Alaska, Hawaii, and Puerto Rico in a US-wide `sf` object. 
+
+### Choropleth Maps  
+
+- [`ggplot2::geom_sf_text()`](https://search.r-project.org/CRAN/refmans/ggplot2/html/ggsf.html) Add text related to `sf` objects. 
+
+- [`tidycensus::load_variables()`](https://www.rdocumentation.org/packages/tidycensus/versions/1.3/topics/load_variables) : Load Decennial and ACS variable names. 
+
+- [`tidycensus::get_decennial`](https://www.rdocumentation.org/packages/tidycensus/versions/1.6.3/topics/get_decennial) : Obtain data and feature geometry for the decennial US Census.  
+
+- [`tidycensus::get_acs()`](https://www.rdocumentation.org/packages/tidycensus/versions/1.6.3/topics/get_acs) : Obtain data and feature geometry for the American Community Survey.
+
+- [`tidycensus::get_estimates()`](https://www.rdocumentation.org/packages/tidycensus/versions/1.6.3/topics/get_estimates) : Obtain data and feature geometry for the Population Estimates.
+
+- [`tidycensus::get_pums()`](https://www.rdocumentation.org/pakcages/tidycensus/versions/1.6.3/topics/get_pums) : Load data from the American Community Survey Public Use Microdata Series API.  
+
+- [`tidycensus::get_flows()`](https://walker-data.com/tidycensus/reference/get_flows.html) : Obtain data and feature geometry for American Community Survey Migration Flows.  
+
+- [`base::cut()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/cut) : Divides the range of `x` into intervals and code the values in `x` to categorical vriable accoding to which interval they fall. 
+
+
+- [`ggplot2::cut_number()`](https://www.rdocumentation.org/packages/ggplot2/versions/1.0.0/topics/cut_number) : Makes a categorical variable with `n` groups with approximately equal numbers of observations. 
+
+- [`base::source()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/source) : Reads in an R file and runs it.  
+
+### Other Data Visualization Packages  
+
+- [`gghighlight::gghighlight()`](https://www.rdocumenation.org/packages/gghighlight/versions/0.0.1/topics/gghighlight) : Highlights geoms according to the given predicates. 
+
+- [`gganimate::transition_time()`](https://www.rdocumentation.org/packages/gganimate/versions/1.0.9/topics/transition_time) : Creates an animation that transitions with a trqnsition length related to the actual time difference between given time values. 
+
+- [`plotly::plot_ly()`](https://www.rdocumentation.org/packages/plotly/versions/4.10.4/topics/plot_ly) : Maps R objects to `plotly.js`, a web-based interactive charting library. 
+
+- [`plotly::ggplotly()`](https://www.rdocumentation.org/packages/plotly/versions/4.10.4/topics/ggplotly) : Converts a `ggplot` object to a `plotly` object. 
+
+- [`leaflet::colorNumeric()`](https://www.rdocumentation.org/packages/leaflet/versions/2.2.2/topics/colorNumeric) : maps data values to colors according to a given palette. 
+
+- [`leaflet::leaflet()`](https://www.rdocumentation.org/packages/leaflet/versions/2.2.2) : Create a Leaflet map widget using `htmlwidgets`. The widget can be rendered on HTML paes. 
+
+- [`leaflet::addTiles()`](https://rstudio.github.io/leaflet/articles/basemaps.html) : Add basemaps to a graph.  
+
+- [`leaflet::addPolygons()`](https://www.rdocumentation.org/packages/leaflet/versions/2.2.2/topics/addControls) : Add polygons to a graph. 
+
+- [`leaflet::addLegend()`](https://www.rdocumentation.org/packages/leaflet/versions/2.2.2/topics/addLegend) : Add a custom legend to a graph. 
+
+## Functions and Iteration
+
+### Creating Functions  
+
+- [`set.seed()`](https://www.rdocumentation.org/packages/simEd/versions/2.0.1/topics/set.seed) : Sets a random number state such that randomly created numbers can be created in a reproducible manner. 
+
+- [`rnorm()`](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/Normal) : Creates random numbers with n, mean, and standard deviation that follow a normal distribution. 
+
+- [`function()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/function) : Defines new functions in the R language.  
+
+- [`return()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/function) : returns an output within a function, exiting the function. 
+
+- [`if()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Control) : checks if condition is `TRUE`, if so evaluates next statement.  
+
+- [`else())`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Control) : after an `if` statement, this function will evaluate the proceeding expression if the preceding expression is `FALSE` 
+
+- [`stop()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/stop) : throws an error with an error message.   
+
+- [`warning()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/warning) : throws a warning with a warning message. 
+
+### Working with Multiple Columns
+
+- [`dplyr::across()`](https://dplyr.tidyverse.org/reference/across.html) : applies a function across multiple columns in a data frame within a `mutate()` or `summarise()` function.  
+
+- [`tidyselect::everything()`](https://www.rdocumentation.org/packages/tidyselect/versions/1.2.1/topics/everything) : Matches all variables in a selection.  
+
+- [`tidyselect::starts_with()`](https://tidyselect.r-lib.org/reference/starts_with.html) : Matches columns that start with a specific prefix.  
+
+- [`tidyselect::ends_with()`](https://tidyselect.r-lib.org/reference/starts_with.html) : Matches columns that end with a specific suffix.  
+
+- [`tidyselect::contains()`](https://tidyselect.r-lib.org/reference/starts_with.html) : Matches columns that contain a specific string. 
+
+- [`tidyselect::matches()`](https://tidyselect.r-lib.org/reference/starts_with.html) : Matches a regular expression (see page 2 of the [stringr cheat sheet](https://rstudio.github.io/cheatsheets/strings.pdf))
+
+- [`<from:<to>`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Colon) : for selecting a range of consecutive variables. `<from>` and `<to>` can be numeric indicies of the position of the column or variable names (e.g.; `carat:clarity`). 
+
+- [`!`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Logic) : (in selection context), for taking all variables but the ones identified afterwards (e.g.: `!carat:clarity` would identify all variables but those between and including carat and clarity positionally in the dataframe).
+
+- [`c()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/c) : (in selection context) combine selections together.  
+
+- [`tidyselect::all_of()`](https://www.rdocumentation.org/packages/tidyselect/versions/1.2.1/topics/all_of) and [`tidyselect::any_of()`](https://www.rdocumentation.org/packages/tidyselect/versions/1.2.1/topics/all_of) : Matches variable names given a character vector. These are the same except no error is thrown for `any_of()` if names don't exist, but an error is thrown for `all_of()`.  
+
+- [`tidyselect::where()`](https://tidyselect.r-lib.org/rewference/where.html) : applies a function to all varaibles and selects those for which the function returns `TRUE`.   
+
+- [`dplyr::rename_with()`](https://dplyr.tidyverse.org/reference/rename.html) : renames columns using a function.  
+
+- [`dplyr::if_any()`](https://dplyr.tidyverse.org/reference/across.html) : apply the same function to a selection of columns and combine the result into a single logical vector. `if_any()` returns `TRUE` when the predicate is `TRUE` for any of the selected columns. 
+
+- [`dplyr::if_all()`](https://dplyr.tidyverse.org/reference/across.html) : apply the same function to a selection of columns and combine the result into a single logical vector. `if_all()` returns `TRUE` when the predicate is `TRUE` for all of the selected columns. 
+
+- [`list.files()`](https://www.rdocumentation.org/packages/bsae/versions/3.6.2/topics/list.files) : produces a character vector of the files in the specified directory. 
+
+- [`purrr::map()`](https://purrr.tidyverse.org/reference/map.html) : transform input by applying a function to each element of a list or atomic vector. Always returns a list. 
+
+- [`purrr::list_rbind()`](https://purrr.tidyverse.org/reference/list_c.html) : combines list elements into a data frame by row-binding them together.  
+
+- [`readr::parse_number()`](https://www.rdocumentation.org/packages/reqadr/versions/2.1.5/topics/parse_number) : extracts the first number it finds, dropping any non numeric characters before and after.  
+
+- [`rlang::set_names()`](https://www.rdocumentation.org/pckages/rlang/versions/1.1.3/topics/set_names) : sets the names on an object and returns the object. 
+
+- [`basename()`](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/basename) : removes all of the path up to and including the last path separator. 
+
+- [`purrr::walk()`](https://purrr.tidyverse.org/reference/index.html) : calls a function but does not return an output. 
+
+- [`purrr::walk2()`](https://purrr.tidyverse.org/reference/index.html) : calls a function that does not return an output with two inputs of the same length. 
+
+- [`purrr::map2()`](https://purrr.tidyverse.org/reference/index.html) : calls a function that returns a list object with two inputs of the same length. 
+

@@ -1,0 +1,137 @@
+---
+title: ""
+editor: source
+---
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+```
+
+# Exercise 5
+
+All exercises live in the `exercises/` folder. Navigate to that folder in the `Files` pane and click on `05_exercise.qmd`. 
+
+## Exercise 5.1
+
+::: panel-tabset
+### Problem
+
+- Read in the data stored at `lesson_code/02_lesson/data/class_data.csv` and assign to `class_data`. 
+
+- What is the current smallest level of observation for this data frame in relation to its rows? Remember, to view the data, type `View(<data frame>)` into the console. **Hint**: the level of observation should be unique by some combination of variables. 
+
+- Reshape the data long such that `grade` represents a column with all grades and `grade_type` represents whether the grade is for a mid-term, a final exam, or overall. Assign to `class_long`. 
+
+- What is the smallest unit of observation based on the rows now? 
+
+- Reshape the data back to its original form. 
+
+### Solution  
+
+- Read in the data stored at `lesson_code/02_lesson/data/class_data.csv` and assign to `class_data`. 
+
+<br>
+
+```{r}
+#| echo: false
+#| message: false
+#| output: false
+
+class_data <- read_csv("data/class_data.csv")
+```
+
+```{r}
+#| eval: false
+
+class_data <- read_csv("lesson_code/02_lesson/data/class_data.csv")
+```
+
+<br>
+
+- What is the current smallest level of observation for this data frame in relation to its rows? Remember, to view the data, type `View(<data frame>)` into the console. **Hint**: the level of observation should be unique by some combination of variables. 
+
+Class by Semester by Student
+
+<br>
+
+- Reshape the data long such that `grade` represents a column with all grades and `grade_type` represents whether the grade is for a mid-term, a final exam, or overall. Assign to `class_long`. 
+
+<br>
+```{r}
+class_long <- class_data |> 
+  pivot_longer(cols = c(mid_term, 
+                        final_exam, 
+                        overall), 
+               names_to = "grade_type", 
+               values_to = "grade")
+
+class_long
+```
+
+<br>
+- What is the smallest unit of observation based on the rows now? 
+
+Grade by Grade Type by Semester by Class by Student 
+
+- Reshape the data back to its original form. 
+
+<br>
+
+```{r}
+class_long |> 
+  pivot_wider(names_from = grade_type, 
+              values_from = grade) |> 
+  select(student,
+         class,
+         mid_term,
+         final_exam,
+         overall,
+         attendance,
+         semster) # reorder columns
+```
+<br>
+:::
+
+## Exercise 5.2 - Challenge
+
+::: panel-tabset
+### Problem 
+
+- Reshape the `class_data` data frame you created above such that you have 2 rows, one for each student. 
+
+- Why is this data not tidy? 
+
+### Solution
+
+- Reshape the `class_data` data frame you created above such that you have 2 rows, one for each student. 
+
+```{r}
+class_data |> 
+  pivot_wider(names_from = c(class, 
+                             semester), 
+              values_from - c(mid_term, 
+                              final_exam, 
+                              overall, 
+                              attendance))
+```
+
+<br>
+
+- Why is this data not tidy? 
+
+<br>
+
+The column names are a combination of multiple underlying variables. 
+
+::: callout-note
+
+If we want to amke a student level dataset where every observation is a column, we may want to instead keep our data to student-level values as opposed to grade-level. In R, it is much better to try to represent the smallest unit of observation long as opposed to wide, as R is designed to be optimized over vectors. In fact, we generlly want to separate out data frames at different levels of observation (such as semester) to different data frames, unless we have a specific use case for using them. 
+
+:::
+
+:::

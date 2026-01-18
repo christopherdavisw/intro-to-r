@@ -1,0 +1,116 @@
+---
+title: ""
+editor: source
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(tidyverse)
+```
+
+# Exercise 8
+
+All exercises live in the `exercises/` folder. Navigate to that folder in the `Files` pane and click on `08_exercise.qmd`. 
+
+## Exercise 8.1
+
+::: panel-tabset
+
+### Problem
+
+- Create two bar graphs of `class` from the `mpg` data frame. For one of them, use `geom_col()` and the other, use `geom_bar()`. 
+- Create three bar graphs of `class` and `trans` from the `mpg` data frame. For one of them, create a stacked graph. For the second, create a graph where the bars for `class` are the same length. For the last, create a plot where the bars are next to each other, but are colored differently by the second category. 
+
+### Solution
+
+- Create two bar graphs of `class` from the `mpg` data frame. For one of them, use `geom_col()` and the other, use `geom_bar()`.   
+
+```{r}
+ggplot(data = mpg, mapping = aes(class)) + 
+  geom_bar()
+```
+
+```{r}
+mpg |> 
+  count(class) |> # count mpg by class
+  ggplot(mapping = aes(class, n)) + 
+  geom_col()
+```
+
+
+
+- Create three bar graphs of `class` and `trans` from the `mpg` data frame. For one of them, create a stacked graph. For the second, create a graph where the bars for `class` are the same length. For the last, create a plot where the bars are next to each other, but are colored differently by the second category. 
+
+```{r}
+# Stacked 
+ mpg |> 
+  count(class, trans) |> 
+  ggplot(mapping = aes(class, n, fill = trans)) + 
+  geom_col()
+```
+
+
+```{r}
+# Stacked with same length
+mpg |> 
+  count(class, trans) |> 
+  ggplot(mapping = aes(class, n, fill = trans)) + 
+  geom_col(position = "fill")
+```
+
+
+```{r}
+# Dodged bar chart
+mpg |> 
+  count(class, trans) |> 
+  ggplot(mapping = aes(class, n, fill = trans)) + 
+  geom_col(position = "dodge")
+```
+
+:::
+
+## Exercise 8.2 - Challenge
+
+::: panel-tabset
+
+### Problem
+
+- Arrange the bars in the last plot by the total number of observations in each `class`, descending. 
+- Arrange the bars in the last plot by the total number of observations in each `class`, descending, and each `trans`, descending. 
+
+### Solution
+
+- Arrange the bars in the last plot by the total number of observations in each `class`, descending.
+
+```{r}
+# Dodged bar chart
+mpg |> 
+  count(class, trans) |> 
+  group_by(class) |> 
+  mutate(class_count = sum(n)) |> 
+  ungroup() |> 
+  mutate(class = fct_reorder(class, class_count, .desc = TRUE)) |> # reorder bars by total number of observations in each class
+  ggplot(mapping = aes(class, n, fill = trans)) + 
+  geom_col(position = "dodge")
+```
+
+- Arrange the bars in the last plot by the total number of observations in each `class`, descending, and each `trans`, descending. 
+
+```{r}
+# Dodged bar chart
+mpg |> 
+  count(class, trans) |> 
+  group_by(class) |> 
+  mutate(class_count = sum(n)) |> 
+  ungroup() |> 
+  group_by(trans) |> 
+  mutate(trans_count = sum(n)) |> 
+  ungroup() |>
+  mutate(class = fct_reorder(class, class_count, .desc = TRUE),  # reorder bars by total number of observations in each trans
+         trans = fct_reorder(trans, trans_count, .desc = TRUE)) |> # reorder bars by total number of observations in each trans
+  ggplot(mapping = aes(class, n, fill = trans)) + 
+  geom_col(position = "dodge")
+```

@@ -1,0 +1,145 @@
+---
+title: ""
+editor: source
+---
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+```
+
+# Working With Strings
+
+The `stringr` package offers a number of functions to manipulate strings. I will cover a few of them here that I find most useful. You can view a cheat sheet of various `stringr` functions [here](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf). 
+
+## Concatenate Strings
+
+The `str_c()` function, like the `paste()` function, concatenates strings. It is better than `paste()` because it handles missing values better (like most `tidyverse` functions). 
+
+<br> 
+
+```{r}
+starwars |> 
+  mutate(hair_eye_info = str_c(hair_color, 
+                               " hair and ", 
+                               eye_color, 
+                               " eyes")) |> # concatenate strings
+  count(hair_eye_info) # tabulate frequencies
+```
+
+<br>
+
+## String Length
+
+Like `nchar()`, the `str_length()` function provides the length of each element of a string (number of characters). 
+
+<br> 
+
+```{r}
+starwars |> 
+  head() |> # get just first 6 rows
+  pull(name) |> # this function accesses one vector from a data frame
+  str_length() # get length of strings
+```
+<br>
+
+## String Matching
+
+One of my most used `stringr` functions is a `str_detect()`, which returns `TRUE` if a pattern is matched in a string and `FALSE` otherwise for each element. 
+
+<br> 
+
+```{r}
+starwars |> 
+  filter(str_detect(name, "Skywalker")) # keep only those that have "Skywalker" in the name variable
+```
+
+<br>
+
+This course is too short for us to go deep into regular expressions, but you can also include regular expressions for better searching. They are a concise language for describing patterns in strings. 
+
+See this [R Cheat Sheet](https://evoldyn.gitlab.io/evomics-2018/ref-sheets/R_strings.pdf) for more. 
+
+## Leading Zeros 
+
+One of the most useful functions when dealing with numeric identifiers is the `str_pad9)` function, which allows you to pad strings with specific constants to a specified width. 
+
+The `str_pad()` function has these relevant arguments: 
+
+- `string`: input vector (can be `numeric`)
+
+- `width`: minimum width of padded strings
+
+- `side`: side on which padding character is added ("left", "right", "both")
+
+- `pad`: Single padding character
+
+<br> 
+
+```{r}
+
+# assign california geoids
+tract_geoids <- c(6001400100, 
+                  6001400200, 
+                  6001400300, 
+                  6001400400, 
+                  6001400500)
+
+# add leading zeros on the left side
+str_pad(string = tract_geoids, 
+        width = 11, 
+        side = "left", 
+        pad = "0")
+```
+
+<br>
+
+## White Space
+
+The `str_trim()` function allws you to trim white space from the start and/or end of a string. 
+
+<br> 
+
+```{r}
+white_space <- c("   Is", 
+                 "there", 
+                 " whitespace?  ") # create character vector with white space included
+
+str_trim(white_space) # trim white space
+```
+
+<br> 
+
+## Subset string by index
+
+Sometimes we'd like to subset strings based on their index position. 
+
+We can use `str_sub()` for that. If you pt in the same digit, the result in one character at that index. 
+
+<br> 
+
+```{r}
+# pull first character in string
+starwars |> 
+  pull(gender) |> # get only the gender column as a vector
+  str_sub(1,1) # get first character
+```
+
+<br> In R, everything starts at 1, not 0, like in some other programming languages. 
+
+<br> 
+
+## Modify Cases
+
+There are a bunch of functions to modify case: 
+
+- `str_to_lower()`: Convert strings to lower case (`asdfjl`)
+
+- `str_to_upper()`: Convert strings to upper case (`ASDFJL`)
+
+- `str_to_title()`: Convert strings to title case (`This Is A Title`)
+
+- `str_to_sentence()`: Convert strings to sentence case (`This is a sentence`)

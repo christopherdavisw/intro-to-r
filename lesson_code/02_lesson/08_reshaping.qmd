@@ -1,0 +1,180 @@
+---
+title: ""
+editor: source
+---
+
+```{r}
+#| echo: false
+#| warning: false
+#| output: false
+
+library(tidyverse)
+```
+
+
+# Reshaping Data
+
+We've discussed before the concept of "tidy" data. 
+
+<br> 
+
+![](../01_lesson/images/what_is_tidydata.jpeg)
+<br> 
+
+But how do we reformat our dataframes to make them tidy?
+
+## Reshaping data
+
+Let's take a look at the following data frame. 
+
+```{r}
+#| echo: false
+
+set.seed(0)
+
+table_1 <- tibble(
+  state = rep(c("Alabama", 
+                "California", 
+                "Wyoming"), 2), 
+   year = rep(c(1990, 2000), 3), 
+  units = rnorm(n = 6, 
+                mean = 123455, 
+                sd = 12345) |> 
+    round(), 
+  population = rnorm(n = 6, 
+                     mean = 1234550, 
+                     sd = 123450) |> 
+    round()) |> 
+  arrange(state, year)
+
+```
+
+<br>
+
+```{r}
+table_1
+```
+
+<br> 
+
+Each column represents a distinct point of informtion and each ovservation represents a state at  given point in time. 
+
+But, what if the data looked like this instead? <br> 
+
+```{r}
+#| echo: false
+
+table_2 <- pivot_longer(table_1, 
+                        c(units, population))
+```
+
+```{r}
+table_2
+```
+
+<br>
+
+What if we had units data that looked like this? 
+
+<br> 
+
+```{r}
+#| echo: false
+
+table_3 <- pivot_wider(table_1 |> select(-population), 
+                       names_from = year,
+                       values_from = units)
+```
+
+```{r}
+table_3
+```
+
+<br>
+
+## `pivot_*()` functions
+
+We can use the `pivot_wider()` and `pivot_longer()` functions to reshape wide and long. 
+
+### `pivot_wider()` 
+
+The `pivot_wider()` function can tqke in the `names_from` argument and the `values_from` argument. The column(s) we put in `names_from` will be the column names of the new data, nd the column(s) we put in `values_from` will be the values. 
+
+<br>
+
+```{r}
+table_2
+```
+
+```{r}
+table_2 |> 
+  pivot_wider(names_from = name, 
+              values_from = value)
+```
+
+<br>
+
+### `pivot_longer()`
+
+The `pivot_longer()` function can take in the columnst hat we want to reshape long with the `cols` argumnet. You can also supply the `names_to` argument to provide the name of the column tht held the data in the names (in our case `year`), and the `values_to` argument to give a names to the column for the values. 
+
+<br> 
+
+```{r}
+table_3 
+
+table_3 |> 
+  pivot_longer(cols = c(`1990`, 
+                        `2000`), 
+               names_to = "year", 
+               values_to = "units")
+```
+
+<br>
+
+::: callout-note
+Because the variable names for `table_3` are invalid names, you need to use the \` keys to access them. These are the unshifted version of the `~` character. 
+:::
+
+<br>
+
+Here's a more complicated `pivot_longer()` use case. 
+
+```{r}
+#| echo: false
+
+table_4 <- pivot_wider(table_1, 
+                       names_from = year, 
+                       values_from = c(population, units))
+```
+
+```{r}
+table_4
+```
+
+<br>
+
+To pivot this long, we can use the `names_sep` argument to identify that information is being stored in our columns in two places, and that they are separated by the `_` character. 
+
+```{r}
+table_4 |> 
+  pivot_longer(cols = -state, # select all columns minus the state
+               names_to = c("variable", "year"),  # multiple column names to convert to
+               values_to = "value",  # what to name column with values
+               names_sep = "_") # separator for current variable names
+```
+
+We can then pivot it back to a tidy dataset using `pivot_wider()`. 
+
+```{r}
+table_4 |>
+    pivot_longer(cols = -state, # select all columns minus the state
+               names_to = c("variable", "year"),  # multiple column names to convert to
+               values_to = "value",  # what to name column with values
+               names_sep = "_" # separator for current variable names
+    ) |> 
+  pivot_wider(names_from = variable, # column for where the names will come from for new columns
+              values_from = value) # column for where values will come from 
+```
+```
+

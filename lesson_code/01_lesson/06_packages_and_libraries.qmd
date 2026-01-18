@@ -1,0 +1,53 @@
+---
+title: ""
+editor: source
+---
+
+# Packages and Libraries
+
+Packages are the fundamental unit of shareable code in R. A package includes code, data, and documentation in a unit that is downloadable by other users. 
+
+The Comprehsnive R Archive Network (CRAN) has over 19,000 packages written by users for various purposes and tasks. The comprehsniveness of R packages is one of the reasons why the language is so successful. 
+
+<br>
+
+## Installing Packages
+
+You can install packages with the `install.packages("<package_name>")` command. It is recommended that you do so in the console as opposed to writing it in a script (like a `.R`, `.qmd`, or `.Rmd` file). You generally do not want to install a package each time you run a script. 
+
+<br>
+
+::: {.callout-tipe}
+## Installing `tidyverse`
+
+Try installing the `tidyverse` set of packages by typing `install.packages("tidyverse") into your console. 
+:::
+
+<br>
+
+## Loading Packages 
+
+You can load packages with `library(<package_name>)` or `library("<package_name>")`. Often we go with the former because it's less typing, but up to you. 
+
+Generally, we want to load all packages for a script at the top of the script (or a separate script). This makes the dependencies for a script easier to find in one place. After adding comments describing the purpose of a script, loading packages is generally the first thing we do in a script. 
+
+<br> 
+
+::: {.callout-tip}
+## Loading `tidyverse`
+
+Try loading the `tidyverse` set of packages by typing `library(tidyverse)` into your console. 
+
+:::
+
+<br>
+
+You can reference individual functions in packages without loading the library with the `::` operator. 
+
+<br> 
+
+```{r}
+tidyverse::tidyverse_packages()
+```
+
+<br>

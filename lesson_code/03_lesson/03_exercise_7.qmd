@@ -1,0 +1,68 @@
+---
+title: ""
+editor: source
+---
+
+```{r}
+#| echo: false
+#| message: false
+
+library(tidyverse)
+```
+
+# Exercise 7  
+
+All exercises live in the `exercises/` folder. Navigate to that folder in the `Files` pane and click on `07_exercise.qmd`. 
+
+## Exercise 7.1  
+
+::: panel-tabset  
+
+### Problem  
+
+- Create a scatter plot using the `diamonds` data frame between `carat` and `depth`. 
+
+- Add `mapping = aes(color = cut)` inside of the `geom_point()` function. What does this do? 
+
+- Remove `color=cut` and right outside of the `aes()` function, put `, color = "blue"`. What do you think the difference is from putting an attribute inside the `aes()` function vs. outside of it? Why would we do each one? 
+
+- Is there any difference in output between putting `color = cut` inside of the `aes()` function within the `ggplot()` function vs. putting it inside of the `aes()` function within the `geom_point()` function?
+
+### Solution  
+
+- Create a scatter plot using the `diamonds` data frame between `carat` and `depth`. 
+
+```{r}
+ggplot(data = diamonds, mapping = aes(x = carat, y = depth)) + 
+  geom_point()
+```
+
+
+- Add `mapping = aes(color = cut)` inside of the `geom_point()` function. What does this do? 
+
+```{r}
+ggplot(data = diamonds, mapping = aes(x = carat, y = depth)) + 
+  geom_point(mapping = aes(color = cut))
+```
+
+This colors the points by the category `cut` in the data. 
+
+- Remove `color=cut` and right outside of the `aes()` function, put `, color = "blue"`. What do you think the difference is from putting an attribute inside the `aes()` function vs. outside of it? Why would we do each one? 
+
+```{r}
+ggplot(data = diamonds, mapping = aes(x = carat, y = depth)) + 
+  geom_point(mapping = aes(), color = "blue")
+```
+
+When the attribute is inside the `aes()` function, we are trying to map data elements from our data frame onto the plot. When attributes are outside of the `aes()` function, we are just assigning the value as a constant across all observations. We would do the former if we wanted to color our plot by a category in our data, and we would do the latter if we wanted to assign a color for all observations. 
+
+- Is there any difference in output between putting `color = cut` inside of the `aes()` function within the `ggplot()` function vs. putting it inside of the `aes()` function within the `geom_point()` function?
+
+There is no difference. 
+
+::: {.callout-note}
+
+This is because subsequent functions have their data and aethstic mappings inherited from the main `ggplot()` call. However, users could also separately define the data and aesthetic mappings within th elayer functions difrectly. We might do this if we, say, wanted to visualize data from two data frames on the same plot. 
+:::
+
+:::

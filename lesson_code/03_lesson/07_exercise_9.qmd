@@ -1,0 +1,121 @@
+---
+title: ""
+editor: source
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(tidyverse)
+```
+
+# Exercise 9
+
+All exercises live in the `exercises/` folder. Navigate to that folder in the `Files` pane and click on `09_exercise.qmd`. 
+
+## Exercise 9.1  
+
+::: panel-tabset
+
+### Problem
+
+- Install the `gapminder` package and load it. 
+
+- Filter the `gapminder` data frame for rows that have a country of `"United States"`. Assign it to something other than `gapminder`. 
+
+- Graph the population of the United States over time using both points and lines. 
+
+- Increase the size of the points on the graph. Change the shape of the points to `"diamond filled"`. Make the lines blue, the line of the points red, and the inside of the points green. Set the theme to `theme_minimal()`. 
+
+### Solution 
+
+- Install the `gapminder` package and load it. 
+
+<br>
+
+```{r}
+# install.packages("gapminder)  
+library(gapminder)
+```
+
+<br>  
+
+- Filter the `gapminder` data frame for rows that have a country of `"United States"`. Assign it to something other than `gapminder`. 
+
+<br>  
+
+```{r}
+us <- gapminder |> 
+  filter(country == "United States")
+```
+
+<br>  
+
+- Graph the population of the United States over time using both points and lines. 
+
+<br> 
+
+```{r}
+ggplot(data = us, mapping = aes(year, pop)) + 
+  geom_point() + 
+  geom_line()
+```
+
+<br> 
+
+- Increase the size of the points on the graph. Change the shape of the points to `"diamond filled"`. Make the lines blue, the line of the points red, and the inside of the points green. Set the theme to `theme_minimal()`. 
+
+```{r}
+ggplot(data = us, 
+       mapping = aes(year, pop)) + 
+  geom_point(size = 1, 
+             shape = "diamond filled", 
+             color = "red", 
+             fill = "green") + 
+  geom_line(color = "blue") + 
+  theme_minimal()
+```
+
+:::
+
+## Exercize 9.2 - Challenge
+
+::: panel-tabset
+
+### Problem
+
+- Starting with the `gapminder` data frame, visualize countries in the Americas' life expectancy over time on the same graph, using the `color` aesthetic. 
+
+- Do the same thing, except do not use color to designate individual countries. Find a different way to separate out the groups. 
+
+### Solution
+
+- Starting with the `gapminder` data frame, visuaolize countries in the Americas' life expectancy over time on the same graph, using the `color` aesthetic. 
+
+<br>  
+
+```{r}
+gapminder |> 
+  filter(continent == "Americas") |> 
+  ggplot(mapping = aes(x = year, y = lifeExp, color = country)) + 
+  geom_point() + 
+  geom_line()
+```
+
+<br> 
+
+- Do the same thing, except do not use color to designate individaul countries. Find a different way to sparate out the groups. 
+
+```{r}
+gapminder |> 
+  filter(continent == "Americas") |> 
+  ggplot(mapping = aes(x = year, y = lifeExp, group = country)) + 
+  geom_point() + 
+  geom_line()
+```
+
+::: 
+
+

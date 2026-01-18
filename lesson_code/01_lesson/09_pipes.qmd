@@ -1,0 +1,106 @@
+---
+title: ""
+editor: source
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(tidyverse)
+```
+
+# The pipe operator: `|>`
+
+Consider if we want to use multiple functions on the same data frame, a common task in R. 
+
+Here's what it might look like using some of the dplyr verbs we just learned. 
+
+<br> 
+
+```{r}
+summarise(
+  group_by(
+    arrange(
+      select(
+        filter(
+          mutate(.data = starwars, 
+                 height = height / 2),
+          height < 100),
+        height, 
+        eye_color,
+        gender),
+      height),
+    gender),
+  my_mean = mean(height, na.rm = TRUE))
+   
+```
+
+<br>
+
+I find this incredibly hard to read and code. We need to track all of these parenthesis, the order of operations is different than how we read it top to bottom, and it just looks like a mess. 
+
+We could have assigned each step to a new data frame to avoid this. 
+
+<br>
+
+```{r}
+starwars_1 <- mutate(.data = starwars, height = height / 2)
+starwars_2 <- filter(.data = starwars_1, height < 100)
+starwars_3 <- select(.data = starwars_2, height, eye_color, gender)
+starwars_4 <- arrange(.data = starwars_3, height)
+starwars_5 <- group_by(.data = starwars_4, gender)
+starwars_6 <- summarise(.data = starwars_5, 
+                        my_mean = mean(height, na.rm = TRUE))
+
+starwars_6
+```
+
+This is clunky, is a lot of code, and creates lots of copies of the data frame in meomry, which isn't ideal. 
+
+Instead, let's use the pipe operator `|>`. 
+
+## Using `|>` 
+
+`|>` passes the left side of the pipe as the first argument in the subsequent function on the right side of the pipe. 
+
+Consider this fake code example from Hadley Wickham: 
+
+<br>
+
+```{r}
+#| eval: false
+
+I |> 
+  tumble(out_of = "bed") |> 
+  stumble(to = "the kitchen") |> 
+  pour(who = "myself", unit = "cup", what = "ambition") |> 
+  yawn() |> 
+  stretch() |> 
+  try(come_to_life())
+
+```
+
+<br>
+
+Each line here represents a unique function or action taken, and the preceding output is put into the next function. 
+
+## Rewriting our code
+
+We can rewrite our code from before with pipes instead. 
+
+<br> 
+
+```{r}
+
+starwars |> 
+  mutate(height = height / 2 ) |> # add a variable with mutate 
+  filter(height < 100) |> # remove observations with filter
+  select(height, eye_color, gender) |> # remove columns with select
+  arrange(height) |> # sort rows with arrange
+  group_by(gender) |> # group data with group by 
+  summarise(my_mean = mean(height, na.rm = TRUE)) # aggregate data by group with summarise
+```
+
+This centers focus for the reader on the functions applied to the input. You can think of the `|>` as an **and then** statement. We take the data frame `starwars` **and then** we `mutate()` (add a variable), **and then** we `filter()` (remove observations), etc. 

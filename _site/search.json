@@ -1,0 +1,303 @@
+[
+  {
+    "objectID": "lesson_code/01_lesson/01_welcome.html",
+    "href": "lesson_code/01_lesson/01_welcome.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "Developed by Christopher Davis\n\n\n\n\n\nWelcome\n Welcome to the Introduction to R Class!\n\nStep 1: If you haven’t already, please download the class materials from the GitHub Repository.\nStep 2: Open up the intro-to-r.Rprojfile to open up the R project related to this class."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "index.html#introduction-to-r",
+    "href": "index.html#introduction-to-r",
+    "title": "Introduction to R",
+    "section": "Introduction to R",
+    "text": "Introduction to R\nWelcome to the Introduction to R class! {width = “50”}\nNote that this site is an abridged version of the full 6 course class taught at a government agency. It has been modified for public display.\nThe repository is laid out as follows:\n\n/exercises/: the R script (.R) and Quarto (.qmd) exercises that we will be working with throughout the course\n/lesson_code/: the Quarto (.qmd) documents that are used to generate the html documents\n/_site/: the html documents of the tutorials. Open up the index.html file to view the website and corresponding materials.\n\n\nPrerequisites\nNo prior R experience is assumed to take this course. Before attending, please remember to ensure that R and R Studio have been downloaded.\nConsider changing some options in RStudio before the class. Under the Tools -&gt; Global Options menu items, you can customize multiple options to your preferences.\nI recommend to:\n\nIn General\nUncheck Restore .Rdata into workspace at startup\n\nAssign Never to Save workspace to .Rdata on exit\n\nIn Appearance\n\nPlay around with the Editor theme and decide on what you like\n\nIn R Markdown\n\nShow output preview in View Pane\nUncheck Show output inline for RMarkdown documents\n\n\n\n\nWhat is R?\nR is a free, open source programming language for statistical computing and graphics. It is known for robust visualization capabilities and a growing library of statistical and analytic methods.\nR has an exensive user base that benefit from the libraries that others have created through the Comprehensive R Archive Network (CRAN). CRAN is a network of FTP and web servers that store versions of code and documentation for R.\nR is maintained by the R Foundation, a non-profit organization that supports the continued development of R for satistical and computational research.\n\n\nWhat is RStudio?\nRStudio is a free integrated development entironment (IDE) for R, created by the private organization Posit (formally RStudio). An IDE is a graphical user interface that consolidates different features helpful for writing code into one application. Other examples of IDEs include SAS Enterprise Guide, VSCode, Jupyter, or Spyder.\nWhich IDE you might choose might depend on the programming language and personal preference. However, I recommend using RStudio forR - it has the most built out features for programming in R.\n\n\nWhy R?\n\nOpen Source: R is made freely available and may be redistributed and modified by anyone.\nPopular: R is one of the most popular statistical tools for data analysis. Given its growing popularity over paid softwares like SAS or Stata, future employees will likely know R or have some experience with it.\nExcellent visualization tools: R excels at data manipulation, statistical analysis, machine learning, and reproduciability, but it is probably best known for its graphics. R visualizations are the gold standard for reproducible data visualizations.\nFlexibility: Given its open source nature, R makes it easy to build off of work that others have already done. Over the past three decades, users have been contributing to the R ecosystem, which has allowed for the expansion of libraries and functions to do nearly any kind of data analysis task. If you have a data analysis need, it is likely that someone else has had a similar need and written code already to complete it.\nReproducible: Like most programming languages, R is fully reproducible and encourages workflows to be entirely reproducible. This means that you are able to run through the entire workflow, start to finish, and achieve the same results.\n\n\n\nOther Resources\n\nR for Data Science by Garret Grolemund and Hadley Wickham. This books is the gold standard for R programming. Co-written by the creator of tidyverse and ggplot2, this free book goes over the core concept of tidy data and how to work with tidy data in R.\nggplot2: Elegant Graphics for Data Analysis by Hadley Wickham. This book provides a more theoretical and comprehensive understanding of the decisions underlying the construction of ggplot2.\nText Mining with R: A Tidy Approach by Julia Silge and David Robinson. This book provides a comprehensive overview of text mining in R.\nGeocomputation with R by Robin Lovelace, Jakub Nowosad, and James Muenchow. This book provides tutorials for how to do various spatial operations in R, including analyzing and modeling geographic data, mapping (both static and interactive), and statistical operations.\nHands-On Machine Learning with R by Bradley Boehmke and Brandon Greenwell. This book provides an overview of machine learning in R.\nCheat Sheets by Posit (formally RStudio). These cheat sheets are a great resource to provide an overview of relevant functions in many commonly-used packages.\nHarvardX: Data Science: Visualization. This is an online course that goes over basic data visualization principles and how to apply them using ggplot2."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/04_vectors.html",
+    "href": "lesson_code/01_lesson/04_vectors.html",
+    "title": "Vectors",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/04_vectors.html#atomic-vectors",
+    "href": "lesson_code/01_lesson/04_vectors.html#atomic-vectors",
+    "title": "Vectors",
+    "section": "Atomic Vectors",
+    "text": "Atomic Vectors\nAll elements within an atomic vector must have the same type. You can create a vector with the c() function with elements separated by ,.\nThere are four primary commonly-used atomic vectors.\n\n\n\nSource: Advanced R by Wickham\n\n\n\n\nnumeric Vectors: integer and double\nLike the name denotes, integer vectors all must be whole numbers. double vectors can have any number of decimals.\nMost functions we’ll use treat integer vectors and double vectors similarly. For example:\n\n\n# *digit*L is the way to identify integers in R\ninteger_vector &lt;- c(2L, \n                    4L, \n                    1L, \n                    3L)\n\nmean(integer_vector)\n\n[1] 2.5\n\n\n\ngives the same result as:\n\n\n# can reference double with just the digits\ndouble_vector &lt;- c(2, \n                   4, \n                   1, \n                   3)\n\nmean(double_vector)\n\n[1] 2.5\n\n\n\nFor our purposes, we will think of both of these types of vectors as numeric and treat them similarly.\n\n\nSorting vectors\nYou can sort any vector with the sort() function.\n\nsort(double_vector)\n\n[1] 1 2 3 4\n\n\n\n\nnumeric vectors in a sequence\nTo create a numeric vector with sequential numbers, use the syntax &lt;from&gt;:&lt;to&gt;.\n\n\n# create a sequential numeric vector from 1 to 5\nsequential &lt;- 1:5\n\nsequential\n\n[1] 1 2 3 4 5\n\n\n\nIf you want to increment by smoething else, use the seq() function.\nThis function takes int he following arguments:\n\n\nfrom: starting value\n\nto: ending value\n\nby: increment of the sequence\n\n\n\n# create sequence, increment by 3\n\nby_3 &lt;- seq(from = 1, \n            to = 25, \n            by = 3)\n\nby_3\n\n[1]  1  4  7 10 13 16 19 22 25\n\n\n\n\n\nArithmetic operators\nYou can use arthmetic operators with numeric vectors as well as with single elements.\nHere is a list of arithmetic operators:\n\n\n\n\n\n\nOperator\nName\nExample\n\n\n\n\n+\nAddition\nx + y\n\n\n-\nSubtraction\nx - y\n\n\n*\nMultiplication\nx * y\n\n\n/\nDivision\nx / y\n\n\n^\nExponent\nx ^ y\n\n\n%%\nModulus (Remainder from division)\nx %% y\n\n\n&&\nInteger Division\nx&&y\n\n\n\n\n\nSource: W3Schools\n\nThese operators are vectorized, which means the operation will occur for each element of the vector.\nFor example, remember the sequential vector:\n\n\n# sequence, incremented by 1\nsequential\n\n[1] 1 2 3 4 5\n\n\n\nWe can create a new vector with an arithmetic operator:\n\n\n# add 1\n\nsequential_plus_1 &lt;- sequential + 1\n\nsequential_plus_1\n\n[1] 2 3 4 5 6\n\n\n\nEach element of the vector was changed.\nWe can also use vectors of the same length on either side of the arithmetic opertor:\n\n\ncharacter_vector &lt;- c(\"This\", \n                      \"is\", \n                      \"a\",\n                      \"string\")\n\ncharacter_vector\n\n[1] \"This\"   \"is\"     \"a\"      \"string\"\n\n\n You can concatenate strings in base R with the paste() function. \n\n# initialize strings\n\nstring_1 &lt;- \"This is\"\nstring_2 &lt;- \"a string\"\n\n# use paste function with multiple strings\npaste(string_1, \n      string_2, \n      sep = \" \") # use sep argument to add separater between strings\n\n[1] \"This is a string\"\n\n\n You can concatenate strings in the same vector with the collapse argument. \n\n# concatenate strings in the same vector \npaste(character_vector, collapse = \" \")\n\n[1] \"This is a string\"\n\n\n You can count the number of characters in each element of a character vector with the nchar() function. \n\n# get length of each element\nnum_chars &lt;- nchar(character_vector)\n\nnum_chars\n\n[1] 4 2 1 6\n\n\n To get the total number of elements of any vector, you can use the length() function. \n\n# get length of vector\nlength_num &lt;- length(num_chars)\n\nlength_num\n\n[1] 4\n\n\n\n\n\n\nlogical Vectors\nLogical vectors are limited to binary TRUE and FALSE values.\n\n\n# this is a logical vector\n\nlogical_vector &lt;- c(TRUE, \n                    TRUE, \n                    FALSE, \n                    TRUE)\n\nlogical_vector\n\n[1]  TRUE  TRUE FALSE  TRUE\n\n\n\nLogical vectors are extremely useful in R, as they can be used to flag and subset values.\n\n\nComparison Operators\nComparison opertors are used to compare two values.\n\n\n\n\n\n\nOperator\nName\nExample\n\n\n\n\n==\nEqual\nx == y\n\n\n!=\nNot equal\nx != y\n\n\n&gt;\nGreater than\nx &gt; y\n\n\n&lt;\nLess than\nx &lt; y\n\n\n&gt;=\nGreater than or equal to\nx &gt;= y\n\n\n&lt;=\nLess than or equal to\nx &lt;= y\n\n\n%in%\nHave values within\nx %in% y\n\n\n\n\n\n\nYou can use a comprison of two values, one on each side, and it will provide 1 logical result.\n\n\n# what values in sequential are equal to 4? \n\nsequential == 4\n\n[1] FALSE FALSE FALSE  TRUE FALSE\n\n\n\nOr, you can have vectors on both sides.\n\n\n# my name with old middle initial before marriage \nold_me &lt;- c(\"Christopher\", \n            \"W\", \n            \"Davis\")\n\n# my name with new middle initial after marriage\n\nnew_me &lt;- c(\"Christopher\", \n            \"P\", \n            \"Davis\")\n\n# test what elements are the same \nold_me == new_me\n\n[1]  TRUE FALSE  TRUE\n\n\n For this to work correctly, both sides of the comparison must have an equal length().\nOther operations work as you might expect.\n\n\n# test less than operator\n\nvalues &lt;- c(1, \n            3, \n            2, \n            5, \n            2)\n\nvalues &lt; 3\n\n[1]  TRUE FALSE  TRUE FALSE  TRUE\n\n\n\n\n# test greater than or equal to operator \n\nvalues &gt;= 4\n\n[1] FALSE FALSE FALSE  TRUE FALSE\n\n\n\n\nThe %in% operator\nThe %in% opertor returns TRUE for each element on the left hand side tht is within an element on the right hand side. It has the same length() as the elements on the left hand side.\n\n\n# test if each element of sequential is either two or three\n\nvalues %in% c(2, 3)\n\n[1] FALSE  TRUE  TRUE FALSE  TRUE\n\n\n\n\n\n\nLogical Operators\nLogical operators are used to combine conditional statements.\n\n\n\n\n\n\n\n\n\n\n\nOperator\nName\nExample\n\n\n\n\n&\nAND operator. Returns TRUE if both elements are TRUE\nx == y & a == b\n\n\n|\nOR operator. Returns TRUE if either elements are TRUE\nx == y | a == b\n\n\n!\nNOT operator. Returns TRUE if the condition is not TRUE\n!(x == y"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/04_vectors.html#subsetting-vectors",
+    "href": "lesson_code/01_lesson/04_vectors.html#subsetting-vectors",
+    "title": "Vectors",
+    "section": "Subsetting Vectors",
+    "text": "Subsetting Vectors\nYou can pull out an element of a vector with the [] operator.\n\n\n# create double vector again \ndouble_vector &lt;- c(2, \n                   4, \n                   1, \n                   3)\n# pull out the first element of a vector \ndouble_vector[1]\n\n[1] 2\n\n\n\nYou can pull out multiple elements of a vector by providing a vector instead of a number in the [] brackets. These numbers represent the indicies of the vector; i.e., element 1, element 2, element 3, ect.\n\n\n# create full vector\nfull_vector &lt;- c(1, \n                 4, \n                 1, \n                 2, \n                 10, \n                 2, \n                 1)\n\n# create vector to represent indicies to pull out \nsubset_vector &lt;- c(1, \n                   3,\n                   4)\n\n# pull out first, third, and fourth element\nfull_vector[subset_vector]\n\n[1] 1 1 2\n\n\n\nYou can also subset with logical vector.\n\n\n# get only the elements that are equal to 1\n\nfull_vector[full_vector == 1]\n\n[1] 1 1 1\n\n\n\n\n# get only the elements that are less than 5\n\nfull_vector[full_vector &lt; 5]\n\n[1] 1 4 1 2 2 1"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/04_vectors.html#missing-values",
+    "href": "lesson_code/01_lesson/04_vectors.html#missing-values",
+    "title": "Vectors",
+    "section": "Missing Values",
+    "text": "Missing Values\nR represents missing, or unknown, values with NA (short for not applicable). Missing values tend to be infectious: most computations involving a missing value will return another missing value.\n\nsome_values_na &lt;- c(2, \n                    NA, \n                    3, \n                    NA,\n                    5)\n\nsome_values_na &lt; NA\n\n[1] NA NA NA NA NA\n\n\n\n\nsome_values_na == NA\n\n[1] NA NA NA NA NA\n\n\n\nTherefore, to check if values are missing or not, use the is.na() function.\n\n\nis.na(some_values_na)\n\n[1] FALSE  TRUE FALSE  TRUE FALSE"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/04_vectors.html#type-assessment",
+    "href": "lesson_code/01_lesson/04_vectors.html#type-assessment",
+    "title": "Vectors",
+    "section": "Type Assessment",
+    "text": "Type Assessment\n\ntypeof() function\nYou can check what type an atomic vector is with the typeof() function.\n\n# get type of vector\n\ntypeof(double_vector)\n\n[1] \"double\"\n\n\n\n# get type of vector\n\ntypeof(character_vector)\n\n[1] \"character\"\n\n\n\n# get type of vector\n\ntypeof(logical_vector)\n\n[1] \"logical\"\n\n\n\n\nis_&lt;type&gt; functions\nWe sometimes wnt to be able to identify whether variables are numeric, character, or logical. We can do this with the is_&lt;type&gt;() functions.\n\n\nnumeric_vector &lt;- c(3, \n                    5, \n                    1, \n                    7, \n                    2)\n\nis.numeric(numeric_vector)\n\n[1] TRUE\n\n\n\n\ncharacter_vector &lt;- c(3, \n                      5, \n                      1, \n                      \"not a number\")\n\nis.character(character_vector)\n\n[1] TRUE\n\n\n\n\n\n\n\n\nNote\n\n\n\nWhen both character elements and numeric elements are put into the c() function, it evaluates to a character vector."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/04_vectors.html#type-conversion",
+    "href": "lesson_code/01_lesson/04_vectors.html#type-conversion",
+    "title": "Vectors",
+    "section": "Type Conversion",
+    "text": "Type Conversion\nOne fucntionality we have not talked about in R is when we want to convert from one kind of variable to another. We can do this with the as.numeric(), as.character(), andas.logical()` functions.\n\nas.character(numeric_vector)\n\n[1] \"3\" \"5\" \"1\" \"7\" \"2\"\n\n\n\nas.numeric(character_vector)\n\nWarning: NAs introduced by coercion\n\n\n[1]  3  5  1 NA\n\n\n\n\n\n\n\n\nNote\n\n\n\nWhen converting from character to numeric, if there is an element with at least one character that would not evaluate to a numeric, that element is cast to NA (missing)."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/09_pipes.html",
+    "href": "lesson_code/01_lesson/09_pipes.html",
+    "title": "The pipe operator: |>",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/09_pipes.html#using",
+    "href": "lesson_code/01_lesson/09_pipes.html#using",
+    "title": "The pipe operator: |>",
+    "section": "Using |>",
+    "text": "Using |&gt;\n|&gt; passes the left side of the pipe as the first argument in the subsequent function on the right side of the pipe.\nConsider this fake code example from Hadley Wickham:\n\n\nI |&gt; \n  tumble(out_of = \"bed\") |&gt; \n  stumble(to = \"the kitchen\") |&gt; \n  pour(who = \"myself\", unit = \"cup\", what = \"ambition\") |&gt; \n  yawn() |&gt; \n  stretch() |&gt; \n  try(come_to_life())\n\n\nEach line here represents a unique function or action taken, and the preceding output is put into the next function."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/09_pipes.html#rewriting-our-code",
+    "href": "lesson_code/01_lesson/09_pipes.html#rewriting-our-code",
+    "title": "The pipe operator: |>",
+    "section": "Rewriting our code",
+    "text": "Rewriting our code\nWe can rewrite our code from before with pipes instead.\n\n\nstarwars |&gt; \n  mutate(height = height / 2 ) |&gt; # add a variable with mutate \n  filter(height &lt; 100) |&gt; # remove observations with filter\n  select(height, eye_color, gender) |&gt; # remove columns with select\n  arrange(height) |&gt; # sort rows with arrange\n  group_by(gender) |&gt; # group data with group by \n  summarise(my_mean = mean(height, na.rm = TRUE)) # aggregate data by group with summarise\n\n# A tibble: 3 × 2\n  gender    my_mean\n  &lt;chr&gt;       &lt;dbl&gt;\n1 feminine     81.6\n2 masculine    84  \n3 &lt;NA&gt;         87.5\n\n\nThis centers focus for the reader on the functions applied to the input. You can think of the |&gt; as an and then statement. We take the data frame starwars and then we mutate() (add a variable), and then we filter() (remove observations), etc."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/06_packages_and_libraries.html",
+    "href": "lesson_code/01_lesson/06_packages_and_libraries.html",
+    "title": "Packages and Libraries",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/06_packages_and_libraries.html#installing-packages",
+    "href": "lesson_code/01_lesson/06_packages_and_libraries.html#installing-packages",
+    "title": "Packages and Libraries",
+    "section": "Installing Packages",
+    "text": "Installing Packages\nYou can install packages with the install.packages(\"&lt;package_name&gt;\") command. It is recommended that you do so in the console as opposed to writing it in a script (like a .R, .qmd, or .Rmd file). You generally do not want to install a package each time you run a script."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/06_packages_and_libraries.html#installing-tidyverse",
+    "href": "lesson_code/01_lesson/06_packages_and_libraries.html#installing-tidyverse",
+    "title": "Packages and Libraries",
+    "section": "Installing tidyverse",
+    "text": "Installing tidyverse\nTry installing the tidyverse set of packages by typing `install.packages(“tidyverse”) into your console."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/06_packages_and_libraries.html#loading-packages",
+    "href": "lesson_code/01_lesson/06_packages_and_libraries.html#loading-packages",
+    "title": "Packages and Libraries",
+    "section": "Loading Packages",
+    "text": "Loading Packages\nYou can load packages with library(&lt;package_name&gt;) or library(\"&lt;package_name&gt;\"). Often we go with the former because it’s less typing, but up to you.\nGenerally, we want to load all packages for a script at the top of the script (or a separate script). This makes the dependencies for a script easier to find in one place. After adding comments describing the purpose of a script, loading packages is generally the first thing we do in a script.\n\n\n\n\n\n\n\nLoading tidyverse\n\n\n\nTry loading the tidyverse set of packages by typing library(tidyverse) into your console.\n\n\n\nYou can reference individual functions in packages without loading the library with the :: operator.\n\n\ntidyverse::tidyverse_packages()\n\n [1] \"broom\"         \"conflicted\"    \"cli\"           \"dbplyr\"       \n [5] \"dplyr\"         \"dtplyr\"        \"forcats\"       \"ggplot2\"      \n [9] \"googledrive\"   \"googlesheets4\" \"haven\"         \"hms\"          \n[13] \"httr\"          \"jsonlite\"      \"lubridate\"     \"magrittr\"     \n[17] \"modelr\"        \"pillar\"        \"purrr\"         \"ragg\"         \n[21] \"readr\"         \"readxl\"        \"reprex\"        \"rlang\"        \n[25] \"rstudioapi\"    \"rvest\"         \"stringr\"       \"tibble\"       \n[29] \"tidyr\"         \"xml2\"          \"tidyverse\""
+  },
+  {
+    "objectID": "lesson_code/01_lesson/05_exercise_1.html",
+    "href": "lesson_code/01_lesson/05_exercise_1.html",
+    "title": "Exercise 1",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/05_exercise_1.html#exercise-1.1",
+    "href": "lesson_code/01_lesson/05_exercise_1.html#exercise-1.1",
+    "title": "Exercise 1",
+    "section": "Exercise 1.1",
+    "text": "Exercise 1.1\n\nProblemSolution\n\n\n\nCreate the following vectors:\n\nx: with values 1, 3, 5, 4, 5\n\ny: with values 2, 3, 1, 1, 6\n\nCalculate the length of x. Calculate the length of y.\nCalculate the sum of x and y such that each element of x is added to the corresponding element of y.\nPrint the second elemend of x using an index.\nPrint that same element using a comparison operator to subset instead. Hint: use the value in the second element.\nPrint all elements of y less than 3.\nPrint all elements of x less than 5 and greater than 1.\n\n\n\n\nCreate the following vectors:\n\nx: with values 1, 3, 5, 4, 5\n\ny: with values 2, 3, 1, 1, 6\n\n\n\n\n# create x and y\n\nx &lt;- c(1, \n       3, \n       5, \n       4, \n       5)\n\ny &lt;- c(2, \n       3, \n       1, \n       1, \n       6)\n\n\n\nCalculate the length of x. Calculate the length of y.\n\n\n# print length of x\nlength(x)\n\n[1] 5\n\n# print length of y\nlength(y)\n\n[1] 5\n\n\n - Calculate the sum of x and y such that each element of x is added to the corresponding element of y.\n\n# calculate sum of x and y, vectorized\nx + y\n\n[1]  3  6  6  5 11\n\n\n\n\nPrint the second elemend of x using an index.\n\n\n\n# print second element\nx[2]\n\n[1] 3\n\n\n\n\nPrint that same element using a comparison operator to subset instead. Hint: use the value in the second element.\n\n\n# print if x is 3\nx[x==3]\n\n[1] 3\n\n\n\n\nPrint all elements of y less than 3.\n\n\n# print if x is less than 3\nx[x&lt;3]\n\n[1] 1\n\n\n\n\nPrint all elements of x less than 5 and greater than 1.\n\n\n# print if x is greater than 5 and less than 1\nx[x &lt; 5 & x &gt; 1]\n\n[1] 3 4"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/05_exercise_1.html#exercise-1.2---challenge",
+    "href": "lesson_code/01_lesson/05_exercise_1.html#exercise-1.2---challenge",
+    "title": "Exercise 1",
+    "section": "Exercise 1.2 - Challenge",
+    "text": "Exercise 1.2 - Challenge\n::: panel-tabset\n\nProblem\n\nCreate a numeric vector z with elements 1, 3, NA, 4, 6, NA.\nRemove the missing values within z and print the result.\n\n\n\n\nSolution\n\nCreate a numeric vector z with elements 1, 3, NA, 4, 6, NA. \n\n\n# create z\n\nz &lt;- c(1, \n       3, \n       NA,\n       4,\n       6,\n       NA)\n\n\n\nRemove the missing values within z and print the result.\n\n\n# remove missing values\n\nz&lt;- z[!is.na(z)]\n\nz\n\n[1] 1 3 4 6"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/10_exercise_2.html",
+    "href": "lesson_code/01_lesson/10_exercise_2.html",
+    "title": "Exercise 2",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/10_exercise_2.html#exercise-2.1",
+    "href": "lesson_code/01_lesson/10_exercise_2.html#exercise-2.1",
+    "title": "Exercise 2",
+    "section": "Exercise 2.1",
+    "text": "Exercise 2.1\n\npanel-tabset\n\n\nProblem\n\nPart 1: Sort the starwars dataset, descending by height. Assign the new dataset to starwars_1.\n\n\nPart 2: Based on the values of height, filter() starwars_1 such that it only contains 10 observations. Assign the new dataset to starwars_2.\n\n\nPart 3: Get the average height in the starwars_2 tibble.\n\n\n\n\n\n\n\nNote\n\n\n\nYou may need to set na.rm = TRUE in the mean() function.\n\n\n\n\n\n\nSolution\n\nPart 1: Sort the starwars dataset, descending, by height. Assign the new dataset to starwars_1.\n\nstarwars_1 &lt;- starwars |&gt; \n  arrange(desc(height))\n\n\n\nPart 2: Based on the values of height, filter() starwars_1 such that it only contains 10 observations. Assign the new dataset to starwars_2.\n\nstarwars_2 &lt;- starwars_1 |&gt; \n  filter(height &gt;= 202)\n\n\n\nPart 3: Get the average height in the starwars_2 tibble.\n\nstarwars_2 |&gt; \n  summarise(mean_height = mean(height, na.rm = TRUE))\n\n# A tibble: 1 × 1\n  mean_height\n        &lt;dbl&gt;\n1        222.\n\n\n\n:::"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/07_data_frames_and_tibble.html",
+    "href": "lesson_code/01_lesson/07_data_frames_and_tibble.html",
+    "title": "Data Frames and tibble",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/07_data_frames_and_tibble.html#accessing-columns",
+    "href": "lesson_code/01_lesson/07_data_frames_and_tibble.html#accessing-columns",
+    "title": "Data Frames and tibble",
+    "section": "Accessing Columns",
+    "text": "Accessing Columns\nYou can access specific columns in a dataframe by using &lt;dataframe&gt;$&lt;variable&gt; syntax.\n\n\niris_abr$Sepal.Length\n\n[1] 5.1 4.9 4.7 4.6 5.0 5.4\n\n\nYou can do the same with the [ , \"&lt;col_name\"] syntax.\n\niris_abr[, \"Sepal.Length\"]\n\n[1] 5.1 4.9 4.7 4.6 5.0 5.4"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/07_data_frames_and_tibble.html#subsetting-data-frames",
+    "href": "lesson_code/01_lesson/07_data_frames_and_tibble.html#subsetting-data-frames",
+    "title": "Data Frames and tibble",
+    "section": "Subsetting Data Frames",
+    "text": "Subsetting Data Frames\nYou can remove observations in a data frame similarly to how you would in a vector, with [] and a logical vector.\n\n\niris_abr[iris_abr$Sepal.Length &lt; 4.8, ]\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n\n\n\nThis syntax can be cumbersome, as we need to reference the dataset twice to make it work. We are about to examine a better way of working with data frames."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/07_data_frames_and_tibble.html#tidy-data",
+    "href": "lesson_code/01_lesson/07_data_frames_and_tibble.html#tidy-data",
+    "title": "Data Frames and tibble",
+    "section": "tidy data",
+    "text": "tidy data\nIn this class we will be using the tidyverse universe of packages, which are built upon the principles of tidy data.\n\n\n\nThe core principle is to tidy data into a format that is standardized and more efficient to work with. Then, we use tools optimiszed to work with that kind of data."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/07_data_frames_and_tibble.html#loading-tidyverse",
+    "href": "lesson_code/01_lesson/07_data_frames_and_tibble.html#loading-tidyverse",
+    "title": "Data Frames and tibble",
+    "section": "Loading tidyverse",
+    "text": "Loading tidyverse\nFor this section, let’s start a script and load the tidyverse package.\n\n\n\n\n\n\nNote\n\n\n\nRemember, you need to install the packages first in the console by typing install.packages(\"tidyverse\") if you haven’t already. You only need to do this once.\n\n\n\n\nlibrary(tidyverse)\n\nThere are many packages within the tidyverse umbrella.\n\ntibble, for tibbles, a modern take on data frames\ndplyr, for data manipulation\ntidyr, for data tidying\nreadr, for data import\nstringr, for working with strings\nforcats, for working with factors (categorical variables with restricted labels)\nggplot2, for data visualization\npurrr, for iteration and functional programming\n\n\nWe will be using the tibble and dplyr packages today."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/07_data_frames_and_tibble.html#tibble",
+    "href": "lesson_code/01_lesson/07_data_frames_and_tibble.html#tibble",
+    "title": "Data Frames and tibble",
+    "section": "tibble",
+    "text": "tibble\ntibble is a data frame with some slightly adjusted features to make them work better. They:\n\nNever change the type of inputs when they are read in (data frames can for certain inputs)\nPrint to the console with better user-friendly information\nNever creates row.names()\nDo not adjust the names of variables\n\nYou can convert a dataframe to a tibble with the as_tibble() function.\n\n\nas_tibble(iris)\n\n# A tibble: 150 × 5\n   Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  \n 1          5.1         3.5          1.4         0.2 setosa \n 2          4.9         3            1.4         0.2 setosa \n 3          4.7         3.2          1.3         0.2 setosa \n 4          4.6         3.1          1.5         0.2 setosa \n 5          5           3.6          1.4         0.2 setosa \n 6          5.4         3.9          1.7         0.4 setosa \n 7          4.6         3.4          1.4         0.3 setosa \n 8          5           3.4          1.5         0.2 setosa \n 9          4.4         2.9          1.4         0.2 setosa \n10          4.9         3.1          1.5         0.1 setosa \n# ℹ 140 more rows\n\n\n\nA tibble is a data frame, but not all data frames are necessarily tibbles.\n\n# the class function determines what kind of object the object is \n\nclass(as_tibble(iris))\n\n[1] \"tbl_df\"     \"tbl\"        \"data.frame\"\n\n\n\n\nclass(iris)\n\n[1] \"data.frame\""
+  },
+  {
+    "objectID": "lesson_code/01_lesson/02_getting_started.html",
+    "href": "lesson_code/01_lesson/02_getting_started.html",
+    "title": "Getting Started",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/02_getting_started.html#r-projects",
+    "href": "lesson_code/01_lesson/02_getting_started.html#r-projects",
+    "title": "Getting Started",
+    "section": "R projects",
+    "text": "R projects\n\nOpening an R project will open up an RStudio window and change our current directory to the folder the project is saved in.\nR projects are meant to store your code, data, and results all in one place. They allow for fast collaboration with others on code, as all files are referenced through relative file paths relative to the project directory. Others will be able to quickly reproduce your work.\nI recommend to always use R projects whenever working in R. Using relative file paths (relative to the project directory) such as data/raw_data.csv instead of absolute filepaths like C:/Users/davischr/proj/intro-to-r/data/raw_data.csv can help share code ina more collaborative way - others don’t have to change your code to run it. To reference a folder above the current directory with relative file paths, use ../."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/02_getting_started.html#becoming-familiar-with-rstudio",
+    "href": "lesson_code/01_lesson/02_getting_started.html#becoming-familiar-with-rstudio",
+    "title": "Getting Started",
+    "section": "Becoming Familiar With RStudio",
+    "text": "Becoming Familiar With RStudio\nLet’s take a look around the RStudio GUI.\n\n\nConsole\nThis is where we can run R code in an interactive session.\nR Can do simple mathematical calculations as you would on a calculator.\n\n\n\n\nEnvironment Pane\nThis pane will show you what objects you have loaded in memory. More on what these difference objects mean later. You can think of this as our workspace, which is where our objects are saved in memory.\n\n\n\n\nSource pane and R Scripts\nThe Source pane is where we are able to edit various code-related files, such as R scripts, R Markdown documents, or Quarto documents. For now, we will use R Scripts for our exercises. You can create a new R Script to save the code you have worked on my going to the File &gt; New File &gt; R Script.\n\n\n\n\nOutput pane\nThe Output pane contains many panes; I will highlight three:\n\nFiles pane: where you can see files in your working directory and other folders\nPlots pane: where graph output can go to view graphs\nHelp pane: where function descriptions, argument information, and examples are shown. You can get the metadata for functions in R by typing help(&lt;function_name&gt;) or ?&lt;function_name&gt; into the console.\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThroughout this course, I will use the &lt;some text here&gt; syntax to refer to text that the user puts in. So, for example, if I write mean(&lt;some object here&gt;), you might type mean(x) or mean(y)."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/08_dplyr_basics.html",
+    "href": "lesson_code/01_lesson/08_dplyr_basics.html",
+    "title": "dplyr Basics",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/08_dplyr_basics.html#the-starwars-data-frame",
+    "href": "lesson_code/01_lesson/08_dplyr_basics.html#the-starwars-data-frame",
+    "title": "dplyr Basics",
+    "section": "The starwars data frame",
+    "text": "The starwars data frame\nLet’s take a look at some fiunctions within dplyr in more detail.\nWe’ll be using the dplyr::starwars tibble, a dataset about the characters in the starwars universe.\nYou can view it in our environment window if you assign it to itself.\n\n\n# assign starwars to itself to view it in the environment window\n\nstarwars &lt;- starwars"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/08_dplyr_basics.html#take-a-look-at-the-data-with-glimpse",
+    "href": "lesson_code/01_lesson/08_dplyr_basics.html#take-a-look-at-the-data-with-glimpse",
+    "title": "dplyr Basics",
+    "section": "Take a look at the data with glimpse()",
+    "text": "Take a look at the data with glimpse()\nTo get some metadata about the data frame, we can use the glimpse() function.\n\n\nglimpse(starwars)\n\nRows: 87\nColumns: 14\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Darth Vader\", \"Leia Or…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2…\n$ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brown, grey\", \"brown\", N…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\", \"light\", \"light\", \"…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"brown\", \"blue\", \"blue\",…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, …\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female\", \"male\", \"female\",…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"femini…\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatooine\", \"Alderaan\", \"T…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Human\", \"Human\", \"Huma…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Back\", \"Return of the J…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike\"&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, \"Imp…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;, \"TIE Advanced x1\",…\n\n\n\nThis function tells us the number of rows and columns of the data frame, the variable names, their type, and the first few observations."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/08_dplyr_basics.html#add-new-variables-with-mutate",
+    "href": "lesson_code/01_lesson/08_dplyr_basics.html#add-new-variables-with-mutate",
+    "title": "dplyr Basics",
+    "section": "Add new variables with mutate()",
+    "text": "Add new variables with mutate()\nmutate() creates new variables or edits existing variables.\nThe syntax for mutate() is:\n\nmutate(.data = &lt;df_name&gt;, \n       &lt;new_var_1&gt; = &lt;expr_1&gt;, \n       &lt;new_var_2&gt; = &lt;expr_2&gt;\n      )\n\n\nFor example, let’s say we want to create a new height variable that is half of the original height (editing an existing variable), and we wanted to add a varaible called type with a constant “movie_character”.\n\n\nstarwars_1 &lt;- mutate(.data = starwars, \n                     height = height / 2, # edit existing varaible\n                     type = \"movie character\"\n                     )\n\nglimpse(starwars_1)\n\nRows: 87\nColumns: 15\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Darth Vader\", \"Leia Or…\n$ height     &lt;dbl&gt; 86.0, 83.5, 48.0, 101.0, 75.0, 89.0, 82.5, 48.5, 91.5, 91.0…\n$ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brown, grey\", \"brown\", N…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\", \"light\", \"light\", \"…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"brown\", \"blue\", \"blue\",…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, …\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female\", \"male\", \"female\",…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"femini…\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatooine\", \"Alderaan\", \"T…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Human\", \"Human\", \"Huma…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Back\", \"Return of the J…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike\"&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, \"Imp…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;, \"TIE Advanced x1\",…\n$ type       &lt;chr&gt; \"movie character\", \"movie character\", \"movie character\", \"m…\n\n\n\nWe’ll get to more complicated variable generations next class."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/08_dplyr_basics.html#remove-observations-with-filter",
+    "href": "lesson_code/01_lesson/08_dplyr_basics.html#remove-observations-with-filter",
+    "title": "dplyr Basics",
+    "section": "Remove observations with filter()",
+    "text": "Remove observations with filter()\nOne very common task is removing observations from a dataset. If we want to limit observations based off of information in the dataset, we can use the filter() function.\nWe use a logical vector that we can either create in the filter() function call or access already in the dataset (if it exists as a variable already).\nFor example, let’s keep only observations where the height is less than 100 cm.\n\n\n# create logical vector in filter() function call \n\nfilter(.data = starwars, \n       height &lt; 100)\n\n# A tibble: 7 × 14\n  name      height  mass hair_color skin_color eye_color birth_year sex   gender\n  &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; \n1 R2-D2         96    32 &lt;NA&gt;       white, bl… red               33 none  mascu…\n2 R5-D4         97    32 &lt;NA&gt;       white, red red               NA none  mascu…\n3 Yoda          66    17 white      green      brown            896 male  mascu…\n4 Wicket S…     88    20 brown      brown      brown              8 male  mascu…\n5 Ratts Ty…     79    15 none       grey, blue unknown           NA male  mascu…\n6 Dud Bolt      94    45 none       blue, grey yellow            NA male  mascu…\n7 R4-P17        96    NA none       silver, r… red, blue         NA none  femin…\n# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,\n#   vehicles &lt;list&gt;, starships &lt;list&gt;\n\n\n\nThere is no logical vector in the starwars data frame yet, but we’ll create one soon.\nYou can use logical operators, | (or) and “&” (and), as well.\n\n\n# filter observations with height &lt; 100 OR species equal to \"Droid\" \n\nfilter(.data = starwars, \n       height &lt; 100 | species == \"Droid\")\n\n# A tibble: 10 × 14\n   name     height  mass hair_color skin_color eye_color birth_year sex   gender\n   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; \n 1 C-3PO       167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…\n 2 R2-D2        96    32 &lt;NA&gt;       white, bl… red               33 none  mascu…\n 3 R5-D4        97    32 &lt;NA&gt;       white, red red               NA none  mascu…\n 4 Yoda         66    17 white      green      brown            896 male  mascu…\n 5 IG-88       200   140 none       metal      red               15 none  mascu…\n 6 Wicket …     88    20 brown      brown      brown              8 male  mascu…\n 7 Ratts T…     79    15 none       grey, blue unknown           NA male  mascu…\n 8 Dud Bolt     94    45 none       blue, grey yellow            NA male  mascu…\n 9 R4-P17       96    NA none       silver, r… red, blue         NA none  femin…\n10 BB8          NA    NA none       none       black             NA none  mascu…\n# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,\n#   vehicles &lt;list&gt;, starships &lt;list&gt;\n\n\n\n\n# filter observations with height &lt; 100 AND species equal to \"Droid\" \n\nfilter(.data = starwars, \n       height &lt; 100 & species == \"Droid\")\n\n# A tibble: 3 × 14\n  name   height  mass hair_color skin_color  eye_color birth_year sex   gender  \n  &lt;chr&gt;   &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   \n1 R2-D2      96    32 &lt;NA&gt;       white, blue red               33 none  masculi…\n2 R5-D4      97    32 &lt;NA&gt;       white, red  red               NA none  masculi…\n3 R4-P17     96    NA none       silver, red red, blue         NA none  feminine\n# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,\n#   vehicles &lt;list&gt;, starships &lt;list&gt;\n\n\n\nYou can do the same thing, which is include multiple conditions that all must be TRUE for observations to be retained, by separating conditions with a comma.\n\n\n# filter observations with height &lt; 100 AND species equal to \"Droid\"\n\nfilter(.data = starwars,\n       height &lt; 100, \n       species == \"Droid\")\n\n# A tibble: 3 × 14\n  name   height  mass hair_color skin_color  eye_color birth_year sex   gender  \n  &lt;chr&gt;   &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   \n1 R2-D2      96    32 &lt;NA&gt;       white, blue red               33 none  masculi…\n2 R5-D4      97    32 &lt;NA&gt;       white, red  red               NA none  masculi…\n3 R4-P17     96    NA none       silver, red red, blue         NA none  feminine\n# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,\n#   vehicles &lt;list&gt;, starships &lt;list&gt;"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/08_dplyr_basics.html#remove-rename-and-reorder-columns-with-select",
+    "href": "lesson_code/01_lesson/08_dplyr_basics.html#remove-rename-and-reorder-columns-with-select",
+    "title": "dplyr Basics",
+    "section": "Remove, rename, and reorder columns with select()",
+    "text": "Remove, rename, and reorder columns with select()\nselect() drops columns from a data frame and/or reorders the columns in a data frame. The arguments after the name of the data frame should be the names of columns you wish to keep, without quotes. All other columns not listed are dropped.\nTo rename a variable, use the syntax &lt;new_name&gt;  = &lt;old_name&gt;.\n\n\n# remove, rename, and/or reorder variables\n\nselect(.data = starwars, \n       name, \n       height,\n       eye_color,\n       year = birth_year)\n\n# A tibble: 87 × 4\n   name               height eye_color  year\n   &lt;chr&gt;               &lt;int&gt; &lt;chr&gt;     &lt;dbl&gt;\n 1 Luke Skywalker        172 blue       19  \n 2 C-3PO                 167 yellow    112  \n 3 R2-D2                  96 red        33  \n 4 Darth Vader           202 yellow     41.9\n 5 Leia Organa           150 brown      19  \n 6 Owen Lars             178 blue       52  \n 7 Beru Whitesun Lars    165 blue       47  \n 8 R5-D4                  97 red        NA  \n 9 Biggs Darklighter     183 brown      24  \n10 Obi-Wan Kenobi        182 blue-gray  57  \n# ℹ 77 more rows\n\n\n\nThe tidyselect::everything() function lets us refer to all other varaibles not explitly already defined in the select() function. This helps when we want to reorder some variables and leave the rest alone.\n\n\nstarwars_1 &lt;- select(.data = starwars, \n                     name, \n                     height,\n                     eye_color,\n                     year = birth_year,\n                     everything())\n\nglimpse(starwars_1)\n\nRows: 87\nColumns: 14\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Darth Vader\", \"Leia Or…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"brown\", \"blue\", \"blue\",…\n$ year       &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, …\n$ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brown, grey\", \"brown\", N…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\", \"light\", \"light\", \"…\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female\", \"male\", \"female\",…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"femini…\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatooine\", \"Alderaan\", \"T…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Human\", \"Human\", \"Huma…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Back\", \"Return of the J…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike\"&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, \"Imp…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;, \"TIE Advanced x1\",…"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/08_dplyr_basics.html#sort-rows-with-arrange",
+    "href": "lesson_code/01_lesson/08_dplyr_basics.html#sort-rows-with-arrange",
+    "title": "dplyr Basics",
+    "section": "Sort rows with arrange()",
+    "text": "Sort rows with arrange()\narrange() sorts rows of a data frame, similar to how sort() sorts an individual vector. The data frame is sortd by the first variable first and then each subsequent variable. desc(&lt;var_name&gt;) is used to reverse the sort of a given variable.\n\nstarwars_1 &lt;- arrange(.data = starwars, desc(height))\n\nglimpse(starwars_1)\n\nRows: 87\nColumns: 14\n$ name       &lt;chr&gt; \"Yarael Poof\", \"Tarfful\", \"Lama Su\", \"Chewbacca\", \"Roos Tar…\n$ height     &lt;int&gt; 264, 234, 229, 228, 224, 216, 213, 206, 206, 202, 200, 198,…\n$ mass       &lt;dbl&gt; NA, 136, 88, 112, 82, 159, NA, NA, 80, 136, 140, 82, 102, 6…\n$ hair_color &lt;chr&gt; \"none\", \"brown\", \"none\", \"brown\", \"none\", \"none\", \"none\", \"…\n$ skin_color &lt;chr&gt; \"white\", \"brown\", \"grey\", \"unknown\", \"grey\", \"brown, white\"…\n$ eye_color  &lt;chr&gt; \"yellow\", \"blue\", \"black\", \"blue\", \"orange\", \"green, yellow…\n$ birth_year &lt;dbl&gt; NA, NA, NA, 200.0, NA, NA, NA, NA, NA, 41.9, 15.0, 92.0, NA…\n$ sex        &lt;chr&gt; \"male\", \"male\", \"male\", \"male\", \"male\", \"male\", \"female\", \"…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"mascul…\n$ homeworld  &lt;chr&gt; \"Quermia\", \"Kashyyyk\", \"Kamino\", \"Kashyyyk\", \"Naboo\", \"Kale…\n$ species    &lt;chr&gt; \"Quermian\", \"Wookiee\", \"Kaminoan\", \"Wookiee\", \"Gungan\", \"Ka…\n$ films      &lt;list&gt; \"The Phantom Menace\", \"Revenge of the Sith\", \"Attack of th…\n$ vehicles   &lt;list&gt; &lt;&gt;, &lt;&gt;, &lt;&gt;, \"AT-ST\", &lt;&gt;, \"Tsmeu-6 personal wheel bike\", &lt;&gt;…\n$ starships  &lt;list&gt; &lt;&gt;, &lt;&gt;, &lt;&gt;, &lt;\"Millennium Falcon\", \"Imperial shuttle\"&gt;, &lt;&gt;,…"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/08_dplyr_basics.html#tabulate-frequencies-with-count",
+    "href": "lesson_code/01_lesson/08_dplyr_basics.html#tabulate-frequencies-with-count",
+    "title": "dplyr Basics",
+    "section": "Tabulate frequencies with count()",
+    "text": "Tabulate frequencies with count()\nThe count() function tabulates frequencies by category. If you include multiple varaibles, it creates a long data frame with each unique combination of variables.\n\n\n# tabulate by one variable\n\ncount(starwars, gender)\n\n# A tibble: 3 × 2\n  gender        n\n  &lt;chr&gt;     &lt;int&gt;\n1 feminine     17\n2 masculine    66\n3 &lt;NA&gt;          4\n\n\n\n\n# tabulate by more than one variable\n\ncount(starwars, \n      gender,\n      species)\n\n# A tibble: 42 × 3\n   gender    species        n\n   &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;\n 1 feminine  Clawdite       1\n 2 feminine  Droid          1\n 3 feminine  Human          9\n 4 feminine  Kaminoan       1\n 5 feminine  Mirialan       2\n 6 feminine  Tholothian     1\n 7 feminine  Togruta        1\n 8 feminine  Twi'lek        1\n 9 masculine Aleena         1\n10 masculine Besalisk       1\n# ℹ 32 more rows"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/08_dplyr_basics.html#group-data-with-group_by",
+    "href": "lesson_code/01_lesson/08_dplyr_basics.html#group-data-with-group_by",
+    "title": "dplyr Basics",
+    "section": "Group data with group_by()",
+    "text": "Group data with group_by()\ngroup_by() groups data frame so subsequent functions will be evaluated by group instead of on all observations as a whole. We can combine group_by() with most dplyr functions that affect rows. Note that grouping by itself will not materially change the rows and columns of the data frame.\n\n\ngrouped &lt;- group_by(.data = starwars, \n                    species)\n\nglimpse(grouped)\n\nRows: 87\nColumns: 14\nGroups: species [38]\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Darth Vader\", \"Leia Or…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2…\n$ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brown, grey\", \"brown\", N…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\", \"light\", \"light\", \"…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"brown\", \"blue\", \"blue\",…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, …\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female\", \"male\", \"female\",…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"femini…\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatooine\", \"Alderaan\", \"T…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Human\", \"Human\", \"Huma…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Back\", \"Return of the J…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike\"&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, \"Imp…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;, \"TIE Advanced x1\",…\n\n\n\nIf you use glimpse() after grouping, it tells you tht the data frame is grouped by the specific variables and the number of groups.\nYou can add multiple groups and they will act in the same way as the count() function - the groups will be the unique combinations of the values in the grouped variables.\n\ngrouped &lt;- group_by(.data = starwars, \n                    species, \n                    gender)\n\nglimpse(grouped)\n\nRows: 87\nColumns: 14\nGroups: species, gender [42]\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Darth Vader\", \"Leia Or…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2…\n$ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brown, grey\", \"brown\", N…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\", \"light\", \"light\", \"…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"brown\", \"blue\", \"blue\",…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, …\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female\", \"male\", \"female\",…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"femini…\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatooine\", \"Alderaan\", \"T…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Human\", \"Human\", \"Huma…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Back\", \"Return of the J…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike\"&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, \"Imp…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;, \"TIE Advanced x1\",…\n\n\nTo remove the grouping, use the ungroup() function.\nNow you can call functions on the grouped data frame."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/08_dplyr_basics.html#summarise-data-with-summarise",
+    "href": "lesson_code/01_lesson/08_dplyr_basics.html#summarise-data-with-summarise",
+    "title": "dplyr Basics",
+    "section": "Summarise data with summarise()",
+    "text": "Summarise data with summarise()\nThe summarise() function summarizes data to one row per grouping. If there are no grouping variables, the output will have a single row summarising all observations.\nWe can use the n() function to count the number of observations within the group.\n\n\nsummarise(.data = starwars, \n          my_mean = mean(height, na.rm = TRUE), \n          my_sd = sd(height,na.rm = TRUE), \n          total_count = n())\n\n# A tibble: 1 × 3\n  my_mean my_sd total_count\n    &lt;dbl&gt; &lt;dbl&gt;       &lt;int&gt;\n1    175.  34.8          87\n\n\n\nNow let’s see what that looks like with the grouped data.\n\n\nsummarise(.data = grouped, \n          my_mean = mean(height, na.rm = TRUE), \n          my_sd = sd(height, na.rm = TRUE), \n          total_count = n())\n\n`summarise()` has grouped output by 'species'. You can override using the\n`.groups` argument.\n\n\n# A tibble: 42 × 5\n# Groups:   species [38]\n   species   gender    my_mean my_sd total_count\n   &lt;chr&gt;     &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt;       &lt;int&gt;\n 1 Aleena    masculine      79  NA             1\n 2 Besalisk  masculine     198  NA             1\n 3 Cerean    masculine     198  NA             1\n 4 Chagrian  masculine     196  NA             1\n 5 Clawdite  feminine      168  NA             1\n 6 Droid     feminine       96  NA             1\n 7 Droid     masculine     140  52.0           5\n 8 Dug       masculine     112  NA             1\n 9 Ewok      masculine      88  NA             1\n10 Geonosian masculine     183  NA             1\n# ℹ 32 more rows"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/03_r_basics.html",
+    "href": "lesson_code/01_lesson/03_r_basics.html",
+    "title": "R Basics",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/03_r_basics.html#comments",
+    "href": "lesson_code/01_lesson/03_r_basics.html#comments",
+    "title": "R Basics",
+    "section": "Comments",
+    "text": "Comments\nComments in R are created with the # character. We use comments to give the reader of code (which is sometimes yourself in 6 months) an indication of what you are doing and why. Use them frequently to explain what you are doing to those reading your code.\nFor multi-line comments, highlight the lines you would like to comment and Shift + CTRL + C.\n\n\n# This is a comment\n\n# This comment\n# is multi-line"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/03_r_basics.html#assignment",
+    "href": "lesson_code/01_lesson/03_r_basics.html#assignment",
+    "title": "R Basics",
+    "section": "Assignment",
+    "text": "Assignment\nWe’ve already discussed that we can use R like a calculator.\n\n\n# use R like a calculator\n3 + 4\n\n[1] 7\n\n\n\nThe &lt;- operator allows you to assign whateer is on the right hand side to an object name on the left hand side in the format of &lt;obj_name&gt; &lt;- &lt;expr&gt;. This does two things:\n\n\nCreates an object. You can think of an object like you would in real life, but in the virtual world (basically any kind of noun).\nCreates a name that points to that object.\n\n\nThis allows you to reference the object that the object name points to without needing to type in the values again.\n\n\n#assign values to an object reference\nvar &lt;- 3 + 4\n\nvar\n\n[1] 7\n\n\n\nThe &lt;- operator is used as opposed to most programming languages where the default assignment is =. In R, = does work for assignment, but it is best practice to use &lt;-.\n\n\n\n\n\n\n\nNote\n\n\n\nIf you type th eobject name without assignment, it wil print the result automatically.\n\n\n\n\nValid Names\nObject name must consist of letters, digits, and _. They cannot begin with a _ or a digit.\nR will not let hyou use names that are reserved, like if or function. It is also bad practice to overwrite base functions or other functions that you would like to use (like mean())."
+  }
+]

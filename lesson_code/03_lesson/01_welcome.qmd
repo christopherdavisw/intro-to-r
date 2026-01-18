@@ -1,0 +1,39 @@
+---
+title: ""
+editor: source
+---
+
+# Welcome Back 
+
+<br>
+
+Welcome Back to the Introduction to R Class!
+
+- **Step 1:** Remember to clone the class materials from the [intro-to-r]() repository on GitHub using git. 
+
+- **Step 2:** Open up the website materials by clicking on the `_site/index.html` file. Open the file in any browser. 
+
+- **Step 3:** Separately, open up the `intro-to-r.Rproj` file to open up the R project related to this class. 
+
+## Recap
+
+- Data Import and Export
+  - `read_*` functions
+  - `write_*` functions
+  - Feather and Parquet files
+  - `janitor::clean_names()`
+- Vectorized Conditions
+  - `if_else()` function
+  - `case_when()` function
+- Strings
+  - `str_*()` functions
+- Attributes
+  - Factors
+  - Dates
+- Reshaping Data
+  - `pivot_wider()`
+  - `pivot_longer()`
+- Combining Data Frames
+  - `bind_rows()`, `bind_cols()`
+  - `inner_join()`, `full_join()`, `left_join()`, `right_join()`
+  - `tidylog`

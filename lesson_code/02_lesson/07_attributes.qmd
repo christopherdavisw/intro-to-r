@@ -1,0 +1,177 @@
+---
+title: ""
+editor: source
+---
+
+```{r}
+#| echo: false
+#| warning: false
+#| output: false
+
+library(tidyverse)
+library(lubridate)
+```
+
+# Attributes
+
+Objects in R can contin additional metdata called attributes. Attributes are lists that can be added to any object, including vectors. You can see all attributes withthe `attributes()` function. <br> 
+
+```{r}
+attributes(starwars)
+```
+
+<br> Two important attributes that we will run into are the `names` attribugte and the `class` attribute. <br> 
+
+## Names 
+
+Any vector can have the names attribute added onto it. <br> 
+
+```{r}
+# create numeric vector
+
+numeric_vector <- c(2, 
+                    4, 
+                    6, 
+                    1, 
+                    2)
+
+# assign names to numeric vector
+names(numeric_vector) <- c("these", 
+                           "names", 
+                           "are", 
+                           "arbitrarily", 
+                           "given")
+
+# print numeric vector
+numeric_vector
+```
+
+<br> We can see that the `names` attribute was added for tht vector. <br> 
+
+```{r}
+attributes(numeric_vector)
+```
+
+<br> For data frames, the `names` attribute represents the column names of the data frame. <br> 
+
+## Class
+
+Class is used to implement the S3 object oriented system and identifies the kind of S3 object an object is. Objects are able to be used in functions to behave differently for different classes of input and generally share characterstics between objects of the same class. I won't go too much into object-oriented programmin gin this course due to time constraints. 
+
+We've already worked with some objects that have formal classes, like data frames and tibbles. 
+
+<br> 
+
+```{r}
+class(starwars)
+```
+
+<br>
+
+## Augmented Vectors
+
+Atomic vectors are the building blocks for other important vector types like factors and dates. These augmented vectors have a class, so they behave differently than the atomic vector on which they are built. 
+
+### Factors
+
+Factors are designed to represent categorical data. They take a fixed set of possible values that can be ordered or unordered. 
+
+They are built on top of `integer` (not `character`). 
+
+Here's an example from Hadley Wickam's R for Data Science. 
+
+<br> 
+
+```{r}
+# create factor
+x <- factor(c("ab", "cd", "ab"), levels = c("ab", "cd", "ef"))
+
+# get type of variable
+typeof(x)
+
+# get attributes of variable 
+attributes(x)
+```
+
+<br> The `levels` attribute identifies the unique values the factor can have. We see that the `class` is of type factor. 
+
+Factors are important when we want to limit categorical variables to having only certin values, or when we want to arrnage a variable by a particular set of levels. 
+
+To take another example from Mr. Wickham: <br> 
+
+```{r}
+# set unique month levels in order
+month_levels <- c("Jan", 
+                  "Feb", 
+                  "Mar", 
+                  "Apr", 
+                  "May", 
+                  "Jun", 
+                  "Jul", 
+                  "Aug", 
+                  "Sep", 
+                  "Oct", 
+                  "Nov", 
+                  "Dec")
+
+# create character vector
+x1 <- c("Dec", "Apr", "Jan", "Mar")
+
+# convert character vector to factor
+y1 <- factor(x1, levels = month_levels)
+
+# print factor
+y1
+
+# print sorted factor 
+sort(y1)
+```
+
+<br> Any values not in the set will be converted to NA. <br> 
+
+```{r}
+# create factor with noncorming input
+factor(c("Jan", "Not Jan"), 
+       levels = month_levels)
+```
+
+<br> Factors will be especially helpful in data visualization, which we will be doing later in this course. <br> 
+
+### Dates
+
+Dates are another common extension of an atomic vector. Dates are built upon numeric vectors. <br> 
+
+```{r}
+before <- as.Date("1969-01-01")
+
+typeof(before)
+
+attributes(before)
+```
+<br>
+
+#### `lubridate` package
+
+The `lubridate` package has a bunch of functions to more easily work with Dates in R. 
+
+The `ymd()`, `ydm()`, `mdy()`, `myd()`, `dmy()`, and `dym()` functions all flexibly take in a wide variety of input formats bsed on the function, where `y` means year, `m` means month, and `d` means day. <br> 
+
+```{r}
+mdy("April 10th, 2024")
+
+mdy("Wednesday, 04-10-2024")
+
+ymd("2024/04/10")
+```
+
+<br> Once a vector has been converted to a `date` object, we can then use functions like: 
+
+- `year()`: extract year from date
+- `month()`: extract month from date 
+- `day()`: extract day from date
+- `wday()`: extract weekday from date
+- `quarter()`: extract quarter from date
+
+to extract what we need from a date. 
+
+

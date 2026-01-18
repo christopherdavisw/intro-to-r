@@ -1,0 +1,292 @@
+---
+title: ""
+editor: source
+---
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+```
+
+# `dplyr` Basics
+
+From the [dplyr home](https://dplyr.tidyverse.org/index.html) [page](https://dplyr.tidyverse.org/articles/dplyr.html): 
+
+> > `dplyr` is a grammer of data manipulation, providing a consistent set of verbs that help you solve the mot common data manipultion challenges. 
+> > 
+> > -   `mutate()` adds new variables that are functions of existing variables
+> > 
+> > -   `select()` picks variables based on their names 
+> > 
+> > -   `filter()` picks cases based on their values. 
+> > 
+> > -   `summarise()` reduces multiple values down to a single summary
+> > 
+> > -   `arrange()` changes the ordering of the rows. 
+> > 
+> > These all combine naturally with `group_by()` which allows you to peform any operation "by group". 
+
+::: callout-note
+
+My only edit to this is that the `select()` function doesn't really have a `group_by()` use case by itself as it's just meant to keep columns. `group_by()` groups data by row. Similarly, `arrange()` largely ignores grouping; you need to explicitly mention group9ing variables (or use `.by_group = TRUE`). 
+
+:::
+
+<br>
+
+## The `starwars` data frame 
+
+Let's take a look at some fiunctions within `dplyr` in more detail. 
+
+We'll be using the `dplyr::starwars` tibble, a dataset about the characters in the starwars universe. 
+
+You can view it in our environment window if you assign it to itself. 
+
+<br> 
+
+```{r}
+# assign starwars to itself to view it in the environment window
+
+starwars <- starwars
+```
+
+<br> 
+
+## Take a look at the data with `glimpse()`
+
+To get some metadata about the data frame, we can use the `glimpse()` function. 
+
+<br> 
+
+```{r}
+glimpse(starwars)
+```
+
+<br>
+
+This function tells us the number of rows and columns of the data frame, the variable names, their type, and the first few observations. 
+
+## Add new variables with `mutate()`
+
+`mutate()` creates new variables or edits existing variables. 
+
+The syntax for `mutate()` is: 
+
+```{r}
+#| eval: false
+
+mutate(.data = <df_name>, 
+       <new_var_1> = <expr_1>, 
+       <new_var_2> = <expr_2>
+      )
+```
+
+<br> 
+
+For example, let's say we want to create a new `height` variable that is half of the original `height` (editing an existing variable), and we wanted to add a varaible called `type` with a constant "movie_character". 
+
+<br> 
+
+```{r}
+starwars_1 <- mutate(.data = starwars, 
+                     height = height / 2, # edit existing varaible
+                     type = "movie character"
+                     )
+
+glimpse(starwars_1)
+```
+
+<br>
+
+We'll get to more complicated variable generations next class. 
+
+<br> 
+
+## Remove observations with `filter()`
+
+One very common task is removing observations from a dataset. If we want to limit observations based off of information in the dataset, we can use the `filter()` function. 
+
+We use a logical vector that we can either create in the `filter()` function call or access already in the dataset (if it exists as a variable already). 
+
+For example, let's keep only observations where the height is less than 100 cm. 
+
+<br> 
+
+```{r}
+# create logical vector in filter() function call 
+
+filter(.data = starwars, 
+       height < 100)
+```
+
+<br> 
+
+There is no logical vector in the `starwars` data frame yet, but we'll create one soon. 
+
+You can use logical operators, `|` (or) and "&" (and), as well.  
+
+<br>
+
+```{r}
+# filter observations with height < 100 OR species equal to "Droid" 
+
+filter(.data = starwars, 
+       height < 100 | species == "Droid")
+```
+
+<br>
+
+
+```{r}
+# filter observations with height < 100 AND species equal to "Droid" 
+
+filter(.data = starwars, 
+       height < 100 & species == "Droid")
+```
+
+<br>
+
+You can do the same thing, which is include multiple conditions that all must be `TRUE` for observations to be retained, by separating conditions with a comma. 
+
+<br>
+
+```{r}
+# filter observations with height < 100 AND species equal to "Droid"
+
+filter(.data = starwars,
+       height < 100, 
+       species == "Droid")
+```
+
+<br>
+
+## Remove, rename, and reorder columns with `select()`
+
+`select()` drops columns from a data frame and/or reorders the columns in a data frame. The arguments after the name of the data frame should be the names of columns you wish to keep, without quotes. All other columns not listed are dropped. 
+
+To rename a variable, use the syntax `<new_name>  = <old_name>`.
+
+<br>
+
+```{r}
+# remove, rename, and/or reorder variables
+
+select(.data = starwars, 
+       name, 
+       height,
+       eye_color,
+       year = birth_year)
+```
+
+<br>
+
+The `tidyselect::everything()` function lets us refer to all other varaibles not explitly already defined in the `select()` function. This helps when we want to reorder some variables and leave the rest alone. 
+
+<br>
+
+```{r}
+starwars_1 <- select(.data = starwars, 
+                     name, 
+                     height,
+                     eye_color,
+                     year = birth_year,
+                     everything())
+
+glimpse(starwars_1)
+```
+
+## Sort rows with `arrange()` 
+
+`arrange()` sorts rows of a data frame, similar to how `sort()` sorts an individual vector. The data frame is sortd by the first variable first and then each subsequent variable. `desc(<var_name>)` is used to reverse the sort of a given variable. 
+
+```{r}
+starwars_1 <- arrange(.data = starwars, desc(height))
+
+glimpse(starwars_1)
+```
+
+## Tabulate frequencies with `count()` 
+
+The `count()` function tabulates frequencies by category. If you include multiple varaibles, it creates a long data frame with each unique combination of variables. 
+
+<br>
+
+```{r}
+# tabulate by one variable
+
+count(starwars, gender)
+```
+
+<br> 
+
+```{r}
+# tabulate by more than one variable
+
+count(starwars, 
+      gender,
+      species)
+```
+
+
+## Group data with `group_by()`
+
+`group_by()` groups data frame so **subsequent functions** will be evaluated by group instead of on all observations as a whole. We can combine `group_by()` with most `dplyr` functions that affect rows. Note that grouping by itself **will not materially change the rows and columns of the data frame**. 
+
+<br> 
+
+```{r}
+grouped <- group_by(.data = starwars, 
+                    species)
+
+glimpse(grouped)
+```
+
+<br>
+
+If you use `glimpse()` after grouping, it tells you tht the data frame is grouped by the specific variables and the number of groups. 
+
+You can add multiple groups and they will act in the same way as the `count()` function - the groups will be the unique combinations of the values in the grouped variables. 
+
+```{r}
+grouped <- group_by(.data = starwars, 
+                    species, 
+                    gender)
+
+glimpse(grouped)
+```
+
+To remove the grouping, use the `ungroup()` function. 
+
+Now you can call functions on the grouped data frame. 
+
+## Summarise data with `summarise()` 
+
+The `summarise()` function summarizes data to one row per grouping. If there are no grouping variables, the output will have a single row summarising all observations. 
+
+We can use the `n()` function to count the number of observations within the group. 
+
+<br> 
+
+```{r}
+summarise(.data = starwars, 
+          my_mean = mean(height, na.rm = TRUE), 
+          my_sd = sd(height,na.rm = TRUE), 
+          total_count = n())
+```
+
+<br>
+
+Now let's see what that looks like with the grouped data. 
+
+<br> 
+
+```{r}
+summarise(.data = grouped, 
+          my_mean = mean(height, na.rm = TRUE), 
+          my_sd = sd(height, na.rm = TRUE), 
+          total_count = n())
+```
+

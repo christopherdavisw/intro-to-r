@@ -1,0 +1,245 @@
+---
+title: ""
+editor: source
+---
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+```
+
+# Combining Data Frames
+
+We often need to combine data across tables to answer the questions we're interested in. To do this, we may want ot merge or append our data together. 
+
+## Appending Data
+
+To append data together, we can use the `bind_rows()` function. 
+
+This function takes in two or more data frames and appends them together, matching the columns with the same name together. 
+
+Let's try it in code. <br> 
+
+```{r}
+# echo: false
+
+df1 <- tibble(a = c(1, 
+                    2, 
+                    3), 
+              b = c(4, 
+                    5, 
+                    6), 
+              df = "first")
+
+df2 <- tibble(a = c(4, 
+                    5, 
+                    6), 
+              c = c(4, 
+                    5, 
+                    6), 
+              df = second)
+```
+
+```{r}
+df1
+df2
+
+# append data together vertically
+bind_rows(df1, df2)
+```
+<br>
+
+Note that the two dataframes shared the common columns `a` and `df`, while they did not share `b` and `c`. The appending still worked, and NAs were created where there was no data. 
+
+<br> 
+
+## Joining With No Keys
+
+One way to join tables together is joining without a key. By key, I mean a unique variable or set of variables that are shared across the dataframes you want to join. I do not recommend doing this often as the rows on each side of the join will be binded in the order that they appear in the data, so it is easy to create a mistake or meaningless results. 
+
+We can do this with the `bind_cols()` function. 
+
+<br> 
+
+```{r}
+#| echo: false
+
+df3 <- tibble(a = c(1, 
+                    2, 
+                    3), 
+              b = c(4, 
+                    5, 
+                    6))
+
+df4 <- tibble(c = c(1, 
+                    2, 
+                    3),
+              d = c(4, 
+                    5, 
+                    6))
+```
+
+<br> Let's take a look at these data frames and bind them. <br> 
+
+```{r}
+df3
+df4
+
+# append data together horizontally 
+bind_cols(df3, df4)
+```
+
+<br>
+
+## Joining Data With Keys
+
+It is a much more common use case where we want to join data with keys. That is, we want elements of one dataset to be matched to the same elements across another dataset. 
+
+For this, we can use joins. 
+
+Here are four functions for doing joins in the `tidyr` package (loaded in `tidyverse`). 
+
+<br> 
+
+![](images/join-venn.png)
+<br>
+
+Each kind of join tries to join two datasets together by row. The venn diagram above refers to what will happen to observations where keys are shared between the two data frames, what will happen when only `x` has a specific kehy, and what will happen when only `y` has a specific key. 
+
+Let's start with an `inner_join()`. 
+
+Let's say we have the following data frames.
+
+<br> 
+
+```{r}
+#| echo: false
+
+df1 <- tibble(geoid = c("01001", 
+                        "01003", 
+                        "01005"), 
+              county_name = c("Autauga County", 
+                              "Baldwin County", 
+                              "Barbour County"))
+
+df2 <- tibble(fips = c("01005", 
+                       "01003", 
+                       "01057"), 
+              population = c(1609492, 
+                             29629, 
+                             203921))
+```
+
+```{r}
+df1
+df2
+```
+
+<br>
+
+Note that there seems to be a key that is shared across the two data frames, although the names do not match. We can still do the join based on that key with the following syntax.
+
+<br> 
+
+```{r}
+# join data such that only rows with values in key from both sides of join are retained
+inner_join(df1, df2, join_by(geoid == fips))
+```
+
+<br>
+
+We see here that the result is only two rows, because only two rows had shared keys across both datasets (`01003` and `01005`). 
+
+Here's what the othr join result in. 
+
+<br> 
+
+```{r}
+# join data such that only rows with values in key from left side of join are retained
+left_join(df1, df2, join_by(geoid == fips))
+```
+
+```{r}
+# join data such that only rows with values in key from right side of join are retained
+right_join(df1, df2, join_by(geoid == fips))
+```
+
+```{r}
+# join data such that all rows are maintained from bothdata frames, regardless of key matches
+full_join(df1, df2, join_by(geoid == fips))
+```
+<br>
+
+If you know SQL, here are the analogs to SQL joins, as `tidyr`'s join syntax was inspired by SQL. 
+
+<br> 
+
+![](images/dplyr_sql_join.png)
+
+<br>
+
+We also can join across multiple variables using similar syntax. <br> 
+
+```{r}
+#| echo: false
+
+df1 <- tibble(state = c("01",
+                        "01", 
+                        "01"), 
+              county = c("001", 
+                         "003", 
+                         "005"), 
+              county_name = c("Autauga County", 
+                              "Baldiwn County", 
+                              "Barbour County"))
+
+df2 <- tibble(state = c("01", 
+                        "01", 
+                        "01"), 
+              fips = c("005", 
+                       "003", 
+                       "057"), 
+              population = c(1609492, 
+                             29629, 
+                             203921))
+```
+
+```{r}
+df1
+df2
+# do inner join with two columns
+inner_join(df1, df2, join_by(state == state_code, 
+                             county == fips))
+```
+
+<br>
+
+### Using the `tidylog` package
+
+I have not yet mentioned this package, and yet it is one of my favorite packages in R. The `tidylog` package prints to the console some helpful information whenever we do certain `tidyverse` functions. It is especially helpful with joins because we can see how many observations were joined and not joined on each side. 
+
+We load `tidylog` after we load `tidyverse` to use it correctly. 
+
+<br> 
+
+```{r}
+#| message: false
+library(tidylog)
+```
+
+```{r}
+# do inner join with two columns
+inner_join(df1, df2, join_by(state == state_code, 
+                             county == fips))
+```
+
+<br>
+
+::: callout-note
+
+The `join_by()` function is relatively new so the latest version of `tidylog` on CRAN may not have updated yet to incorporate it. To use the `join_by()` function with `tidylog`, first install the `remotes` package, then type `remotes::install_github("elbersb/tidylog")` into the console. 
+
+:::

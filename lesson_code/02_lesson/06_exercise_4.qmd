@@ -1,0 +1,153 @@
+---
+title: ""
+editor: source
+---
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+```
+
+
+# Exercise 4
+
+All exercises live in the `exercises/` folder. Navigate to that folder in the `Files` pane and click on `04_exercise.qmd`. 
+
+## Exercise 4.1
+
+::: panel-tabset
+
+### Problem
+
+- Read in data at "lesson_code/02_lesson/data/alabama_fips.csv" and assign to `alabama`. 
+
+- Create a variable in `alabama` called `alpha_type` that is "Low Alphabetically" if the `county_code` is `<= 65` and "High Alphabetically" otherwise. Overwrite `alabama`. 
+
+- Fix the leading zderios in `state_code` and `county_code` with `str_pad()`. 
+
+- Create the full county code by concatenating the 2-digit state code and 3-digit county code. Call the new variable `geoid`.
+
+
+### Solution 
+
+- Read in data at "lesson_code/02_lesson/data/alabama_fips.csv" and assign to `alabama`. 
+
+<br>
+
+```{r}
+#| eval: false
+
+alabama <- read_csv("lesson_code/02_lesson/data/alabama_fips.csv")
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+alabama <- read_csv("data/alabama_fips.csv")
+```
+<br>
+
+
+- Create a variable in `alabama` called `alpha_type` that is "Low Alphabetically" if the `county_code` is `<= 65` and "High Alphabetically" otherwise. Overwrite `alabama`. 
+
+```{r}
+alabama <- alabama |> 
+  mutate(alpha_type = if_else(county_code <= 65, 
+                              "Low Alphabetically", 
+                              "High Alphabetically"))
+```
+
+<br> 
+
+- Fix the leading zderios in `state_code` and `county_code` with `str_pad()`. 
+
+```{r}
+alabama <- alabama |> 
+  mutate(state_code = str_pad(state_code, 
+                              2, 
+                              "left", 
+                              "0"), 
+         county_code = str_pad(county_code, 
+                               3, 
+                               "left", 
+                               "0"))
+```
+
+<br> 
+
+- Create the full county code by concatenating the 2-digit state code and 3-digit county code. Call the new variable `geoid`.
+
+```{r}
+alabama <- alabama |> 
+  mutate(geoid = str_c(state_code, county_code))
+
+alabama
+```
+
+<br>
+
+:::
+
+## Exercise 4.2 - Challenge
+
+::: panel-tabset
+
+### Problem
+
+- Read in the `alabama` dataset anew. 
+
+- Create your own binned categories based on the `county_code` (alphabetically). Use at least 4 bins. Call the varaible `alpha_type_2`. Make sure no missing data is created. 
+
+- Count the frequency of `alpha_type_2`. 
+
+### Solution
+
+- Read in the `alabama` dataset anew. 
+
+<br>
+
+```{r}
+#| eval: false
+
+alabama <- read_csv("lesson_code/02_lesson/data/alabama_fips.csv")
+```
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+alabama <- read_csv("data/alabama_fips.csv")
+```
+<br>
+
+- Create your own binned categories based on the `county_code` (alphabetically). Use at least 4 bins. Call the varaible `alpha_type_2`. Make sure no missing data is created. 
+
+<br>
+```{r}
+alabama <- alabama |> 
+  mutate(
+    alpha_type_2 = case_when(
+      county_code < 34 ~ "Very Low", 
+      county_code >= 34 & county_code < 68 ~ "Medium Low", 
+      county_code >= 68 & county_code < 102 ~ "Medium High", 
+      county_code >= 102 ~ "Very High"
+    ))
+```
+<br>
+
+- Count the frequency of `alpha_type_2`. 
+
+<br>
+```{r}
+alabama |> 
+  county(alpha_type_2)
+```
+<br>
+:::

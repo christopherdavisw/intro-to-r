@@ -1,0 +1,65 @@
+---
+title: ""
+editor: source
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(tidyverse)
+```
+
+# Scales  
+
+Scales are an important feature when creating graphics. With them, we can modify our `x` and `y` axes, set limits, change the colors we want to use, and create better labels. 
+
+## `scales_<axis>_continuous()` 
+
+`scale_x_continuous()` and `scale_y_continuous()` modify the `x` and `y` axes respectively when we are using variables. 
+
+They take in the same parameters. 
+
+Some of the most used parameters are: 
+
+- `breaks` 
+- `limits` 
+- `labels` 
+- `expand` 
+
+`ggplot()` will create default scales created from the data. 
+
+```{r}
+ggplot(data = diamonds, mapping = aes(carat, price)) + 
+  geom_point()
+```
+
+Let's see how each parameter might change how the graph looks. 
+
+### `breaks` 
+
+`breaks` assigns where tic marks go on scale. Most often we'll use a numeric vector to specify breaks. 
+
+```{r}
+ggplot(data = diamonds, mapping = aes(carat, price)) + 
+  geom_point() + 
+  scale_y_continuous(breaks = seq(0, 20000, 2000))
+```
+
+### `limits` 
+
+`limits` cuts off the scale at specified points. Most often we'll use `c(<from>, <to>)` syntax to modify limits. 
+
+```{r}
+ggplot(data = diamonds, mapping = aes(carat, price)) + 
+  geom_point() + 
+  scale_y_continous(breaks = seq(0, 20000, 2000), 
+                    limits = c(0, 10000))
+```  
+
+### `labels` 
+
+`labels` modifies text for the tic marks in the scale. Most often we'll use `scales::percent` 
+
+

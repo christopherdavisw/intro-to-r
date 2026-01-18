@@ -1,0 +1,104 @@
+---
+title: ""
+editor: source
+---
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| output: false
+
+library(tidyverse)
+```
+
+# Vectorized Conditions
+
+Often when we are working with data, we want to modify or create a varaible based on some condition. We will be examining a few functions that allow us to do this in R for an entire vector as opposed to just one element. 
+
+## Modify or create up to two values with `if_else()`
+
+The `if_else()` function takes in a logical vector, an element to return if the condistion is `TRUE`, and an element to return if the conditions is `FALSE`. If the condition evaluates to `NA` (missing), the result of the function will be `NA` for that value. 
+
+We often use `if_else()` in a `mutate()` function when we want to add or modify variables. 
+
+<br> 
+
+```{r}
+starwars |> 
+  mutate(is_tall = if_else(height > 120, "Tall", "Not Tall")) |> # if expression is met, assign "Tall", otherwise "Not Tall"
+  count(is_tall) # tabulate category variable we just created
+```
+
+<br>
+
+Remember that the `count` variable tabulates frequency for each unique value in a variable. 
+
+We can also use this function to modify a value in an existing variable. 
+
+<br> 
+
+```{r}
+#| eval: false
+
+starwars |> 
+  mutate(height = if_else(is.na(height), -999, height)) # if height is missing, set it as -999, else put height. Also, never do this. 
+```
+
+<br> 
+
+The above code changes all missing values in the height variable to `-999`. Note that we use the `height` variable in the `false` argument in order to assign values back to height if it is not missing. So this would be read as "if height is missing, -999, else height". 
+
+## Modify or create any number of values with `case_when()`
+
+Sometimes we'd like to make more than one modification or create a variable that has multiple changes relative to its inputs. 
+
+If we wanted to do this with `if_else()`, we may need multiple nested `if_else()` statements. 
+
+<br> 
+
+```{r}
+starwars |> 
+  mutate(is_tall = if_else(height < 80, 
+                           "Short", # if height is greater than 80, assign "Short
+                           if_else(height >= 80 & height <= 200, # else if this condition is met, assign Medium
+                                   "Medium", 
+                                   if_else(height > 200, # else if this condition is met, assign Tall
+                                   "Tall", 
+                                   as.character(height))))) |> # else assign back to height
+  count(is_tall) # tabulate frequencies
+```
+
+<br>
+
+This can be cumbersome and hard to track. Instead, we can use the `case_when()` function. 
+
+<br> 
+
+```{r}
+starwars |> 
+  mutate(height_category = case_when(
+    height < 80 ~ "Short", # if height is greater than 80, assign "Short"
+    height >= 80 & height <= 200 ~ "Medium", # else if this condition is met, assign Medium
+    height > 200 ~ "Tall" # else if this condition is met, assign Tall
+  )) |> 
+  count(height_category) # tabulate frequencies
+```
+
+<br>
+
+The arguments in `case_when()` are evaluated in order, so you must proceed from the most specific to the most general. For example, this won't work: 
+
+<br> 
+
+```{r}
+x <- 1:70 
+case_when(
+  x %% 5 == 0 ~ "fizz", 
+  x %% 7 == 0 ~ "buzz", 
+  x %% 35 == 0 ~ "fizz buzz", 
+  .default = as.character(x)
+)
+```
+
+

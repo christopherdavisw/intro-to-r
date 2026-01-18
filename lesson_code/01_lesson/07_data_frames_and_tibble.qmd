@@ -1,0 +1,154 @@
+---
+title: ""
+editor: source
+---
+
+# Data Frames and `tibble` 
+
+A data frame is the data structure most often used for data analysis. 
+
+To understand what a dataframe is, we first must understand what a list is. We looked earlier at atomic vectors, which was the first of two kinds of vectors. Lists are the second. 
+
+Unlike atomic vectors, where **all elements of the vector must be of the same type**, each element of a list can be **any type of object**. This is because each element of a list is actually an object reference.
+
+Data frames are a special kind of list that contain **equal length vectors**. A helpful analog to a data frame might be a SAS dataset or an Excel worksheet, with rows to delineate observations and columns to delineate variables. 
+
+Here's an example of a data frame. 
+
+<br> 
+
+```{r}
+# print only the first 6 observations of the iris dataframe 
+
+iris_abr <- head(iris)
+
+iris_abr
+```
+
+You can view an entire data frame with the `View()` function. You can also click on the Environment pane after assigning a dataset.
+
+```{r}
+#| eval: false
+
+View(iris)
+```
+
+<br> 
+
+![](images/view.png)
+
+<br>
+
+## Accessing Columns
+
+You can access specific columns in a dataframe by using `<dataframe>$<variable>` syntax. 
+
+<br> 
+
+```{r}
+iris_abr$Sepal.Length
+```
+
+You can do the same with the `[ , "<col_name"]` syntax. 
+
+```{r}
+iris_abr[, "Sepal.Length"]
+```
+
+<br>
+
+## Subsetting Data Frames
+
+You can remove observations in a data frame similarly to how you would in a vector, with `[]` and a `logical` vector. 
+
+<br> 
+
+```{r}
+iris_abr[iris_abr$Sepal.Length < 4.8, ]
+```
+
+<br> 
+
+This syntax can be cumbersome, as we need to reference the dataset twice to make it work. We are about to examine a better way of working with data frames. 
+
+## `tidy` data
+
+In this class we will be using the `tidyverse` universe of packages, which are built upon the principles of tidy data. 
+
+<br> 
+
+![](images/what_is_tidydata.jpeg)
+
+<br>
+
+The core principle is to tidy data into a format that is standardized and more efficient to work with. Then, we use tools optimiszed to work with that kind of data. 
+
+## Loading `tidyverse`
+
+For this section, let's start a script and load the `tidyverse` package. 
+
+::: callout-note
+Remember, you need to install the packages first in the console by typing `install.packages("tidyverse")` if you haven't already. You only need to do this once. 
+::: 
+
+<br> 
+
+```{r}
+#| warnings: false
+#| message: false
+
+library(tidyverse)
+```
+
+There are many packages within the `tidyverse` umbrella. 
+
+- [tibble](https://tibble.tidyverse.org/), for tibbles, a modern take on data frames
+- [dplyr](https://dplyr.tidyverse.org/), for data manipulation
+- [tidyr](https://tidyr.tidyverse.org), for data tidying
+- [readr](https://readr.tidyverse.org), for data import 
+- [stringr](https://github.com/tidyverse/stringr), for working with strings
+- [forcats](https://github.com/hadley/forcats), for working with factors (categorical variables with restricted labels)
+- [ggplot2](https://ggplot2.tidyverse.org), for data visualization
+- [purrr](https://purrr.tidyverse.org/), for iteration and functional programming 
+
+<br> 
+
+We will be using the `tibble` and `dplyr` packages today. 
+
+<br> 
+
+## `tibble`
+
+`tibble` is a data frame with some slightly adjusted features to make them work better. They: 
+
+- Never change the type of inputs when they are read in (data frames can for certain inputs)
+- Print to the console with better user-friendly information
+- Never creates row.names()
+- Do not adjust the names of variables
+
+You can convert a dataframe to a tibble with the `as_tibble()` function. 
+
+<br> 
+
+```{r}
+as_tibble(iris)
+```
+
+<br> 
+
+A tibble is a data frame, but not all data frames are necessarily tibbles. 
+
+```{r}
+# the class function determines what kind of object the object is 
+
+class(as_tibble(iris))
+```
+
+<br>
+
+```{r}
+class(iris)
+```
+
+<br>
+

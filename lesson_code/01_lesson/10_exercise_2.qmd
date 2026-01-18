@@ -1,0 +1,66 @@
+---
+title: ""
+editor: visual
+---
+
+```{r}
+#| echo: false
+#| message: false 
+#| warning: false
+
+library(tidyverse)
+```
+
+# Exercise 2
+
+All exercises live in the `exercises/` folder. Navigate to that folder in the `Files` pane and click on `02_exercise.R`. 
+
+In this exercise we'll continue to use the `starwars` tibble from the `dplyr` package. 
+
+## Exercise 2.1
+
+### panel-tabset
+
+### Problem
+
+#### **Part 1**: Sort the `starwars` dataset, descending by `height`. Assign the new dataset to `starwars_1`. 
+#### **Part 2**: Based on the values of `height`, `filter()` `starwars_1` such that it only contains 10 observations. Assign the new dataset to `starwars_2`.
+
+#### **Part 3**: Get the average height in the `starwars_2` tibble. 
+
+<br>
+
+::: {.callout-note}
+You may need to set `na.rm = TRUE` in the `mean()` function. 
+:::
+
+<br>
+
+### Solution
+
+#### **Part 1**: Sort the `starwars` dataset, descending, by `height`. Assign the new dataset to `starwars_1`. 
+
+```{r}
+starwars_1 <- starwars |> 
+  arrange(desc(height))
+```
+
+#### **Part 2**: Based on the values of `height`, `filter()` `starwars_1` such that it only contains 10 observations. Assign the new dataset to `starwars_2`. 
+
+```{r}
+starwars_2 <- starwars_1 |> 
+  filter(height >= 202)
+```
+
+
+#### **Part 3**: Get the average height in the `starwars_2` tibble. 
+
+```{r}
+starwars_2 |> 
+  summarise(mean_height = mean(height, na.rm = TRUE))
+```
+
+<br>
+
+:::
+

@@ -1,0 +1,253 @@
+---
+title: ""
+editor: source
+---
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(tidyverse)
+```
+
+# Aesthetics  
+
+Each layer (the `geom_<*>()` functions) have specific aesthetic options that map to them. You can look up specific aesthetics for specific functions by looking up their help documentation (`?geom_<*>()` or `help(geom_<*>())`). 
+
+Here is the description of some of the commonly used aesthetics across many of the functions. Much of this is taken from the [Aesthetic specifications ggplot2 vignette](https://ggplot2.tidyverse.org/articles/ggplots2-specs.html).  
+
+## `x` and `y`  
+
+- `x`: The most common aesthetic - the variable that is mapped to the x axis. 
+
+- `y`: Variable that is mapped to the y axis. Should usually be present when creating a multivariate plot. 
+
+<br>
+
+```{r}
+ggplot() + 
+  geom_point(data = diamonds, 
+             mapping = aes(x = carat, 
+                           y = price))
+```  
+
+<br>
+
+## `alpha`  
+
+`alpha` maps the transparancy of objects. It ranges from a scale of 0 to 1, where lower values correspond to more transparant colors. 
+
+<br>
+
+```{r}
+ggplot() + 
+  geom_point(data = diamonds, 
+             mapping = aes(x = carat, 
+                           y = price), 
+             alpha = .1) # set transparency
+```  
+
+<br>
+
+## `color` and `fill` 
+
+- `color` maps the color of lines and points (that are not explicit shapes 21-25).  
+
+- `fill`: maps the color for inside the lines of polygons (such as bars, geographic maps, etc.) 
+
+<br>
+
+```{r}
+ggplot() + 
+  geom_bar(data = diamonds, 
+           mapping = aes(x = cut, 
+                         fill = cut), # set color within the bar polygon
+           color = "red") # set color of lines of the bar polygon
+```
+
+<br>
+
+These are the default colors in ggplot2. We will see how to change these defaults when we look at `scale_*()` functions.
+
+<br>
+
+## `shape`  
+
+`shape` changes what an object looks like when visualized, usually for the `geom_point()` function. Here is a list of possible values. 
+
+![](images/shapes.png)  
+
+<br> 
+
+`shape` can reference these values as numeric instead, but I won't supply those here because I do not recommend that - it is better for the reader if you spell out which one you're using. 
+
+<br>  
+
+## `size` and `stroke`  
+
+The shapes that are filled with red in the graph above have both a `color` and a `fill`. The size of the filed part is controlled by `size`, while the size of the lined part is controlled by `stroke`. 
+
+<br> 
+
+```{r}
+#| echo: false  
+
+sizes <- expand_grid(size = (0:3) * 2, stroke = (0:3) * 2)
+
+ggplot(sizes, aes(size, 
+                  stroke, 
+                  size = size,
+                  stroke = stroke)) + 
+  geom_abline(slope = -1, 
+              intercept = 6, 
+              colour = "white", 
+              linewidth = 6) + 
+  geom_point(shape = 21, fill = "red") + 
+  scale_size_identity()
+```
+
+<br>
+
+## `linetype` 
+
+`linetype` can be specified with one of the following character strings: 
+
+<br> 
+
+```{r}
+#| echo: false  
+
+lty <- c("solid", 
+         "dashed", 
+         "dotted", 
+         "dotdash", 
+         "longdash", 
+         "twodash")
+
+linetypes <- data.frame(
+  y = seq_along(lty), 
+  lty = lty
+)  
+
+ggplot(linetypes, aes(0, y)) + 
+  geom_segment(aes(xend = 5, yend = y, linetype = lty)) + 
+  scale_linetype_identity() + 
+  geom_text(aes(label = lty), hjust = 0, nudge_y = 0.2) + 
+  scale_x_continuous(NULL, breaks = NULL) + 
+  scale_y_reverse(NULL, breaks = NULL)
+```
+
+<br>  
+
+There are other manual ways to specify how far away each tick is using hexadecimal characters. I will not go over this.  
+
+<br>
+
+## `linewidth`
+
+`linewidth` changes the width of a line, go figure. 
+
+```{r}
+#| echo: false
+set.seed(1)  
+
+xValue <- 1:10
+yValue <- cumsum(rnorm(10)) 
+my_data <- data.frame(xValue, yValue)
+```
+
+Due to a historical error, the default value for `linewidth` is 0.75. 
+
+Here's the default. 
+
+<br> 
+
+```{r}
+
+# Plot
+ggplot(data = my_data, aes(x = xValue, y = yValue)) + 
+  geom_point() + 
+  geom_line()
+```
+
+
+Here's a `width` of 1. 
+
+```{r}
+
+# Plot
+ggplot(data = my_data, aes(x=xValue, y=yValue)) + 
+  geom_point() + 
+  geom_line(linewidth = 1)
+```
+
+<br> 
+
+Here's a `width` of 2. 
+
+<br> 
+
+```{r}
+
+# Plot
+ggplot(data = my_data, aes(x=xValue, y=yValue)) + 
+  geom_point() + 
+  geom_line(linewidth = 2)
+```
+
+<br>
+
+## `group`  
+
+The `group` aesthetic by default is set to the interaction of all discrete variables in the plot. This usually works correctly, but when it does not, we need to explicitly define the group. 
+
+The `Oxboys` data frame from the `nlme` package contains the `height` and `age` variables, by Subject. 
+
+<br> 
+
+```{r}
+
+tibble(nlme::Oxboys)
+
+```
+
+<br> 
+
+However, if you tried to map the `height` and `age` variables but not `subject`, we'd get a wonky graph. 
+
+<br> 
+
+```{r}
+
+ggplot(nlme::Oxboys, mapping - aes(age, height)) + 
+  geom_line()
+
+```  
+
+<br>  
+
+This looks weird. 
+
+We could solve this by incorporating an aesthetic to make every grouping unlie, like `color`. 
+
+<br> 
+
+```{r}
+ggplot(nlme::Oxboys, mapping = aes(age, height, color = Subject)) + 
+  geom_line()
+```
+
+<br>  
+
+But, if we didn't want to have different colors for each line, we could use the `group` parameter instead. 
+
+<br> 
+
+```{r}
+ggplot(nlme::Oxboys, 
+       mapping = aes(age, height, group = Subject)) + 
+  geom_line()
+```
+
+

@@ -1,0 +1,109 @@
+---
+title: ""
+editor: source
+---
+
+# R Basics
+
+## Comments
+
+Comments in R are created with the `#` character. We use comments to give the reader of code (which is sometimes yourself in 6 months) an indication of what you are doing and why. Use them frequently to explain what you are doing to those reading your code. 
+
+For multi-line comments, highlight the lines you would like to comment and `Shift` + `CTRL` + `C`. 
+
+<br> 
+
+```{r}
+# This is a comment
+
+# This comment
+# is multi-line
+
+```
+
+<br> 
+
+## Assignment 
+
+We've already discussed that we can use R like a calculator. 
+
+<br> 
+
+```{r}
+# use R like a calculator
+3 + 4
+```
+
+<br>
+
+The `<-` operator allows you to assign whateer is on the right hand side to an object name on the left hand side in the format of `<obj_name> <- <expr>`. This does two things: 
+
+<br> 
+
+- Creates an object. You can think of an object like you would in real life, but in the virtual world (basically any kind of noun). 
+- Creates a name that points to that object. 
+
+<br> 
+
+This allows you to reference the object that the object name points to without needing to type in the values again. 
+
+<br> 
+
+```{r}
+#assign values to an object reference
+var <- 3 + 4
+
+var
+```
+
+<br> 
+
+The `<-` operator is used as opposed to most programming languages where the default assignment is `=`. In R, `=` does work for assignment, but it is best practice to use `<-`. 
+
+<br> 
+
+::: {.callout-note}
+
+If you type th eobject name without assignment, it wil print the result automatically. 
+:::
+
+<br>
+
+### Valid Names 
+
+Object name must consist of letters, digits, and `_`. They cannot begin with a `_` or a digit. 
+
+R will not let hyou use names that are reserved, like `if` or `function`. It is also bad practice to overwrite base functions or other functions that you would like to use (like `mean()`). 
+
+<br> 
+
+# Calling Functions
+
+Speaking of functions, functions in R are objects that reference a block of code that runs when called. 
+
+Functions can have inputs, known as parameters, and can return objects. Neither are mandatory. 
+
+The syntax for calling functions is: 
+
+<br> 
+
+```{r}
+#| eval: false
+
+<function_name>(<param1> = "<first_argument>", 
+                <param2> - "<second_argument>")
+```
+
+<br>
+
+where `function_name` is the name of the function, `param` is the first parameter of the function, and `"first_argument"` is the first user-provided input into the function. 
+
+Note that we are using an `=` sign here; when calling or creating functions, we use `=` to assign the arguments to the parameters. 
+
+<br> 
+
+::: {.callout-tip}
+### Using Help
+
+Remember that you can type `?<function_name>` or `help(<function_name>)` into the console to look at the purpose of specific functions and what arguments are valid. 
+:::

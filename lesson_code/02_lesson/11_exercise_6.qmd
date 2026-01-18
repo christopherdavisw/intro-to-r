@@ -1,0 +1,143 @@
+---
+title: ""
+editor: source
+---
+
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(nycflights13)
+```
+
+# Exercise 6
+
+All exercises live in the `exercises` folder. Navigate to that folder in the `Files` pane and click on `06_exercise.qmd`. 
+
+## Exercise 6.1
+
+::: panel-tabset
+
+### Problem 
+
+- Install the `nycflights13` package and load it. 
+
+- The `flights` data frame in that package records data related to flights, like their departure time, their scheduled departure time, distance between airports, etc. The `planes` data frame records data about each plane. Identify the shared key among these two datasets. 
+
+- Do a join such that all records on both sides end up in the result, even if there is no complementing key for it in on the other data frame. Assign the result to `joined`. 
+
+- Note that there are now the variables `year.x` and `year.y` in the data frame. Why might this be the case? 
+### Solution
+
+
+- Install the `nycflights13` package and load it. 
+
+<br>
+
+```{r}
+#| eval: false
+
+# run in the console
+install.packages("nycflights13")
+
+# load the library
+library(nycflights13)
+```
+
+<br>
+
+- The `flights` data frame in that package records data related to flights, like their departure time, their scheduled departure time, distance between airports, etc. The `planes` data frame records data about each plane. Identify the shared key among these two datasets. 
+
+The shared key is `tailnum`. It occurs in both data frames and has the same format. 
+
+- Do a join such that all records on both sides end up in the result, even if there is no complementing key for it in on the other data frame. Assign the result to `joined`. 
+
+<br>
+
+```{r}
+joined <- full_join(flights, planes, join_by(tailnum))
+```
+
+<br>
+
+- Note that there are now the variables `year.x` and `year.y` in the data frame. Why might this be the case? 
+<br>
+
+`year` exists in both data frames but was not included in the `by` condition because they reference different years. Unlike SAS, in R when you merge two data frames that have the same variable, the variables are renamed with suffixes and are both maintained in teh result. 
+
+::: 
+
+## Exercise 6.2 - Challenge
+
+::: panel-tabset
+
+### Problem
+
+- Load the `tidylog` package and do the join again. How many observations did we not find a key for on each side? 
+
+- With the results of 6.1 (`joined`), identify the manufacturer for the plane of the flight that occurs first temporally in the data frame. 
+
+- Look up the `semi_join()` and `anti_join()` function documentation. 
+
+- Under what circumstances would you use these functions? 
+
+### Solution
+
+- Load the `tidylog` package and do the join again. How many observations did we not find a key for on each side? 
+
+```{r}
+#| message: false
+
+library(tidylog)
+```
+
+
+```{r}
+joined <- full_join(flights, planes, join_by(tailnum))
+```
+
+<br>
+
+52,606 observations in flights do not have a record in `planes` but 0 records in `planes` do not have a record in flights. 
+
+<br>
+
+- With the results of 6.1 (`joined`), identify the manufacturer for the plane of the flight that occurs first temporally in the data frame. 
+
+<br>
+
+```{r}
+joined |> 
+  arrange(year.x, 
+          month, 
+          day, 
+          dep_time) |> 
+  head(1) |> 
+  pull(manufacturer)
+```
+
+<br>
+
+- Look up the `semi_join()` and `anti_join()` function documentation. 
+
+<br>
+
+```{r}
+#| eval: false
+
+help(semi_join)
+help(anti_join)
+```
+
+<br> 
+
+- Under what circumstances would you use these functions? 
+
+
+`semi_join()` - When you want to filter a data frame based on if a key exists in another data frame. 
+
+`anti_join()` - When you want to filter a dataframe based on if a key does not exist in another data frame. :::
+

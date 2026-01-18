@@ -1,0 +1,69 @@
+---
+title: ""
+editor: source
+---
+
+# Getting Started  
+
+## R projects 
+
+<br> 
+
+Opening an R project will open up an RStudio window and change our current directory to the folder the project is saved in. 
+
+R projects are meant to store your code, data, and results all in one place. They allow for fast collaboration with others on code, as all files are referenced through relative file paths relative to the project directory. Others will be able to quickly reproduce your work. 
+
+I recommend to always use R projects whenever working in R. Using relative file paths (relative to the project directory) such as `data/raw_data.csv` instead of absolute filepaths like `C:/Users/davischr/proj/intro-to-r/data/raw_data.csv` can help share code ina more collaborative way - others don't have to change your code to run it. To reference a folder above the current directory with relative file paths, use `../`. 
+
+<br> 
+
+## Becoming Familiar With RStudio 
+
+Let's take a look around the RStudio GUI. 
+
+<br> 
+
+### Console 
+
+This is where we can run R code in an interactive session. 
+
+R Can do simple mathematical calculations as you would on a calculator. 
+
+![](images/console.png)
+
+<br> 
+
+### Environment Pane
+
+This pane will show you what objects you have loaded in memory. More on what these difference objects mean later. You can think of this as our workspace, which is where our objects are saved in memory. 
+
+![](images/environment_pane.png)
+
+<br>
+
+### Source pane and R Scripts
+
+The Source pane is where we are able to edit various code-related files, such as R scripts, R Markdown documents, or Quarto documents. For now, we will use R Scripts for our exercises. You can create a new R Script to save the code you have worked on my going to the **File** \> **New File** \> **R Script**.
+
+![](images/r_script.png)
+
+<br>
+
+### Output pane
+
+The Output pane contains many panes; I will highlight three: 
+
+- `Files` pane: where you can see files in your working directory and other folders
+- `Plots` pane: where graph output can go to view graphs
+- `Help` pane: where function descriptions, argument information, and examples are shown. You can get the metadata for functions in R by typing `help(<function_name>)` or `?<function_name>` into the console. 
+
+<br> 
+
+![](images/output.png)
+
+<br> 
+
+::: {.callout-note}
+
+Throughout this course, I will use the `<some text here>` syntax to refer to text that the user puts in. So, for example, if I write `mean(<some object here>)`, you might type `mean(x)` or `mean(y)`. 
+:::

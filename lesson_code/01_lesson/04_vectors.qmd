@@ -1,0 +1,572 @@
+---
+title: ""
+editor: source
+---
+
+# Vectors
+Vectors are lists of values in R. Much of R is built around the structure of vectors. 
+
+There are two types of vectors: atomic vectors and lists. We will focus on atomic vectors today. 
+
+<br> 
+
+## Atomic Vectors
+
+All elements within an atomic vector **must have the same type**. You can create a vector with the `c()` function with elements separated by `,`. 
+
+There are four primary commonly-used atomic vectors. 
+
+![Source: Advanced R by Wickham](images/vectors.png)
+
+<br>
+
+### `numeric` Vectors: `integer` and `double`
+
+Like the name denotes, `integer` vectors all must be whole numbers. `double` vectors can have any number of decimals. 
+
+Most functions we'll use treat `integer` vectors and `double` vectors similarly. For example: 
+
+<br> 
+
+```{r}
+
+# *digit*L is the way to identify integers in R
+integer_vector <- c(2L, 
+                    4L, 
+                    1L, 
+                    3L)
+
+mean(integer_vector)
+```
+
+<br>
+
+gives the same result as: 
+
+<br> 
+
+```{r}
+
+# can reference double with just the digits
+double_vector <- c(2, 
+                   4, 
+                   1, 
+                   3)
+
+mean(double_vector)
+```
+
+<br>
+
+For our purposes, we will think of both of these types of vectors as `numeric` and treat them similarly. 
+
+<br> 
+
+#### Sorting vectors
+
+You can sort any vector with the `sort()` function. 
+
+```{r}
+sort(double_vector)
+```
+
+
+#### `numeric` vectors in a sequence
+
+To create a numeric vector with sequential numbers, use the syntax `<from>:<to>`. 
+
+<br>
+
+```{r}
+
+# create a sequential numeric vector from 1 to 5
+sequential <- 1:5
+
+sequential
+```
+<br>
+
+If you want to increment by smoething else, use the `seq()` function. 
+
+This function takes int he following arguments: 
+
+<br> 
+
+- `from`: starting value\
+- `to`: ending value\
+- `by`: increment of the sequence
+
+<br> 
+
+```{r}
+
+# create sequence, increment by 3
+
+by_3 <- seq(from = 1, 
+            to = 25, 
+            by = 3)
+
+by_3
+```
+
+<br> 
+
+#### Arithmetic operators
+
+You can use arthmetic operators with `numeric` vectors as well as with single elements. 
+
+Here is a list of arithmetic operators: 
+
+<br> 
+
+```{r}
+#| echo: false
+
+my_df <- data.frame(Operator = c("+", 
+                                 "-", 
+                                 "*", 
+                                 "/", 
+                                 "^", 
+                                 "%%", 
+                                 "&&"), 
+                    Name = c("Addition", 
+                             "Subtraction", 
+                             "Multiplication", 
+                             "Division", 
+                             "Exponent", 
+                             "Modulus (Remainder from division)", 
+                             "Integer Division"), 
+                    
+                    Example = c("x + y", 
+                                "x - y", 
+                                "x * y", 
+                                "x / y", 
+                                "x ^ y", 
+                                "x %% y", 
+                                "x&&y"))
+
+kableExtra::kable(my_df)
+```
+
+Source: [W3Schools](https://www.w3schools.com/)
+
+<br> 
+
+These operators are *vectorized*, which means the operation will occur for each element of the vector. 
+
+For example, remember the `sequential` vector: 
+
+<br> 
+
+```{r}
+
+# sequence, incremented by 1
+sequential
+```
+
+<br>
+
+We can create a new vector with an arithmetic operator: 
+
+<br> 
+
+```{r}
+# add 1
+
+sequential_plus_1 <- sequential + 1
+
+sequential_plus_1
+```
+
+<br> 
+
+Each element of the vector was changed. 
+
+We can also use vectors of the same length on either side of the arithmetic opertor: 
+
+<br> 
+
+```{r}
+character_vector <- c("This", 
+                      "is", 
+                      "a",
+                      "string")
+
+character_vector
+```
+
+<br>
+You can concatenate strings in base R with the `paste()` function. 
+<br>
+
+```{r}
+# initialize strings
+
+string_1 <- "This is"
+string_2 <- "a string"
+
+# use paste function with multiple strings
+paste(string_1, 
+      string_2, 
+      sep = " ") # use sep argument to add separater between strings
+```
+
+<br>
+You can concatenate strings in the same vector with the `collapse` argument. 
+<br> 
+
+```{r}
+# concatenate strings in the same vector 
+paste(character_vector, collapse = " ")
+```
+
+<br>
+You can count the number of characters in each element of a character vector with the `nchar()` function. 
+<br> 
+
+```{r}
+# get length of each element
+num_chars <- nchar(character_vector)
+
+num_chars
+```
+
+<br>
+To get the total number of elements of any vector, you can use the `length()` function. 
+<br> 
+
+```{r}
+# get length of vector
+length_num <- length(num_chars)
+
+length_num
+```
+
+<br>
+
+### `logical` Vectors
+
+Logical vectors are limited to binary `TRUE` and `FALSE` values. 
+
+<br> 
+
+```{r}
+# this is a logical vector
+
+logical_vector <- c(TRUE, 
+                    TRUE, 
+                    FALSE, 
+                    TRUE)
+
+logical_vector
+```
+
+<br>
+
+Logical vectors are extremely useful in R, as they can be used to flag and subset values. 
+
+<br> 
+
+#### Comparison Operators
+
+Comparison opertors are used to compare two values. 
+
+<br>
+
+```{r}
+#| echo: false 
+
+comp_df <- data.frame(Operator = c("==", 
+                                   "!=", 
+                                   ">", 
+                                   "<", 
+                                   ">=", 
+                                   "<=", 
+                                   "%in%"), 
+                      Name = c("Equal", 
+                               "Not equal", 
+                               "Greater than", 
+                               "Less than", 
+                               "Greater than or equal to", 
+                               "Less than or equal to", 
+                               "Have values within"), 
+                      Example = c("x == y", 
+                                  "x != y", 
+                                  "x > y", 
+                                  "x < y", 
+                                  "x >= y", 
+                                  "x <= y", 
+                                  "x %in% y")) 
+
+kableExtra::kable(comp_df)
+```
+
+<br> 
+
+You can use a comprison of two values, one on each side, and it will provide 1 logical result. 
+
+<br> 
+
+```{r}
+# what values in sequential are equal to 4? 
+
+sequential == 4
+```
+
+<br>
+
+Or, you can have vectors on both sides. 
+
+<br> 
+
+```{r}
+# my name with old middle initial before marriage 
+old_me <- c("Christopher", 
+            "W", 
+            "Davis")
+
+# my name with new middle initial after marriage
+
+new_me <- c("Christopher", 
+            "P", 
+            "Davis")
+
+# test what elements are the same 
+old_me == new_me
+
+
+```
+
+<br>
+For this to work correctly, both sides of the comparison must have an equal `length()`.
+
+Other operations work as you might expect. 
+
+<br> 
+
+```{r}
+# test less than operator
+
+values <- c(1, 
+            3, 
+            2, 
+            5, 
+            2)
+
+values < 3
+```
+
+<br>
+
+```{r}
+# test greater than or equal to operator 
+
+values >= 4
+```
+
+<br>
+
+##### The `%in%` operator 
+
+The `%in%` opertor returns `TRUE` for each element on the left hand side tht is within an element on the right hand side. It has the same `length()` as the elements on the left hand side. 
+
+<br> 
+
+```{r}
+
+# test if each element of sequential is either two or three
+
+values %in% c(2, 3)
+```
+
+<br> 
+
+#### Logical Operators 
+
+Logical operators are used to combine conditional statements. 
+
+<br> 
+
+```{r}
+#| echo: false 
+
+comp_df <- data.frame(Operator = c("&", 
+                                   "|", 
+                                   "!"), 
+                      Name = c("AND operator. Returns TRUE if both elements are TRUE", 
+                               "OR operator. Returns TRUE if either elements are TRUE", 
+                               "NOT operator. Returns TRUE if the condition is not TRUE"), 
+                      Example = c("x == y & a == b", 
+                                  "x == y | a == b", 
+                                  "!(x == y"))
+
+kableExtra::kable(comp_df)
+```
+
+<br>
+
+## Subsetting Vectors
+
+You can pull out an element of a vector with the `[]` operator. 
+
+<br> 
+
+```{r}
+# create double vector again 
+double_vector <- c(2, 
+                   4, 
+                   1, 
+                   3)
+# pull out the first element of a vector 
+double_vector[1]
+```
+
+<br> 
+
+You can pull out multiple elements of a vector by providing a vector instead of a number in the `[]` brackets. These numbers represent the indicies of the vector; i.e., element 1, element 2, element 3, ect. 
+
+<br> 
+
+```{r}
+# create full vector
+full_vector <- c(1, 
+                 4, 
+                 1, 
+                 2, 
+                 10, 
+                 2, 
+                 1)
+
+# create vector to represent indicies to pull out 
+subset_vector <- c(1, 
+                   3,
+                   4)
+
+# pull out first, third, and fourth element
+full_vector[subset_vector]
+```
+
+<br> 
+
+You can also subset with  logical vector. 
+
+<br> 
+
+```{r}
+# get only the elements that are equal to 1
+
+full_vector[full_vector == 1]
+```
+
+<br>
+
+```{r}
+# get only the elements that are less than 5
+
+full_vector[full_vector < 5]
+```
+
+
+<br>
+
+## Missing Values
+
+R represents missing, or unknown, values with `NA` (short for not applicable). Missing values tend to be infectious: most computations involving a missing value will return another missing value. 
+
+```{r}
+some_values_na <- c(2, 
+                    NA, 
+                    3, 
+                    NA,
+                    5)
+
+some_values_na < NA
+```
+
+<br> 
+
+```{r}
+some_values_na == NA
+```
+
+<br>
+
+Therefore, to check if values are missing or not, use the `is.na()` function.
+
+<br> 
+
+```{r}
+is.na(some_values_na)
+```
+
+## Type Assessment
+
+### `typeof()` function
+
+You can check what type an atomic vector is with the `typeof()` function. 
+
+```{r}
+# get type of vector
+
+typeof(double_vector)
+```
+
+```{r}
+# get type of vector
+
+typeof(character_vector)
+```
+
+```{r}
+# get type of vector
+
+typeof(logical_vector)
+```
+
+### `is_<type>` functions
+
+We sometimes wnt to be able to identify whether variables are `numeric`, `character`, or `logical`. We can do this with the `is_<type>()` functions. 
+
+<br> 
+
+```{r}
+numeric_vector <- c(3, 
+                    5, 
+                    1, 
+                    7, 
+                    2)
+
+is.numeric(numeric_vector)
+```
+
+<br> 
+
+```{r}
+character_vector <- c(3, 
+                      5, 
+                      1, 
+                      "not a number")
+
+is.character(character_vector)
+```
+
+::: {.callout-note}
+
+When both character elements and numeric elements are put into the `c()` function, it evaluates to a `character` vector. 
+:::
+
+## Type Conversion
+
+One fucntionality we have not talked about in R is when we want to convert from one kind of variable to another. We can do this with the `as.numeric()`, as.character()`, and `as.logical()` functions. 
+
+```{r}
+as.character(numeric_vector)
+```
+
+```{r}
+as.numeric(character_vector)
+```
+
+::: {.callout-note}
+When converting from `character` to `numeric`, if there is an element with at least one `character` that would not evaluate to a numeric, that element is cast to NA (missing).
+:::

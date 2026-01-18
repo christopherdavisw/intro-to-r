@@ -1,0 +1,111 @@
+---
+title: ""
+editor: source
+---
+
+# Exercise 3
+
+All exercises live in the `exercise/` folder. Navigate to that folder in the `Files` pane and click on `03_exercise.qmd`. 
+
+::: {.callout-note}
+
+This document is different than a `.R` script - it is called a Quarto document. Everything outside the {r} code chunks is Markdown language, and everything inside of it is R. For our purposes, all you need to know is to write the code inside of the {r} code chunks and all non-code outside of it (like answers to test questions). 
+
+:::
+
+## Exercise 3.1 
+
+::: panel-tabset
+### Problem 
+
+- What is your current directory? 
+
+- Locate the "UADAggs_nat_v3_0.sas7bdat" file within the "lesson_code", "02_lesson", and "data" subdirectories. Read that file into R using a relative file path. 
+
+- Compared to the `.parquet` version of the data, how much larger is the `.sas7bdat` file? (You don't need R for this)
+
+### Solution
+
+- What is your current directory? 
+
+<br>
+
+You can check your current directory with the `getwd()` functino.
+
+<br>
+
+```{r}
+#| eval: false
+
+getwd()
+```
+
+<br>
+
+- Locate the "UADAggs_nat_v3_0.sas7bdat" file within the "lesson_code", "02_lesson", and "data" subdirectories. Read that file into R using a relative file path. 
+
+<br>
+
+```{r}
+#| eval: false
+
+library(haven)
+read_sas("lesson_code/02_lesson/data/UADAggs_nat_V3_0.sas7bdat")
+```
+
+<br>
+
+
+- Compared to the `.parquet` version of the data, how much larger is the `.sas7bdat` file? (You don't need R for this)  
+
+The `.parquet` file is 778 KB while the `.sas7bdat` file is 81,892 KB. So the `.sas7bdat` file is more than 105 times larger. 
+
+:::
+
+## Exercise 3.2 - Challenge
+
+::: panel-tabset
+
+### Problem
+
+- Set your current directory to "lesson_code/02_lesson/images". 
+
+- Now read in the same file from Exercise 3.1 using a relative file path. 
+
+- Set your current directory back to the `intro-to-r` folder. 
+
+<br>
+
+### Solution
+
+- Set your current directory to "lesson_code/02_lesson/images". 
+
+<br>
+```{r}
+#| eval: false
+
+setwd("lesson_code/02_lesson/images")
+```
+<br>
+
+- Now read in the same file from Exercise 3.1 using a relative file path. 
+```{r}
+#| eval: false
+
+library(haven)
+read_sas("../data/UADAggs_nat_V3_0.sas7bdat")
+```
+<br>
+
+- Set your current directory back to the `intro-to-r` folder. 
+
+<br>
+
+```{r}
+#| eval: false
+
+setwd("../../.../")
+```
+
+:::
+

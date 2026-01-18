@@ -1,0 +1,11 @@
+/* css styles */
+ .sidebar a {
+  margin-bottom: 10px; 
+}
+
+ .sidebar-time-first-child {
+   font-size: 20px;
+   margin-bottom: 30px;
+ }
+ 
+ 
