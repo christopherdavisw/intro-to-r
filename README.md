@@ -2,7 +2,7 @@
 ## Introduction to R
 
 Welcome to the Introduction to R class! 
-![](images/my_logo.png){width = "50"}
+
 
 Note that this site is an abridged version of the full 6 course class taught at a government agency. It has been modified for public display.
 
