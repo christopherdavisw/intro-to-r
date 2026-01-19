@@ -1,6 +1,9 @@
+
 ## Introduction to R
 
 Welcome to the Introduction to R class! 
+
+To visit the site, go to [https://christopherdavisw.github.io/intro-to-r/](https://christopherdavisw.github.io/intro-to-r/). 
 
 Note that this site is an abridged version of the full 6 course class taught at a government agency. It has been modified for public display.
 

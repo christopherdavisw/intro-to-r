@@ -58,9 +58,16 @@
   {
     "objectID": "lesson_code/02_lesson/01_welcome.html",
     "href": "lesson_code/02_lesson/01_welcome.html",
-    "title": "Introduction to R",
+    "title": "Welcome Back",
     "section": "",
     "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/01_welcome.html#recap",
+    "href": "lesson_code/02_lesson/01_welcome.html#recap",
+    "title": "Welcome Back",
+    "section": "Recap",
+    "text": "Recap\n\nAssignment with &lt;-\nVectors\n\nnumeric\n\ninteger and double\n\ncharacter\nlogical\n\nData Frames and tibble\ndplyr Basics\n\nmutate(): create new or modify existing variable\nfilter(): remove observations\nselect(): remove, rename, or order columns\narrange(): sort by row\ngroup_by(): group data\nsummarise(): summarize data by group\n\nTHe |&gt; pipe operator"
   },
   {
     "objectID": "lesson_code/02_lesson/09_exercise_5.html",

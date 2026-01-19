@@ -1,4 +1,32 @@
 ---
 title: ""
-editor: visual
+editor: source
 ---
+
+# Welcome Back
+
+<br> Welcome Back to the Introduction to R at FHFA Class!
+
+- **Step 1:** Remember to please clone the class materials from [GitHub](https://github.com/christopherdavisw/intro-to-r). 
+
+- **Step 2:** Open up the website by going to [this link](https://christopherdavisw.github.io/intro-to-r/). 
+
+- **Step 3:** Separately, open up the `intro-to-r.Rproj` file to open up the R project related to this class. 
+
+## Recap
+
+- Assignment with `<-`
+- Vectors 
+  - `numeric`
+    - `integer` and `double`
+  - `character`
+  - `logical`
+- Data Frames and `tibble`
+- `dplyr Basics` 
+  - `mutate()`: create new or modify existing variable 
+  - `filter()`: remove observations
+  - `select()`: remove, rename, or order columns
+  - `arrange()`: sort by row
+  - `group_by()`: group data
+  - `summarise()`: summarize data by group
+- THe `|>` pipe operator

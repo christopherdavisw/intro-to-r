@@ -112,7 +112,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lesson_code/02_lesson/01_welcome.html">01_welcome.html</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lesson_code/02_lesson/01_welcome.html">Welcome Back</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
     </div>
@@ -127,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lesson_code/02_lesson/01_welcome.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">01_welcome.html</span></a>
+ <span class="menu-text">Welcome Back</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -196,9 +196,18 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
-<p><img src="images/my_logo.png" class="img-fluid" width="100"></p>
+<p><img src="images/my_logo.png" class="img-fluid"></p>
 </div></div>
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#welcome-back" id="toc-welcome-back" class="nav-link active" data-scroll-target="#welcome-back">Welcome Back</a>
+  <ul class="collapse">
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><center>
@@ -207,8 +216,43 @@ Developed by Christopher Davis
 
 
 
+<section id="welcome-back" class="level1">
+<h1>Welcome Back</h1>
+<p><br> Welcome Back to the Introduction to R at FHFA Class!</p>
+<ul>
+<li><p><strong>Step 1:</strong> Remember to please clone the class materials from <a href="https://github.com/christopherdavisw/intro-to-r">GitHub</a>.</p></li>
+<li><p><strong>Step 2:</strong> Open up the website by going to <a href="https://christopherdavisw.github.io/intro-to-r/">this link</a>.</p></li>
+<li><p><strong>Step 3:</strong> Separately, open up the <code>intro-to-r.Rproj</code> file to open up the R project related to this class.</p></li>
+</ul>
+<section id="recap" class="level2">
+<h2 class="anchored" data-anchor-id="recap">Recap</h2>
+<ul>
+<li>Assignment with <code>&lt;-</code></li>
+<li>Vectors
+<ul>
+<li><code>numeric</code>
+<ul>
+<li><code>integer</code> and <code>double</code></li>
+</ul></li>
+<li><code>character</code></li>
+<li><code>logical</code></li>
+</ul></li>
+<li>Data Frames and <code>tibble</code></li>
+<li><code>dplyr Basics</code>
+<ul>
+<li><code>mutate()</code>: create new or modify existing variable</li>
+<li><code>filter()</code>: remove observations</li>
+<li><code>select()</code>: remove, rename, or order columns</li>
+<li><code>arrange()</code>: sort by row</li>
+<li><code>group_by()</code>: group data</li>
+<li><code>summarise()</code>: summarize data by group</li>
+</ul></li>
+<li>THe <code>|&gt;</code> pipe operator</li>
+</ul>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
