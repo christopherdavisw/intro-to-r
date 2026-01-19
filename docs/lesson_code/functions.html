@@ -1,0 +1,919 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.450">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Introduction to R - Untitled</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container">
+    <a href="../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../images/my_logo.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Introduction to R</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html" rel="" target="">
+ <span class="menu-text">Class Readme</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-lessons" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Lessons</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-lessons">    
+        <li>
+    <a class="dropdown-item" href="../lesson_code/01_lesson/01_welcome.html" rel="" target="">
+ <span class="dropdown-text">Lesson 1 - Data Wrangling</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lesson_code/02_lesson/01_welcome.html" rel="" target="">
+ <span class="dropdown-text">Lesson 2 - Data Wrangling 2</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../lesson_code/03_lesson/01_welcome.html" rel="" target="">
+ <span class="dropdown-text">Lesson 3 - Data Visualization 1</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="../lesson_code/functions.html" rel="" target="" aria-current="page">
+ <span class="menu-text">Functions</span></a>
+  </li>  
+</ul>
+            <div class="quarto-navbar-tools ms-auto">
+</div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar"><div class="quarto-margin-header"><div class="margin-header-item">
+<p><img src="images/my_logo.png" class="img-fluid" width="100"></p>
+</div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#function-and-operator-cheat-sheet" id="toc-function-and-operator-cheat-sheet" class="nav-link active" data-scroll-target="#function-and-operator-cheat-sheet">Function and Operator Cheat Sheet</a>
+  <ul class="collapse">
+  <li><a href="#lesson-01---data-wrangling-1" id="toc-lesson-01---data-wrangling-1" class="nav-link" data-scroll-target="#lesson-01---data-wrangling-1">Lesson 01 - Data Wrangling 1</a>
+  <ul class="collapse">
+  <li><a href="#getting-started" id="toc-getting-started" class="nav-link" data-scroll-target="#getting-started">Getting Started</a></li>
+  <li><a href="#r-basics." id="toc-r-basics." class="nav-link" data-scroll-target="#r-basics.">R Basics.</a></li>
+  <li><a href="#vectors." id="toc-vectors." class="nav-link" data-scroll-target="#vectors.">Vectors.</a></li>
+  <li><a href="#packages-and-libraries" id="toc-packages-and-libraries" class="nav-link" data-scroll-target="#packages-and-libraries">Packages and Libraries</a></li>
+  <li><a href="#data-frames-and-tibble" id="toc-data-frames-and-tibble" class="nav-link" data-scroll-target="#data-frames-and-tibble">Data Frames and <code>tibble</code></a></li>
+  <li><a href="#dplyr-basics" id="toc-dplyr-basics" class="nav-link" data-scroll-target="#dplyr-basics"><code>dplyr</code> Basics</a></li>
+  <li><a href="#the-pipe-operator" id="toc-the-pipe-operator" class="nav-link" data-scroll-target="#the-pipe-operator">The pipe operator: <code>|&gt;</code></a></li>
+  </ul></li>
+  <li><a href="#lesson-02---data-wrangling-2" id="toc-lesson-02---data-wrangling-2" class="nav-link" data-scroll-target="#lesson-02---data-wrangling-2">Lesson 02 - Data Wrangling 2</a>
+  <ul class="collapse">
+  <li><a href="#data-import-and-export" id="toc-data-import-and-export" class="nav-link" data-scroll-target="#data-import-and-export">Data Import and Export</a></li>
+  <li><a href="#attributes" id="toc-attributes" class="nav-link" data-scroll-target="#attributes">Attributes</a></li>
+  <li><a href="#reshaping-data" id="toc-reshaping-data" class="nav-link" data-scroll-target="#reshaping-data">Reshaping Data</a></li>
+  <li><a href="#combining-data-frames" id="toc-combining-data-frames" class="nav-link" data-scroll-target="#combining-data-frames">Combining Data Frames</a></li>
+  <li><a href="#lesson-03---data-visualization-1" id="toc-lesson-03---data-visualization-1" class="nav-link" data-scroll-target="#lesson-03---data-visualization-1">Lesson 03 - Data Visualization 1</a></li>
+  <li><a href="#layers" id="toc-layers" class="nav-link" data-scroll-target="#layers">Layers</a></li>
+  <li><a href="#aesthetics" id="toc-aesthetics" class="nav-link" data-scroll-target="#aesthetics">Aesthetics</a></li>
+  <li><a href="#scales" id="toc-scales" class="nav-link" data-scroll-target="#scales">Scales</a></li>
+  <li><a href="#text-and-annotations" id="toc-text-and-annotations" class="nav-link" data-scroll-target="#text-and-annotations">Text and Annotations</a></li>
+  <li><a href="#themes" id="toc-themes" class="nav-link" data-scroll-target="#themes">Themes</a></li>
+  </ul></li>
+  <li><a href="#lesson-04---data-visualization-2" id="toc-lesson-04---data-visualization-2" class="nav-link" data-scroll-target="#lesson-04---data-visualization-2">Lesson 04 - Data Visualization 2</a>
+  <ul class="collapse">
+  <li><a href="#spatial-features-and-mapping" id="toc-spatial-features-and-mapping" class="nav-link" data-scroll-target="#spatial-features-and-mapping">Spatial Features and Mapping</a></li>
+  <li><a href="#choropleth-maps" id="toc-choropleth-maps" class="nav-link" data-scroll-target="#choropleth-maps">Choropleth Maps</a></li>
+  <li><a href="#other-data-visualization-packages" id="toc-other-data-visualization-packages" class="nav-link" data-scroll-target="#other-data-visualization-packages">Other Data Visualization Packages</a></li>
+  </ul></li>
+  <li><a href="#functions-and-iteration" id="toc-functions-and-iteration" class="nav-link" data-scroll-target="#functions-and-iteration">Functions and Iteration</a>
+  <ul class="collapse">
+  <li><a href="#creating-functions" id="toc-creating-functions" class="nav-link" data-scroll-target="#creating-functions">Creating Functions</a></li>
+  <li><a href="#working-with-multiple-columns" id="toc-working-with-multiple-columns" class="nav-link" data-scroll-target="#working-with-multiple-columns">Working with Multiple Columns</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Untitled</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+<center>
+Developed by Christopher Davis
+</center>
+<section id="function-and-operator-cheat-sheet" class="level1">
+<h1>Function and Operator Cheat Sheet</h1>
+<p>This page hosts a function cheat sheet for each lesson.</p>
+<p>I only describe the purpose of the function. If you would like to understand its arguments (inputs) and more details, use the <code>help&lt;function_name&gt;)</code> function or <code>?&lt;function_name&gt;</code> or click on the link for each function.</p>
+<section id="lesson-01---data-wrangling-1" class="level2">
+<h2 class="anchored" data-anchor-id="lesson-01---data-wrangling-1">Lesson 01 - Data Wrangling 1</h2>
+<section id="getting-started" class="level3">
+<h3 class="anchored" data-anchor-id="getting-started">Getting Started</h3>
+<ul>
+<li><a href="https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/help"><code>help()</code></a> : Opens up help documentation for packages and functions. <code>?&lt;function_name&gt;</code> does the same.</li>
+</ul>
+</section>
+<section id="r-basics." class="level3">
+<h3 class="anchored" data-anchor-id="r-basics.">R Basics.</h3>
+<ul>
+<li><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/assignOps"><code>\&lt;-</code></a> : Assign a value to a name.</li>
+</ul>
+</section>
+<section id="vectors." class="level3">
+<h3 class="anchored" data-anchor-id="vectors.">Vectors.</h3>
+<ul>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/c"><code>c()</code></a> : Generic function which combines its arguments. The default method combines its arguments to form a vector. All arguments are coerced to a common type which is the type of the returned value, and all attributes except names removed.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/mean"><code>mean()</code></a> : Generic function for the (trimmed) arithmetic mean.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/sort"><code>sort()</code></a> : Sort (or order) a vector or factor into ascending or descending order.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Colon"><code>&lt;from&gt;:&lt;to&gt;</code></a> : Generate regular sequences.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/seq"><code>seq()</code></a> : Generate regular sequences (with more options than <code>:</code>).</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/paste"><code>paste()</code></a> : Concatenate vectors after converting to character.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/nchar"><code>nchar()</code></a> : Takes a character vector as an argument and returns a vector whose elements contain the sizes of the corresponding elements of <code>x</code>.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/length"><code>length()</code></a> : Get or set the length of vectors (including lists) and factors, and of any other R object for which a method has been defined.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Extract"><code>[]</code></a> : Operator that acts on vectors, matrices, arrays, and lists to extract or replace parts.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/bsae/versions/3.6.2/topics/NA"><code>NA</code></a> : <code>NA</code> is a logical constant of length ` which contains a missing value indicator.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/NA"><code>is.na()</code></a> : Indicates which elements of a vector are missing. Returns <code>TRUE</code> if missing, otherwise <code>FALSE</code>.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/typeof"><code>typeof()</code></a> : Determined the (R internal) type or storage mode of any object.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/numeric"><code>is.numeric()</code></a> : Determines if a vector is of a class <code>numeric</code> or not.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/logical"><code>is.logical()</code></a> : Determines if a vector is of type <code>logical</code> or not.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/character"><code>is.character()</code></a> : Determines if a vector is of type <code>character</code> or not.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/numeric"><code>as.numeric()</code></a> : Converts vector to <code>numeric</code>.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/logical"><code>as.logical()</code></a> : Converts vector to <code>logical</code>.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/character"><code>as.character()</code></a> : Converts vector to <code>character</code>.</p></li>
+</ul>
+<section id="arithmetic-operators" class="level4">
+<h4 class="anchored" data-anchor-id="arithmetic-operators">Arithmetic Operators</h4>
+<p>You can use arithmetic operators with <code>numeric</code> vectors as well as with single elements.</p>
+<p>Here is a list of arithmetic operators:</p>
+<p><br></p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Operator</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">+</td>
+<td style="text-align: left;">Addition</td>
+<td style="text-align: left;">x + y</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">Subtraction</td>
+<td style="text-align: left;">x - y</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">*</td>
+<td style="text-align: left;">Multiplication</td>
+<td style="text-align: left;">x * y</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">/</td>
+<td style="text-align: left;">Division</td>
+<td style="text-align: left;">x / y</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">^</td>
+<td style="text-align: left;">Exponent</td>
+<td style="text-align: left;">x ^ y</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">%%</td>
+<td style="text-align: left;">Modulus (Remainder from division)</td>
+<td style="text-align: left;">x %% y</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">&amp;&amp;</td>
+<td style="text-align: left;">Integer Division</td>
+<td style="text-align: left;">x&amp;&amp;y</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Source: <a href="https://www.w3schools.com/">W3Schools</a></p>
+</section>
+<section id="comparison-operators" class="level4">
+<h4 class="anchored" data-anchor-id="comparison-operators">Comparison Operators</h4>
+<p>Comparison operators are used to compare two values.</p>
+<p><br></p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Operator</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">==</td>
+<td style="text-align: left;">Equal</td>
+<td style="text-align: left;">x == y</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">!=</td>
+<td style="text-align: left;">Not equal</td>
+<td style="text-align: left;">x != y</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">&gt;</td>
+<td style="text-align: left;">Greater than</td>
+<td style="text-align: left;">x &gt; y</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">&lt;</td>
+<td style="text-align: left;">Less than</td>
+<td style="text-align: left;">x &lt; y</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">&gt;=</td>
+<td style="text-align: left;">Greater than or equal to</td>
+<td style="text-align: left;">x &gt;= y</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">&lt;=</td>
+<td style="text-align: left;">Less than or equal to</td>
+<td style="text-align: left;">x &lt;= y</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">%in%</td>
+<td style="text-align: left;">Have values within</td>
+<td style="text-align: left;">x %in% y</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="logical-operators" class="level4">
+<h4 class="anchored" data-anchor-id="logical-operators">Logical Operators</h4>
+<p>Logical operators are used to combine conditional statements.</p>
+<p><br></p>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 65%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Operator</th>
+<th style="text-align: left;">Name</th>
+<th style="text-align: left;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">&amp;</td>
+<td style="text-align: left;">AND operator. Returns TRUE if both elements are TRUE</td>
+<td style="text-align: left;">x == y &amp; a == b</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">|</td>
+<td style="text-align: left;">OR operator. Returns TRUE if either elements are TRUE</td>
+<td style="text-align: left;">x == y | a == b</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">!</td>
+<td style="text-align: left;">NOT operator. Returns TRUE if the condition is not TRUE</td>
+<td style="text-align: left;">!(x == y</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="packages-and-libraries" class="level3">
+<h3 class="anchored" data-anchor-id="packages-and-libraries">Packages and Libraries</h3>
+<p><br></p>
+<ul>
+<li><p><a href="https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/install.packages"><code>install.packages()</code></a> : Download and install packages from CRAN-like repositories or from local files.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/library"><code>library()</code></a> : Attach add-on packages.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/ns-dblcolon"><code>::</code></a> : Accessing exported and internal variables i.e.&nbsp;R objects (including lazy loaded datasets) in a namespace.</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="data-frames-and-tibble" class="level3">
+<h3 class="anchored" data-anchor-id="data-frames-and-tibble">Data Frames and <code>tibble</code></h3>
+<p><br></p>
+<ul>
+<li><p><a href="https://www.rdocumentation.org/packages/utils/versions/3.6.2/topics/head"><code>head()</code></a> : Returns the first or last parts of a vector, matrix, table, data frame, or function.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/tibble/versions/3.2.1/topics/as_tibble"><code>tibble::as_tibble()</code></a> : Turns an existing object, such as a data frame or matrix, into a so-called tibble, a data frame with class <code>tbl_df</code>.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/class"><code>class()</code></a> : For objects which have a formal class, its name is returned. R posseses a simple generic function mechanism which can be used for an object-oriented style of programming.</p></li>
+</ul>
+<p><br></p>
+</section>
+<section id="dplyr-basics" class="level3">
+<h3 class="anchored" data-anchor-id="dplyr-basics"><code>dplyr</code> Basics</h3>
+<p><br></p>
+<ul>
+<li><p><a href="https://dplyr.tidyverse.org/reference/glimpse.html"><code>dplyr::glimpse()</code></a> : Prints information about a data frame or tibble to the console.</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/mutate.html"><code>dplyr::mutate()</code></a> : Creates new columns that are functions of existing variables. It can also modify (if the name is the same as an existing column) and delete columns (by setting their value to NULL).</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/filter.html"><code>dplyr::filter()</code></a> : Used to subset a data frame, retaining all rows that satisfy your conidtions. To be retained, the row must produce a value of TRUE for all conditions. Note that when a condition evaluates to NA the row will be dropped, unlike base subsetting with <code>[</code>.</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/select.html"><code>dplyr::select()</code></a> : Select (and optionally rename) variables in a data frame, using a concise mini-language that makes it easy to refer to varaibles based on their name (e.g.&nbsp;<code>&lt;a&gt;:&lt;f&gt;</code> selects all columns from <code>a</code> on the left to <code>f</code> on the right) or type (e.g.&nbsp;<code>where(is.numeric)</code> selects all <code>numeric</code> columns).</p></li>
+<li><p><a href="https://tidyselect.r-lib.org/reference/everything.html"><code>tidyselect::everything()</code></a> : Selects all variables. It is also useful in ocmbination with other tidyselect operators.</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/arrange.html"><code>dplyr::arrange()</code></a> : Orders the rows of a dta frame by the values of selected columns.</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/count.html"><code>dplyr::count()</code></a> : Lets you quickly count the unique values of one or more variables.</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/group_by.html"><code>dplyr::group_by()</code></a> : Most data operations are done on groups defined by variables. <code>group_by()</code> takes an existing tbl and converts it into a grouped tbl where operations are performed “by group”.</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/group_by.html"><code>dplyr::ungroup()</code></a> : Removes grouping.</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/summarise.html"><code>dplyr::summarise()</code></a> : Returns on row for each combination of grouping variables; if there are no grouping variables, the output will have a single row summarasing all ovservations in the input. It will contain one column for each grouping variable and one column for each of the summary statistics that you have specified. <code>summarise()</code> and <code>summarize()</code> are synonyms.</p></li>
+</ul>
+</section>
+<section id="the-pipe-operator" class="level3">
+<h3 class="anchored" data-anchor-id="the-pipe-operator">The pipe operator: <code>|&gt;</code></h3>
+<ul>
+<li><a href="https://rdrr.io/r/base/pipeOp.html"><code>|&gt;</code></a> : Passes, or pipes, the result of the left-hand side expression to the right-hand side expression. If the right-hand side expression is a function call, then the left-hand-side is inserted as the first argument in the call.</li>
+</ul>
+</section>
+</section>
+<section id="lesson-02---data-wrangling-2" class="level2">
+<h2 class="anchored" data-anchor-id="lesson-02---data-wrangling-2">Lesson 02 - Data Wrangling 2</h2>
+<section id="data-import-and-export" class="level3">
+<h3 class="anchored" data-anchor-id="data-import-and-export">Data Import and Export</h3>
+<ul>
+<li><p><a href="https://readr.tidyverse.org/reference/read_delim.html"><code>readr::read_csv()</code></a>: Read in <code>.csv</code> files.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/readxl/versions/1.4.3/topics/read_excel"><code>readxl::read_excel()</code></a>: Read in <code>.xlsx</code> or <code>.xls</code> files.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/haven/versions/2.5.4/topics/read_sas"><code>haven::read_sas()</code></a> : Read in <code>.sas7bdat</code> or <code>.sas7bcat</code> files.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/haven/versions/2.5.4/topics/read_xpt"><code>haven::read_xpt()</code></a> : Read in SAS trasnfer files (<code>.xpt</code>).</p></li>
+<li><p><a href="https://haven.tidyverse.org/reference/read_dta.html"><code>haven::read_stata()</code></a> : Read in <code>.dta</code> files.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/readRDS"><code>readRDS()</code></a> : Read in native <code>.RDS</code> files.</p></li>
+<li><p><a href="https://rdocumentation.org/packages/arrow/versions/8.0.0/topics/read_feather"><code>arrow::read_feather()</code></a> : Read in <code>.feather</code> files.</p></li>
+<li><p><a href="https://rdocumentation.org/packages/arrow/versions/8.0.0/topics/read_parquet"><code>arrow::read_parquet()</code></a> : Read in <code>.parquet</code> files.</p></li>
+<li><p>[<code>data.table::fread()](https://www.rdocumentation.org/packages/data.table/versions/1.15.0/topics/fread) : Read in</code>.csv` files faster.</p></li>
+<li><p><a href="https://rdocumentation.org/packages/readxl/versions/1.4.3/topics/excel_sheets"><code>readxl::excel_sheets()</code></a> : Read in excel sheets form a <code>.xlsx</code> or <code>.xls</code> file.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/readr/versions/0.1.1/topics/write_csv"><code>readr::write_csv()</code></a> : Write out <code>.csv</code> files.</p></li>
+<li><p><a href="https://haven.tidyverse.org/reference/write_sas.html"><code>haven::write_sas()</code></a> : Write out <code>.sas7bdat</code> or <code>.sas7bcat</code> files.</p></li>
+<li><p><a href="https://rdocumentation.org/packages/haven/versions/0.1.0/topics/write_dta"><code>haven::write_dta()</code></a> : Write out <code>.dta</code> files.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/readRDS"><code>saveRDS()</code></a> : Save native <code>.RDS</code> files.</p></li>
+<li><p><a href="https://rdocumentation.org/packages/arrow/versions/8.0.0/topics/write_feather"><code>arrow::write_feather()</code></a>: Write out <code>.feather</code> files.</p></li>
+<li><p><a href="https://rdocumentation.org/packages/arrow/versions/8.0.0/topics/write_parquet"><code>arrow::write_parquet()</code></a>: Write out <code>.parqeut</code> files.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/janitor/versions/2.2.0/topics/clean_names"><code>janitor::clean_names()</code></a> : Clean up messy variable names.</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/if_else.html"><code>dplyr::if_else()</code></a> : Takes in logical condition - if <code>TRUE</code>, output the value in the <code>true</code> argument, otherwise output the value in the <code>false</code> argument.</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/case_when.html"><code>dplyr::case_when()</code></a> : Takes in multiple logical conditions - basically use when you want to do multiple if/else statements. Each case is evaluated sequentially and the first match for each element determines the correspending value in the output vector.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/stringr/versions/1.5.1/topics/str_c"><code>stringr::str_c()</code></a> : Concatenates a string.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/stringr/versions/1.5.1/topics/str_length"><code>stringr::str_length()</code></a> : Provides the length of each element of a string.</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/pull.html"><code>dplyr::pull()</code></a> : Extracts a clumn from a data frame.<br>
+</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/stringr/versions/1.5.1/topics/str_detect"><code>stringr::str_detect()</code></a> : Returns <code>TRUE</code> if pattern is matched in string. `FALSE`` otherwise.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/stringr/versions/1.5.1/topics/str_pad"><code>stringr::str_pad()</code></a> : Pads a string to be a specified width.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/stringr/versions/1.5.1/topics/str_trim"><code>stringr::str_trim()</code></a> : Removes whitespace from the start or end of a string.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/stringr/versions/1.5.1/topics/str_sub"><code>stringr::str_sub()</code></a> : Subset a string based on indices.</p></li>
+<li><p><a href="https://stringr.tidvyerse.org/reference/case.html"><code>stringr::str_to_lower()</code></a> : Converts strings to lower case (<code>asdfjl</code>).</p></li>
+<li><p><a href="https://stringr.tidvyerse.org/reference/case.html"><code>stringr::str_to_upper()</code></a> : Converts strings to upper case (<code>ASDFJL</code>).</p></li>
+<li><p><a href="https://stringr.tidvyerse.org/reference/case.html"><code>stringr::str_to_title()</code></a> : Converts strings to title case (<code>This Is A Title</code>).</p></li>
+<li><p><a href="https://stringr.tidvyerse.org/reference/case.html"><code>stringr::str_to_sentence()</code></a> : Converts strings to sentence case (<code>This is a sentence.</code>).</p></li>
+</ul>
+</section>
+<section id="attributes" class="level3">
+<h3 class="anchored" data-anchor-id="attributes">Attributes</h3>
+<ul>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/attributes"><code>attributes()</code></a> : Returns the attributes of an R object.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/names"><code>names()</code></a> : Returns the <code>names</code> attribute within an R object. Can also assign with <code>names(x)&lt;-</code>.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/class"><code>class()</code></a> : Returns the S3 object class of an R object.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/factor"><code>factor()</code></a> : Creates a factor variable.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/as.Date"><code>as.Date()</code></a> : Converts character or numeric to the Date class.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/lubridate/versions/1.9.3/topics/ymd"><code>lubridate::ymd()</code></a> : Flexibly convert data to Date, with format “year”, “month”, “day”.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/lubridate/versions/1.9.3/topics/ymd"><code>lubridate::ydm()</code></a> : Flexibly convert data to Date, with format “year”, “day”, “month”.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/lubridate/versions/1.9.3/topics/ymd"><code>lubridate::myd()</code></a> : Flexibly convert data to Date, with format “month”, “year”, “day”.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/lubridate/versions/1.9.3/topics/ymd"><code>lubridate::mdy()</code></a> : Flexibly convert data to Date, with format “month”, “day”, “year”.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/lubridate/versions/1.9.3/topics/ymd"><code>lubridate::dmy()</code></a> : Flexibly convert data to Date, with format “day”, “month”, “year”.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/lubridate/versions/1.9.3/topics/ymd"><code>lubridate::dym()</code></a> : Flexibly convert data to Date, with format “dau”, “year”, “month”.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/lubridate/versions/1.9.3/topics/year"><code>lubridate::year()</code></a> : Extract year from date.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/lubridate/versions/1.9.3/topics/month"><code>lubridate::month()</code></a> : Extract month from date.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/lubridate/versions/1.9.3/topics/day"><code>lubridate::day()</code></a> : Extract day from date.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/lubridate/versions/1.9.3/topics/day"><code>lubridate::wday()</code></a> : Extract weekday from date.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/lubridate/versions/1.9.2/topics/quarter"><code>lubridate::quarter()</code></a> : Extract quarter from date.</p></li>
+</ul>
+</section>
+<section id="reshaping-data" class="level3">
+<h3 class="anchored" data-anchor-id="reshaping-data">Reshaping Data</h3>
+<ul>
+<li><p><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html"><code>tidyr::pivot_longer()</code></a>: Reshapes data longer.</p></li>
+<li><p><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html"><code>tidyr::pivot_wider</code></a> : Reshapes data wider.</p></li>
+</ul>
+</section>
+<section id="combining-data-frames" class="level3">
+<h3 class="anchored" data-anchor-id="combining-data-frames">Combining Data Frames</h3>
+<ul>
+<li><p><a href="https://dplyr.tidyverse.org/reference/bind_rows.html"><code>dplyr::bind_rows()</code></a> : Appends data frames together.</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/bind_cols.html"><code>dplyr::bind_cols()</code></a> : Joins toether by column with no keys. Not recommended under most conditions.</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html"><code>dplyr::inner_join</code></a> : Joins together by key, returns obsevation if key is present on both sides.</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html"><code>dplyr::full_join</code></a> : Joins together by key, returns observation if key is present on either side.</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html"><code>dplyr::left_join</code></a> : Joins together by key, returns observation if key is present on left side.</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/mutate-joins.html"><code>dplyr::right_join</code></a> : Joins together by key, returns observation if key is present on right side.</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/join_by.html"><code>dplyr::join_by()</code></a> : Helper function for assigning <code>by</code> within join functions.</p></li>
+</ul>
+</section>
+<section id="lesson-03---data-visualization-1" class="level3">
+<h3 class="anchored" data-anchor-id="lesson-03---data-visualization-1">Lesson 03 - Data Visualization 1</h3>
+<section id="the-ggplot2-package" class="level4">
+<h4 class="anchored" data-anchor-id="the-ggplot2-package">The <code>ggplot2</code> package</h4>
+<ul>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/ggplot.html"><code>ggplot2::ggplot()</code></a> : Initializes a ggplot object and creates an empty plot. Can also optionally set aesthetics that are inherited by later functions.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/aes.html"><code>ggplot2::aes()</code></a> : Aesthetic mappings describe how variables in the data are mapped to visual properties of geoms. Set in <code>ggplot()</code> and individaul layers.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/geom_point.html"><code>ggplot2::geom_point()</code></a> : Layer used to create scatterplots or points on a line graph.</p></li>
+<li><p><a href="https://ggplot2.tidvyerse.org/reference/geom_smooth.html"><code>ggplot2::geom_smooth()</code></a> : Layer used to create a trend line over an existing plot.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html"><code>ggplot2::scale_&lt;axis&gt;_continuous()</code></a> : Scale used with continuous axis can set limits, breaks, and labels (among other things).</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/scale_hue.html"><code>ggplot2::scale_&lt;color or fill&gt;_hue()</code></a> : Maps each elvel to an evenly spaced hue on the color wheel.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/facet_wrap.html"><code>ggplot2::facet_wrap()</code></a> : Graphs multiple panels of data in a rectangular strcuture. Use a <code>&lt;var&gt;</code> syntax to generate panels by <code>&lt;var&gt;</code>.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html"><code>ggplot2::geom_bar()</code></a> : Layer that creates a bar plot with one varaible.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/coord_flip.html"><code>ggplot2::coord_flip()</code></a> : Flips the X and Y axes.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/theme.html"><code>ggplot2::theme()</code></a> : Customize non-data components of plot.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/element.html"><code>ggplot2::element_rect()</code></a> : Modify rectangular theme element.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/element.html"><code>ggplot2::element_blank()</code></a> : Remove element from theme.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html"><code>ggplot2::theme_minimal()</code></a> : Complete theme that draws minimal lines and ticks.</p></li>
+</ul>
+</section>
+</section>
+<section id="layers" class="level3">
+<h3 class="anchored" data-anchor-id="layers">Layers</h3>
+<ul>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/geom_bar.html"><code>ggplot2::geom_col()</code></a> : Layer that creates a bar plot with two variables (minimum).</p></li>
+<li><p><a href="https://forcats.tidyverse.org/reference/fct_reorder.html"><code>forcats::fct_reorder()</code></a> : Reorders a factor on the order of another variable.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/geom_segment.html"><code>ggplot2::geom_segment()</code></a> : Layer that draws a straight line between points. We can use it with <code>geom_point()</code> to create a lollipop chart.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/geom_path.html"><code>ggplot2::geom_line()</code></a> : Layer that creates a line graph.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/geom_histogram.html"><code>ggplot2::geom_histogram()</code></a> : Layer that creates a histogram.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/geom_density.html"><code>ggplot2::geom_density()</code></a> : Layer that creates a density plot.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/geom_boxplot.html"><code>ggplot2::geom_boxplot()</code></a> : Layer that creates a box plot.</p></li>
+</ul>
+</section>
+<section id="aesthetics" class="level3">
+<h3 class="anchored" data-anchor-id="aesthetics">Aesthetics</h3>
+<p>No new functions! See the <a href="https://ggplot2.tidyverse.org/articles/ggplot2-specs.html">Aesthetic specifics ggplot2 vignette</a>.</p>
+</section>
+<section id="scales" class="level3">
+<h3 class="anchored" data-anchor-id="scales">Scales</h3>
+<ul>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/expansion.html"><code>ggplot2::expansion()</code></a> : Generate scale expansion vectors for the <code>expand</code> argument in a scale.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/scale_continuous.html"><code>ggplot2::scale_y_reverse()</code></a> : Transform y axis from high to low instead of low to high.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/scale_manual.html"><code>ggplot2::scale_&lt;aesthetic&gt;_manual()</code></a> : Scale that allows you to specific mappings from levels in the data to aesthetic values (like colors).</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/scale_brewer.html"><code>ggplot2::scale_&lt;color or fill&gt;_brewer()</code></a> : Maps values in data to an existing color pallete.</p></li>
+</ul>
+</section>
+<section id="text-and-annotations" class="level3">
+<h3 class="anchored" data-anchor-id="text-and-annotations">Text and Annotations</h3>
+<ul>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/labs.html"><code>ggplot2::labs()</code></a> : Modify axis, legend, and plot labels.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/geom_text.html"><code>ggplot2::geom_text()</code></a> : Layer that adds text from the data. No rectangle present behind text.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/geom_text.html"><code>ggplot2::geom_label()</code></a> : Layer that adds text from the data. Rectangle present behind text.</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/slice.html"><code>dplyr::slice()</code></a> : Filtrs rows by their <code>integer</code> index locations.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/annotate.html"><code>ggplot2::annotate()</code></a> : Add text (or another geom) to a graph not stemming from the data.</p></li>
+</ul>
+</section>
+<section id="themes" class="level3">
+<h3 class="anchored" data-anchor-id="themes">Themes</h3>
+<ul>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html"><code>ggplot2::theme_gray()</code></a> : This is the default ggplot2 complete theme that we’ve already seen.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html"><code>ggplot2::theme_bw()</code></a> : A dark on-light ggplot2 theme, which may work better for presentations displayed with a projecter.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html"><code>ggplot2::theme_linedraw()</code></a> : Another dark-on-light ggeplot2 theme, which may work better for presentations displayed with an old-timey projecter.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html"><code>ggplot2::theme_light()</code></a> : Light theme. Because of its light grey lines and axes, it focuses more attention on the data.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html"><code>ggplot2::theme_dark()</code></a> : Similar to theme_light() but the dark version. Good if you want to show colors with a dark background.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html"><code>ggplot2::theme_minimal</code></a> : A minimilastic theme. I quite like minimalistic themes as we focus more on the data.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html"><code>ggplot2::theme_classic()</code></a> : Also a minimalistic theme, with solid axes but no gridlines.</p></li>
+<li><p><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html"><code>ggplot2::theme_void()</code></a> : A completely empty theme. Good if you don’t want any axes or gridlines.</p></li>
+</ul>
+</section>
+</section>
+<section id="lesson-04---data-visualization-2" class="level2">
+<h2 class="anchored" data-anchor-id="lesson-04---data-visualization-2">Lesson 04 - Data Visualization 2</h2>
+<section id="spatial-features-and-mapping" class="level3">
+<h3 class="anchored" data-anchor-id="spatial-features-and-mapping">Spatial Features and Mapping</h3>
+<ul>
+<li><p><a href="https://www.rdocumentation.org/packages/tigris/versions/2.1/topics/states"><code>tigris::states()</code></a> : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by state.</p></li>
+<li><p><a href="https://rdocumentation.org/packages/tigirs/versions/2.1/topics/core_based_statistical_areas"><code>tigris::core_based_statistical_areas()</code></a> : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by Census Core-Based Statistical Area (Containing both metropolitan area and micropolitan area).</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/tigris/versions/0.5/topics/congressional_districts"><code>tigris::congresional_districts()</code></a> : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by congressional district.</p></li>
+<li><p><a href="https://www.rdocumenation.org/packages/tigris/versions/2.1/topics/counties"><code>tigris::counties()</code></a> : Downlods TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by county.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/tigris/versions/2.0/topics/urban_areas"><code>tigris::urban_areas()</code></a> : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by Urban Area designation.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/tigris/versions/1.6/topics/places"><code>tigris::places(()</code></a> : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by census place (cities).</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/tigris/versions/2.1/topics/zctas"><code>tigris::zctas()</code></a> : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by Zip Code Tbulation Area (ZCTA).</p></li>
+<li><p><a href="https://rdrr.io/cran/tigirs/man/voting_districts.html"><code>tigris::voting_districts()</code></a> : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by voting district.</p></li>
+<li><p><a href="https://rdrr.io/cran/tigris/man/tracts.html"><code>tigris::tracts()</code></a> : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by census tract.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/tigris/versions/2.1/topics/block_groups"><code>tigris::block_groups()</code></a> : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by block group.</p></li>
+<li><p><a href="https://rdrr.io/cran/tigris/man/blocks.html"><code>tigris::blocks()</code></a> : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by census block.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/sf/versions/1.0-16/topics/st_read"><code>sf::st_read()</code></a> : Reads in shapefile data and convert to <code>sf</code> object.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/sf/versions/1.0-16/topics/st_as_sf"><code>sf::st_as_sf()</code></a> : Converts foreign object to an <code>sf</code> object.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/sf/versions/1.0-16/topics/st_crs"><code>sf::st_crs()</code></a> : Retrieve coordinate reference system from object.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/sf/versions/1.0-16/topics/st_transform"><code>sf::st_transform()</code></a> : Transform or convert coordiante of simple feature.</p></li>
+<li><p><a href="https://rdrr.io/cran/tigris/man/shift_geometry.html"><code>tigris::shift_geometry()</code></a> : Shift and rescale Alaska, Hawaii, and Puerto Rico in a US-wide <code>sf</code> object.</p></li>
+</ul>
+</section>
+<section id="choropleth-maps" class="level3">
+<h3 class="anchored" data-anchor-id="choropleth-maps">Choropleth Maps</h3>
+<ul>
+<li><p><a href="https://search.r-project.org/CRAN/refmans/ggplot2/html/ggsf.html"><code>ggplot2::geom_sf_text()</code></a> Add text related to <code>sf</code> objects.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/tidycensus/versions/1.3/topics/load_variables"><code>tidycensus::load_variables()</code></a> : Load Decennial and ACS variable names.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/tidycensus/versions/1.6.3/topics/get_decennial"><code>tidycensus::get_decennial</code></a> : Obtain data and feature geometry for the decennial US Census.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/tidycensus/versions/1.6.3/topics/get_acs"><code>tidycensus::get_acs()</code></a> : Obtain data and feature geometry for the American Community Survey.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/tidycensus/versions/1.6.3/topics/get_estimates"><code>tidycensus::get_estimates()</code></a> : Obtain data and feature geometry for the Population Estimates.</p></li>
+<li><p><a href="https://www.rdocumentation.org/pakcages/tidycensus/versions/1.6.3/topics/get_pums"><code>tidycensus::get_pums()</code></a> : Load data from the American Community Survey Public Use Microdata Series API.</p></li>
+<li><p><a href="https://walker-data.com/tidycensus/reference/get_flows.html"><code>tidycensus::get_flows()</code></a> : Obtain data and feature geometry for American Community Survey Migration Flows.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/cut"><code>base::cut()</code></a> : Divides the range of <code>x</code> into intervals and code the values in <code>x</code> to categorical vriable accoding to which interval they fall.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/ggplot2/versions/1.0.0/topics/cut_number"><code>ggplot2::cut_number()</code></a> : Makes a categorical variable with <code>n</code> groups with approximately equal numbers of observations.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/source"><code>base::source()</code></a> : Reads in an R file and runs it.</p></li>
+</ul>
+</section>
+<section id="other-data-visualization-packages" class="level3">
+<h3 class="anchored" data-anchor-id="other-data-visualization-packages">Other Data Visualization Packages</h3>
+<ul>
+<li><p><a href="https://www.rdocumenation.org/packages/gghighlight/versions/0.0.1/topics/gghighlight"><code>gghighlight::gghighlight()</code></a> : Highlights geoms according to the given predicates.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/gganimate/versions/1.0.9/topics/transition_time"><code>gganimate::transition_time()</code></a> : Creates an animation that transitions with a trqnsition length related to the actual time difference between given time values.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/plotly/versions/4.10.4/topics/plot_ly"><code>plotly::plot_ly()</code></a> : Maps R objects to <code>plotly.js</code>, a web-based interactive charting library.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/plotly/versions/4.10.4/topics/ggplotly"><code>plotly::ggplotly()</code></a> : Converts a <code>ggplot</code> object to a <code>plotly</code> object.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/leaflet/versions/2.2.2/topics/colorNumeric"><code>leaflet::colorNumeric()</code></a> : maps data values to colors according to a given palette.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/leaflet/versions/2.2.2"><code>leaflet::leaflet()</code></a> : Create a Leaflet map widget using <code>htmlwidgets</code>. The widget can be rendered on HTML paes.</p></li>
+<li><p><a href="https://rstudio.github.io/leaflet/articles/basemaps.html"><code>leaflet::addTiles()</code></a> : Add basemaps to a graph.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/leaflet/versions/2.2.2/topics/addControls"><code>leaflet::addPolygons()</code></a> : Add polygons to a graph.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/leaflet/versions/2.2.2/topics/addLegend"><code>leaflet::addLegend()</code></a> : Add a custom legend to a graph.</p></li>
+</ul>
+</section>
+</section>
+<section id="functions-and-iteration" class="level2">
+<h2 class="anchored" data-anchor-id="functions-and-iteration">Functions and Iteration</h2>
+<section id="creating-functions" class="level3">
+<h3 class="anchored" data-anchor-id="creating-functions">Creating Functions</h3>
+<ul>
+<li><p><a href="https://www.rdocumentation.org/packages/simEd/versions/2.0.1/topics/set.seed"><code>set.seed()</code></a> : Sets a random number state such that randomly created numbers can be created in a reproducible manner.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/Normal"><code>rnorm()</code></a> : Creates random numbers with n, mean, and standard deviation that follow a normal distribution.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/function"><code>function()</code></a> : Defines new functions in the R language.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/function"><code>return()</code></a> : returns an output within a function, exiting the function.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Control"><code>if()</code></a> : checks if condition is <code>TRUE</code>, if so evaluates next statement.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Control"><code>else())</code></a> : after an <code>if</code> statement, this function will evaluate the proceeding expression if the preceding expression is <code>FALSE</code></p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/stop"><code>stop()</code></a> : throws an error with an error message.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/warning"><code>warning()</code></a> : throws a warning with a warning message.</p></li>
+</ul>
+</section>
+<section id="working-with-multiple-columns" class="level3">
+<h3 class="anchored" data-anchor-id="working-with-multiple-columns">Working with Multiple Columns</h3>
+<ul>
+<li><p><a href="https://dplyr.tidyverse.org/reference/across.html"><code>dplyr::across()</code></a> : applies a function across multiple columns in a data frame within a <code>mutate()</code> or <code>summarise()</code> function.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/tidyselect/versions/1.2.1/topics/everything"><code>tidyselect::everything()</code></a> : Matches all variables in a selection.</p></li>
+<li><p><a href="https://tidyselect.r-lib.org/reference/starts_with.html"><code>tidyselect::starts_with()</code></a> : Matches columns that start with a specific prefix.</p></li>
+<li><p><a href="https://tidyselect.r-lib.org/reference/starts_with.html"><code>tidyselect::ends_with()</code></a> : Matches columns that end with a specific suffix.</p></li>
+<li><p><a href="https://tidyselect.r-lib.org/reference/starts_with.html"><code>tidyselect::contains()</code></a> : Matches columns that contain a specific string.</p></li>
+<li><p><a href="https://tidyselect.r-lib.org/reference/starts_with.html"><code>tidyselect::matches()</code></a> : Matches a regular expression (see page 2 of the <a href="https://rstudio.github.io/cheatsheets/strings.pdf">stringr cheat sheet</a>)</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Colon"><code>&lt;from:&lt;to&gt;</code></a> : for selecting a range of consecutive variables. <code>&lt;from&gt;</code> and <code>&lt;to&gt;</code> can be numeric indicies of the position of the column or variable names (e.g.; <code>carat:clarity</code>).</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/Logic"><code>!</code></a> : (in selection context), for taking all variables but the ones identified afterwards (e.g.: <code>!carat:clarity</code> would identify all variables but those between and including carat and clarity positionally in the dataframe).</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/c"><code>c()</code></a> : (in selection context) combine selections together.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/tidyselect/versions/1.2.1/topics/all_of"><code>tidyselect::all_of()</code></a> and <a href="https://www.rdocumentation.org/packages/tidyselect/versions/1.2.1/topics/all_of"><code>tidyselect::any_of()</code></a> : Matches variable names given a character vector. These are the same except no error is thrown for <code>any_of()</code> if names don’t exist, but an error is thrown for <code>all_of()</code>.</p></li>
+<li><p><a href="https://tidyselect.r-lib.org/rewference/where.html"><code>tidyselect::where()</code></a> : applies a function to all varaibles and selects those for which the function returns <code>TRUE</code>.</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/rename.html"><code>dplyr::rename_with()</code></a> : renames columns using a function.</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/across.html"><code>dplyr::if_any()</code></a> : apply the same function to a selection of columns and combine the result into a single logical vector. <code>if_any()</code> returns <code>TRUE</code> when the predicate is <code>TRUE</code> for any of the selected columns.</p></li>
+<li><p><a href="https://dplyr.tidyverse.org/reference/across.html"><code>dplyr::if_all()</code></a> : apply the same function to a selection of columns and combine the result into a single logical vector. <code>if_all()</code> returns <code>TRUE</code> when the predicate is <code>TRUE</code> for all of the selected columns.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/bsae/versions/3.6.2/topics/list.files"><code>list.files()</code></a> : produces a character vector of the files in the specified directory.</p></li>
+<li><p><a href="https://purrr.tidyverse.org/reference/map.html"><code>purrr::map()</code></a> : transform input by applying a function to each element of a list or atomic vector. Always returns a list.</p></li>
+<li><p><a href="https://purrr.tidyverse.org/reference/list_c.html"><code>purrr::list_rbind()</code></a> : combines list elements into a data frame by row-binding them together.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/reqadr/versions/2.1.5/topics/parse_number"><code>readr::parse_number()</code></a> : extracts the first number it finds, dropping any non numeric characters before and after.</p></li>
+<li><p><a href="https://www.rdocumentation.org/pckages/rlang/versions/1.1.3/topics/set_names"><code>rlang::set_names()</code></a> : sets the names on an object and returns the object.</p></li>
+<li><p><a href="https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/basename"><code>basename()</code></a> : removes all of the path up to and including the last path separator.</p></li>
+<li><p><a href="https://purrr.tidyverse.org/reference/index.html"><code>purrr::walk()</code></a> : calls a function but does not return an output.</p></li>
+<li><p><a href="https://purrr.tidyverse.org/reference/index.html"><code>purrr::walk2()</code></a> : calls a function that does not return an output with two inputs of the same length.</p></li>
+<li><p><a href="https://purrr.tidyverse.org/reference/index.html"><code>purrr::map2()</code></a> : calls a function that returns a list object with two inputs of the same length.</p></li>
+</ul>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">Contact christopherpouratdavis@gmail.com with any questions/concerns.</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

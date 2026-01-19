@@ -1,5 +1,6 @@
 project: 
   type: website
+  output-dir: docs
 
 website:
   page-footer: "Contact christopherpouratdavis@gmail.com with any questions/concerns."

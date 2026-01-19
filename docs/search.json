@@ -1,0 +1,1010 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "index.html#introduction-to-r",
+    "href": "index.html#introduction-to-r",
+    "title": "Introduction to R",
+    "section": "Introduction to R",
+    "text": "Introduction to R\nWelcome to the Introduction to R class!\nNote that this site is an abridged version of the full 6 course class taught at a government agency. It has been modified for public display.\nThe repository is laid out as follows:\n\n/exercises/: the R script (.R) and Quarto (.qmd) exercises that we will be working with throughout the course\n/lesson_code/: the Quarto (.qmd) documents that are used to generate the html documents\n/_site/: the html documents of the tutorials. Open up the index.html file to view the website and corresponding materials.\n\n\nPrerequisites\nNo prior R experience is assumed to take this course. Before attending, please remember to ensure that R and R Studio have been downloaded.\nConsider changing some options in RStudio before the class. Under the Tools -&gt; Global Options menu items, you can customize multiple options to your preferences.\nI recommend to:\n\nIn General\nUncheck Restore .Rdata into workspace at startup\n\nAssign Never to Save workspace to .Rdata on exit\n\nIn Appearance\n\nPlay around with the Editor theme and decide on what you like\n\nIn R Markdown\n\nShow output preview in View Pane\nUncheck Show output inline for RMarkdown documents\n\n\n\n\nWhat is R?\nR is a free, open source programming language for statistical computing and graphics. It is known for robust visualization capabilities and a growing library of statistical and analytic methods.\nR has an exensive user base that benefit from the libraries that others have created through the Comprehensive R Archive Network (CRAN). CRAN is a network of FTP and web servers that store versions of code and documentation for R.\nR is maintained by the R Foundation, a non-profit organization that supports the continued development of R for satistical and computational research.\n\n\nWhat is RStudio?\nRStudio is a free integrated development entironment (IDE) for R, created by the private organization Posit (formally RStudio). An IDE is a graphical user interface that consolidates different features helpful for writing code into one application. Other examples of IDEs include SAS Enterprise Guide, VSCode, Jupyter, or Spyder.\nWhich IDE you might choose might depend on the programming language and personal preference. However, I recommend using RStudio forR - it has the most built out features for programming in R.\n\n\nWhy R?\n\nOpen Source: R is made freely available and may be redistributed and modified by anyone.\nPopular: R is one of the most popular statistical tools for data analysis. Given its growing popularity over paid softwares like SAS or Stata, future employees will likely know R or have some experience with it.\nExcellent visualization tools: R excels at data manipulation, statistical analysis, machine learning, and reproduciability, but it is probably best known for its graphics. R visualizations are the gold standard for reproducible data visualizations.\nFlexibility: Given its open source nature, R makes it easy to build off of work that others have already done. Over the past three decades, users have been contributing to the R ecosystem, which has allowed for the expansion of libraries and functions to do nearly any kind of data analysis task. If you have a data analysis need, it is likely that someone else has had a similar need and written code already to complete it.\nReproducible: Like most programming languages, R is fully reproducible and encourages workflows to be entirely reproducible. This means that you are able to run through the entire workflow, start to finish, and achieve the same results.\n\n\n\nOther Resources\n\nR for Data Science by Garret Grolemund and Hadley Wickham. This books is the gold standard for R programming. Co-written by the creator of tidyverse and ggplot2, this free book goes over the core concept of tidy data and how to work with tidy data in R.\nggplot2: Elegant Graphics for Data Analysis by Hadley Wickham. This book provides a more theoretical and comprehensive understanding of the decisions underlying the construction of ggplot2.\nText Mining with R: A Tidy Approach by Julia Silge and David Robinson. This book provides a comprehensive overview of text mining in R.\nGeocomputation with R by Robin Lovelace, Jakub Nowosad, and James Muenchow. This book provides tutorials for how to do various spatial operations in R, including analyzing and modeling geographic data, mapping (both static and interactive), and statistical operations.\nHands-On Machine Learning with R by Bradley Boehmke and Brandon Greenwell. This book provides an overview of machine learning in R.\nCheat Sheets by Posit (formally RStudio). These cheat sheets are a great resource to provide an overview of relevant functions in many commonly-used packages.\nHarvardX: Data Science: Visualization. This is an online course that goes over basic data visualization principles and how to apply them using ggplot2."
+  },
+  {
+    "objectID": "lesson_code/06_lesson/01_welcome.html",
+    "href": "lesson_code/06_lesson/01_welcome.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/06_lesson/03_exercise_17.html",
+    "href": "lesson_code/06_lesson/03_exercise_17.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/06_lesson/06_final_project.html",
+    "href": "lesson_code/06_lesson/06_final_project.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/04_lesson/02_mapping.html",
+    "href": "lesson_code/04_lesson/02_mapping.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/04_lesson/05_exercise_13.html",
+    "href": "lesson_code/04_lesson/05_exercise_13.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/04_lesson/06_extras.html",
+    "href": "lesson_code/04_lesson/06_extras.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/01_welcome.html",
+    "href": "lesson_code/02_lesson/01_welcome.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/09_exercise_5.html",
+    "href": "lesson_code/02_lesson/09_exercise_5.html",
+    "title": "Exercise 5",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/09_exercise_5.html#exercise-5.1",
+    "href": "lesson_code/02_lesson/09_exercise_5.html#exercise-5.1",
+    "title": "Exercise 5",
+    "section": "Exercise 5.1",
+    "text": "Exercise 5.1\n\nProblemSolution\n\n\n\nRead in the data stored at lesson_code/02_lesson/data/class_data.csv and assign to class_data.\nWhat is the current smallest level of observation for this data frame in relation to its rows? Remember, to view the data, type View(&lt;data frame&gt;) into the console. Hint: the level of observation should be unique by some combination of variables.\nReshape the data long such that grade represents a column with all grades and grade_type represents whether the grade is for a mid-term, a final exam, or overall. Assign to class_long.\nWhat is the smallest unit of observation based on the rows now?\nReshape the data back to its original form.\n\n\n\n\nRead in the data stored at lesson_code/02_lesson/data/class_data.csv and assign to class_data.\n\n\n\nclass_data &lt;- read_csv(\"lesson_code/02_lesson/data/class_data.csv\")\n\n\n\nWhat is the current smallest level of observation for this data frame in relation to its rows? Remember, to view the data, type View(&lt;data frame&gt;) into the console. Hint: the level of observation should be unique by some combination of variables.\n\nClass by Semester by Student\n\n\nReshape the data long such that grade represents a column with all grades and grade_type represents whether the grade is for a mid-term, a final exam, or overall. Assign to class_long.\n\n\n\nclass_long &lt;- class_data |&gt; \n  pivot_longer(cols = c(mid_term, \n                        final_exam, \n                        overall), \n               names_to = \"grade_type\", \n               values_to = \"grade\")\n\nclass_long\n\n# A tibble: 48 × 6\n   student class   attendance semester grade_type grade\n     &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;\n 1       1 English         90        1 mid_term   A    \n 2       1 English         90        1 final_exam A    \n 3       1 English         90        1 overall    A    \n 4       1 English         90        2 mid_term   A    \n 5       1 English         90        2 final_exam A    \n 6       1 English         90        2 overall    A    \n 7       1 Science         90        1 mid_term   A    \n 8       1 Science         90        1 final_exam A    \n 9       1 Science         90        1 overall    A    \n10       1 Science         90        2 mid_term   A    \n# ℹ 38 more rows\n\n\n - What is the smallest unit of observation based on the rows now?\nGrade by Grade Type by Semester by Class by Student\n\nReshape the data back to its original form.\n\n\n\nclass_long |&gt; \n  pivot_wider(names_from = grade_type, \n              values_from = grade) |&gt; \n  select(student,\n         class,\n         mid_term,\n         final_exam,\n         overall,\n         attendance,\n         semester) # reorder columns\n\n# A tibble: 16 × 7\n   student class          mid_term final_exam overall attendance semester\n     &lt;dbl&gt; &lt;chr&gt;          &lt;chr&gt;    &lt;chr&gt;      &lt;chr&gt;        &lt;dbl&gt;    &lt;dbl&gt;\n 1       1 English        A        A          A               90        1\n 2       1 English        A        A          A               90        2\n 3       1 Science        A        A          A               90        1\n 4       1 Science        A        A          A               90        2\n 5       1 Social Studies A        A          A               90        1\n 6       1 Social Studies A        A          A               90        2\n 7       1 PE             A        A          A               90        1\n 8       1 PE             A        A          A               90        2\n 9       2 English        A        A          A               90        1\n10       2 English        A        A          A               90        2\n11       2 Science        A        A          A               90        1\n12       2 Science        A        A          A               90        2\n13       2 Social Studies A        A          A               90        1\n14       2 Social Studies A        A          A               90        2\n15       2 PE             A        A          A               90        1\n16       2 PE             A        A          A               90        2"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/09_exercise_5.html#exercise-5.2---challenge",
+    "href": "lesson_code/02_lesson/09_exercise_5.html#exercise-5.2---challenge",
+    "title": "Exercise 5",
+    "section": "Exercise 5.2 - Challenge",
+    "text": "Exercise 5.2 - Challenge\n\nProblemSolution\n\n\n\nReshape the class_data data frame you created above such that you have 2 rows, one for each student.\nWhy is this data not tidy?\n\n\n\n\nReshape the class_data data frame you created above such that you have 2 rows, one for each student.\n\n\nclass_data |&gt; \n  pivot_wider(names_from = c(class, \n                             semester), \n              values_from = c(mid_term, \n                              final_exam, \n                              overall, \n                              attendance))\n\n# A tibble: 2 × 33\n  student mid_term_English_1 mid_term_English_2 mid_term_Science_1\n    &lt;dbl&gt; &lt;chr&gt;              &lt;chr&gt;              &lt;chr&gt;             \n1       1 A                  A                  A                 \n2       2 A                  A                  A                 \n# ℹ 29 more variables: mid_term_Science_2 &lt;chr&gt;,\n#   `mid_term_Social Studies_1` &lt;chr&gt;, `mid_term_Social Studies_2` &lt;chr&gt;,\n#   mid_term_PE_1 &lt;chr&gt;, mid_term_PE_2 &lt;chr&gt;, final_exam_English_1 &lt;chr&gt;,\n#   final_exam_English_2 &lt;chr&gt;, final_exam_Science_1 &lt;chr&gt;,\n#   final_exam_Science_2 &lt;chr&gt;, `final_exam_Social Studies_1` &lt;chr&gt;,\n#   `final_exam_Social Studies_2` &lt;chr&gt;, final_exam_PE_1 &lt;chr&gt;,\n#   final_exam_PE_2 &lt;chr&gt;, overall_English_1 &lt;chr&gt;, overall_English_2 &lt;chr&gt;, …\n\n\n\n\nWhy is this data not tidy?\n\n\nThe column names are a combination of multiple underlying variables.\n\n\n\n\n\n\nNote\n\n\n\nIf we want to amke a student level dataset where every observation is a column, we may want to instead keep our data to student-level values as opposed to grade-level. In R, it is much better to try to represent the smallest unit of observation long as opposed to wide, as R is designed to be optimized over vectors. In fact, we generlly want to separate out data frames at different levels of observation (such as semester) to different data frames, unless we have a specific use case for using them."
+  },
+  {
+    "objectID": "lesson_code/02_lesson/05_stringr.html",
+    "href": "lesson_code/02_lesson/05_stringr.html",
+    "title": "Working With Strings",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/05_stringr.html#concatenate-strings",
+    "href": "lesson_code/02_lesson/05_stringr.html#concatenate-strings",
+    "title": "Working With Strings",
+    "section": "Concatenate Strings",
+    "text": "Concatenate Strings\nThe str_c() function, like the paste() function, concatenates strings. It is better than paste() because it handles missing values better (like most tidyverse functions).\n\n\nstarwars |&gt; \n  mutate(hair_eye_info = str_c(hair_color, \n                               \" hair and \", \n                               eye_color, \n                               \" eyes\")) |&gt; # concatenate strings\n  count(hair_eye_info) # tabulate frequencies\n\n# A tibble: 31 × 2\n   hair_eye_info                             n\n   &lt;chr&gt;                                 &lt;int&gt;\n 1 auburn hair and blue eyes                 1\n 2 auburn, grey hair and blue eyes           1\n 3 auburn, white hair and blue-gray eyes     1\n 4 black hair and blue eyes                  2\n 5 black hair and brown eyes                 9\n 6 black hair and dark eyes                  1\n 7 black hair and yellow eyes                1\n 8 blond hair and blue eyes                  3\n 9 blonde hair and yellow eyes               1\n10 brown hair and blue eyes                  7\n# ℹ 21 more rows"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/05_stringr.html#string-length",
+    "href": "lesson_code/02_lesson/05_stringr.html#string-length",
+    "title": "Working With Strings",
+    "section": "String Length",
+    "text": "String Length\nLike nchar(), the str_length() function provides the length of each element of a string (number of characters).\n\n\nstarwars |&gt; \n  head() |&gt; # get just first 6 rows\n  pull(name) |&gt; # this function accesses one vector from a data frame\n  str_length() # get length of strings\n\n[1] 14  5  5 11 11  9"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/05_stringr.html#string-matching",
+    "href": "lesson_code/02_lesson/05_stringr.html#string-matching",
+    "title": "Working With Strings",
+    "section": "String Matching",
+    "text": "String Matching\nOne of my most used stringr functions is a str_detect(), which returns TRUE if a pattern is matched in a string and FALSE otherwise for each element.\n\n\nstarwars |&gt; \n  filter(str_detect(name, \"Skywalker\")) # keep only those that have \"Skywalker\" in the name variable\n\n# A tibble: 3 × 14\n  name      height  mass hair_color skin_color eye_color birth_year sex   gender\n  &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; \n1 Luke Sky…    172    77 blond      fair       blue            19   male  mascu…\n2 Anakin S…    188    84 blond      fair       blue            41.9 male  mascu…\n3 Shmi Sky…    163    NA black      fair       brown           72   fema… femin…\n# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,\n#   vehicles &lt;list&gt;, starships &lt;list&gt;\n\n\n\nThis course is too short for us to go deep into regular expressions, but you can also include regular expressions for better searching. They are a concise language for describing patterns in strings.\nSee this R Cheat Sheet for more."
+  },
+  {
+    "objectID": "lesson_code/02_lesson/05_stringr.html#leading-zeros",
+    "href": "lesson_code/02_lesson/05_stringr.html#leading-zeros",
+    "title": "Working With Strings",
+    "section": "Leading Zeros",
+    "text": "Leading Zeros\nOne of the most useful functions when dealing with numeric identifiers is the str_pad9) function, which allows you to pad strings with specific constants to a specified width.\nThe str_pad() function has these relevant arguments:\n\nstring: input vector (can be numeric)\nwidth: minimum width of padded strings\nside: side on which padding character is added (“left”, “right”, “both”)\npad: Single padding character\n\n\n\n# assign california geoids\ntract_geoids &lt;- c(6001400100, \n                  6001400200, \n                  6001400300, \n                  6001400400, \n                  6001400500)\n\n# add leading zeros on the left side\nstr_pad(string = tract_geoids, \n        width = 11, \n        side = \"left\", \n        pad = \"0\")\n\n[1] \"06001400100\" \"06001400200\" \"06001400300\" \"06001400400\" \"06001400500\""
+  },
+  {
+    "objectID": "lesson_code/02_lesson/05_stringr.html#white-space",
+    "href": "lesson_code/02_lesson/05_stringr.html#white-space",
+    "title": "Working With Strings",
+    "section": "White Space",
+    "text": "White Space\nThe str_trim() function allws you to trim white space from the start and/or end of a string.\n\n\nwhite_space &lt;- c(\"   Is\", \n                 \"there\", \n                 \" whitespace?  \") # create character vector with white space included\n\nstr_trim(white_space) # trim white space\n\n[1] \"Is\"          \"there\"       \"whitespace?\""
+  },
+  {
+    "objectID": "lesson_code/02_lesson/05_stringr.html#subset-string-by-index",
+    "href": "lesson_code/02_lesson/05_stringr.html#subset-string-by-index",
+    "title": "Working With Strings",
+    "section": "Subset string by index",
+    "text": "Subset string by index\nSometimes we’d like to subset strings based on their index position.\nWe can use str_sub() for that. If you pt in the same digit, the result in one character at that index.\n\n\n# pull first character in string\nstarwars |&gt; \n  pull(gender) |&gt; # get only the gender column as a vector\n  str_sub(1,1) # get first character\n\n [1] \"m\" \"m\" \"m\" \"m\" \"f\" \"m\" \"f\" \"m\" \"m\" \"m\" \"m\" \"m\" \"m\" \"m\" \"m\" \"m\" \"m\" NA  \"m\"\n[20] \"m\" \"m\" \"m\" \"m\" \"m\" \"m\" \"m\" \"f\" \"m\" \"m\" \"m\" \"m\" \"m\" \"m\" \"f\" \"m\" \"m\" \"m\" \"m\"\n[39] \"m\" \"m\" \"m\" \"f\" \"m\" \"m\" \"f\" \"m\" \"m\" \"m\" \"m\" \"m\" \"m\" \"m\" \"m\" \"f\" \"m\" \"m\" \"m\"\n[58] \"m\" NA  NA  \"m\" \"m\" \"f\" \"f\" \"f\" \"m\" \"m\" \"m\" \"f\" \"m\" \"m\" \"f\" \"f\" \"f\" \"m\" \"m\"\n[77] \"f\" \"m\" \"m\" \"m\" NA  \"m\" \"m\" \"f\" \"m\" \"m\" \"f\"\n\n\n In R, everything starts at 1, not 0, like in some other programming languages."
+  },
+  {
+    "objectID": "lesson_code/02_lesson/05_stringr.html#modify-cases",
+    "href": "lesson_code/02_lesson/05_stringr.html#modify-cases",
+    "title": "Working With Strings",
+    "section": "Modify Cases",
+    "text": "Modify Cases\nThere are a bunch of functions to modify case:\n\nstr_to_lower(): Convert strings to lower case (asdfjl)\nstr_to_upper(): Convert strings to upper case (ASDFJL)\nstr_to_title(): Convert strings to title case (This Is A Title)\nstr_to_sentence(): Convert strings to sentence case (This is a sentence)"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/03_exercise_3.html",
+    "href": "lesson_code/02_lesson/03_exercise_3.html",
+    "title": "Exercise 3",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/03_exercise_3.html#exercise-3.1",
+    "href": "lesson_code/02_lesson/03_exercise_3.html#exercise-3.1",
+    "title": "Exercise 3",
+    "section": "Exercise 3.1",
+    "text": "Exercise 3.1\n\nProblemSolution\n\n\n\nWhat is your current directory?\nLocate the “UADAggs_nat_v3_0.sas7bdat” file within the “lesson_code”, “02_lesson”, and “data” subdirectories. Read that file into R using a relative file path.\nCompared to the .parquet version of the data, how much larger is the .sas7bdat file? (You don’t need R for this)\n\n\n\n\nWhat is your current directory?\n\n\nYou can check your current directory with the getwd() functino.\n\n\ngetwd()\n\n\n\nLocate the “UADAggs_nat_v3_0.sas7bdat” file within the “lesson_code”, “02_lesson”, and “data” subdirectories. Read that file into R using a relative file path.\n\n\n\nlibrary(haven)\nread_sas(\"lesson_code/02_lesson/data/UADAggs_nat_V3_0.sas7bdat\")\n\n\n\nCompared to the .parquet version of the data, how much larger is the .sas7bdat file? (You don’t need R for this)\n\nThe .parquet file is 778 KB while the .sas7bdat file is 81,892 KB. So the .sas7bdat file is more than 105 times larger."
+  },
+  {
+    "objectID": "lesson_code/02_lesson/03_exercise_3.html#exercise-3.2---challenge",
+    "href": "lesson_code/02_lesson/03_exercise_3.html#exercise-3.2---challenge",
+    "title": "Exercise 3",
+    "section": "Exercise 3.2 - Challenge",
+    "text": "Exercise 3.2 - Challenge\n\nProblemSolution\n\n\n\nSet your current directory to “lesson_code/02_lesson/images”.\nNow read in the same file from Exercise 3.1 using a relative file path.\nSet your current directory back to the intro-to-r folder.\n\n\n\n\n\nSet your current directory to “lesson_code/02_lesson/images”.\n\n\n\nsetwd(\"lesson_code/02_lesson/images\")\n\n\n\nNow read in the same file from Exercise 3.1 using a relative file path.\n\n\nlibrary(haven)\nread_sas(\"../data/UADAggs_nat_V3_0.sas7bdat\")\n\n\n\nSet your current directory back to the intro-to-r folder.\n\n\n\nsetwd(\"../../.../\")"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/04_conditions.html",
+    "href": "lesson_code/02_lesson/04_conditions.html",
+    "title": "Vectorized Conditions",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/04_conditions.html#modify-or-create-up-to-two-values-with-if_else",
+    "href": "lesson_code/02_lesson/04_conditions.html#modify-or-create-up-to-two-values-with-if_else",
+    "title": "Vectorized Conditions",
+    "section": "Modify or create up to two values with if_else()",
+    "text": "Modify or create up to two values with if_else()\nThe if_else() function takes in a logical vector, an element to return if the condistion is TRUE, and an element to return if the conditions is FALSE. If the condition evaluates to NA (missing), the result of the function will be NA for that value.\nWe often use if_else() in a mutate() function when we want to add or modify variables.\n\n\nstarwars |&gt; \n  mutate(is_tall = if_else(height &gt; 120, \"Tall\", \"Not Tall\")) |&gt; # if expression is met, assign \"Tall\", otherwise \"Not Tall\"\n  count(is_tall) # tabulate category variable we just created\n\n# A tibble: 3 × 2\n  is_tall      n\n  &lt;chr&gt;    &lt;int&gt;\n1 Not Tall     8\n2 Tall        73\n3 &lt;NA&gt;         6\n\n\n\nRemember that the count variable tabulates frequency for each unique value in a variable.\nWe can also use this function to modify a value in an existing variable.\n\n\nstarwars |&gt; \n  mutate(height = if_else(is.na(height), -999, height)) # if height is missing, set it as -999, else put height. Also, never do this. \n\n\nThe above code changes all missing values in the height variable to -999. Note that we use the height variable in the false argument in order to assign values back to height if it is not missing. So this would be read as “if height is missing, -999, else height”."
+  },
+  {
+    "objectID": "lesson_code/02_lesson/04_conditions.html#modify-or-create-any-number-of-values-with-case_when",
+    "href": "lesson_code/02_lesson/04_conditions.html#modify-or-create-any-number-of-values-with-case_when",
+    "title": "Vectorized Conditions",
+    "section": "Modify or create any number of values with case_when()",
+    "text": "Modify or create any number of values with case_when()\nSometimes we’d like to make more than one modification or create a variable that has multiple changes relative to its inputs.\nIf we wanted to do this with if_else(), we may need multiple nested if_else() statements.\n\n\nstarwars |&gt; \n  mutate(is_tall = if_else(height &lt; 80, \n                           \"Short\", # if height is greater than 80, assign \"Short\n                           if_else(height &gt;= 80 & height &lt;= 200, # else if this condition is met, assign Medium\n                                   \"Medium\", \n                                   if_else(height &gt; 200, # else if this condition is met, assign Tall\n                                   \"Tall\", \n                                   as.character(height))))) |&gt; # else assign back to height\n  count(is_tall) # tabulate frequencies\n\n# A tibble: 4 × 2\n  is_tall     n\n  &lt;chr&gt;   &lt;int&gt;\n1 Medium     69\n2 Short       2\n3 Tall       10\n4 &lt;NA&gt;        6\n\n\n\nThis can be cumbersome and hard to track. Instead, we can use the case_when() function.\n\n\nstarwars |&gt; \n  mutate(height_category = case_when(\n    height &lt; 80 ~ \"Short\", # if height is greater than 80, assign \"Short\"\n    height &gt;= 80 & height &lt;= 200 ~ \"Medium\", # else if this condition is met, assign Medium\n    height &gt; 200 ~ \"Tall\" # else if this condition is met, assign Tall\n  )) |&gt; \n  count(height_category) # tabulate frequencies\n\n# A tibble: 4 × 2\n  height_category     n\n  &lt;chr&gt;           &lt;int&gt;\n1 Medium             69\n2 Short               2\n3 Tall               10\n4 &lt;NA&gt;                6\n\n\n\nThe arguments in case_when() are evaluated in order, so you must proceed from the most specific to the most general. For example, this won’t work:\n\n\nx &lt;- 1:70 \ncase_when(\n  x %% 5 == 0 ~ \"fizz\", \n  x %% 7 == 0 ~ \"buzz\", \n  x %% 35 == 0 ~ \"fizz buzz\", \n  .default = as.character(x)\n)\n\n [1] \"1\"    \"2\"    \"3\"    \"4\"    \"fizz\" \"6\"    \"buzz\" \"8\"    \"9\"    \"fizz\"\n[11] \"11\"   \"12\"   \"13\"   \"buzz\" \"fizz\" \"16\"   \"17\"   \"18\"   \"19\"   \"fizz\"\n[21] \"buzz\" \"22\"   \"23\"   \"24\"   \"fizz\" \"26\"   \"27\"   \"buzz\" \"29\"   \"fizz\"\n[31] \"31\"   \"32\"   \"33\"   \"34\"   \"fizz\" \"36\"   \"37\"   \"38\"   \"39\"   \"fizz\"\n[41] \"41\"   \"buzz\" \"43\"   \"44\"   \"fizz\" \"46\"   \"47\"   \"48\"   \"buzz\" \"fizz\"\n[51] \"51\"   \"52\"   \"53\"   \"54\"   \"fizz\" \"buzz\" \"57\"   \"58\"   \"59\"   \"fizz\"\n[61] \"61\"   \"62\"   \"buzz\" \"64\"   \"fizz\" \"66\"   \"67\"   \"68\"   \"69\"   \"fizz\""
+  },
+  {
+    "objectID": "lesson_code/02_lesson/10_joining.html",
+    "href": "lesson_code/02_lesson/10_joining.html",
+    "title": "Combining Data Frames",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/10_joining.html#appending-data",
+    "href": "lesson_code/02_lesson/10_joining.html#appending-data",
+    "title": "Combining Data Frames",
+    "section": "Appending Data",
+    "text": "Appending Data\nTo append data together, we can use the bind_rows() function.\nThis function takes in two or more data frames and appends them together, matching the columns with the same name together.\nLet’s try it in code. \n\n# echo: false\n\ndf1 &lt;- tibble(a = c(1, \n                    2, \n                    3), \n              b = c(4, \n                    5, \n                    6), \n              df = \"first\")\n\ndf2 &lt;- tibble(a = c(4, \n                    5, \n                    6), \n              c = c(4, \n                    5, \n                    6), \n              df = \"second\")\n\n\ndf1\n\n# A tibble: 3 × 3\n      a     b df   \n  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;\n1     1     4 first\n2     2     5 first\n3     3     6 first\n\ndf2\n\n# A tibble: 3 × 3\n      a     c df    \n  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt; \n1     4     4 second\n2     5     5 second\n3     6     6 second\n\n# append data together vertically\nbind_rows(df1, df2)\n\n# A tibble: 6 × 4\n      a     b df         c\n  &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;  &lt;dbl&gt;\n1     1     4 first     NA\n2     2     5 first     NA\n3     3     6 first     NA\n4     4    NA second     4\n5     5    NA second     5\n6     6    NA second     6\n\n\n\nNote that the two dataframes shared the common columns a and df, while they did not share b and c. The appending still worked, and NAs were created where there was no data."
+  },
+  {
+    "objectID": "lesson_code/02_lesson/10_joining.html#joining-with-no-keys",
+    "href": "lesson_code/02_lesson/10_joining.html#joining-with-no-keys",
+    "title": "Combining Data Frames",
+    "section": "Joining With No Keys",
+    "text": "Joining With No Keys\nOne way to join tables together is joining without a key. By key, I mean a unique variable or set of variables that are shared across the dataframes you want to join. I do not recommend doing this often as the rows on each side of the join will be binded in the order that they appear in the data, so it is easy to create a mistake or meaningless results.\nWe can do this with the bind_cols() function.\n\n Let’s take a look at these data frames and bind them. \n\ndf3\n\n# A tibble: 3 × 2\n      a     b\n  &lt;dbl&gt; &lt;dbl&gt;\n1     1     4\n2     2     5\n3     3     6\n\ndf4\n\n# A tibble: 3 × 2\n      c     d\n  &lt;dbl&gt; &lt;dbl&gt;\n1     1     4\n2     2     5\n3     3     6\n\n# append data together horizontally \nbind_cols(df3, df4)\n\n# A tibble: 3 × 4\n      a     b     c     d\n  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;\n1     1     4     1     4\n2     2     5     2     5\n3     3     6     3     6"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/10_joining.html#joining-data-with-keys",
+    "href": "lesson_code/02_lesson/10_joining.html#joining-data-with-keys",
+    "title": "Combining Data Frames",
+    "section": "Joining Data With Keys",
+    "text": "Joining Data With Keys\nIt is a much more common use case where we want to join data with keys. That is, we want elements of one dataset to be matched to the same elements across another dataset.\nFor this, we can use joins.\nHere are four functions for doing joins in the tidyr package (loaded in tidyverse).\n\n \nEach kind of join tries to join two datasets together by row. The venn diagram above refers to what will happen to observations where keys are shared between the two data frames, what will happen when only x has a specific kehy, and what will happen when only y has a specific key.\nLet’s start with an inner_join().\nLet’s say we have the following data frames.\n\n\ndf1\n\n# A tibble: 3 × 2\n  geoid county_name   \n  &lt;chr&gt; &lt;chr&gt;         \n1 01001 Autauga County\n2 01003 Baldwin County\n3 01005 Barbour County\n\ndf2\n\n# A tibble: 3 × 2\n  fips  population\n  &lt;chr&gt;      &lt;dbl&gt;\n1 01005    1609492\n2 01003      29629\n3 01057     203921\n\n\n\nNote that there seems to be a key that is shared across the two data frames, although the names do not match. We can still do the join based on that key with the following syntax.\n\n\n# join data such that only rows with values in key from both sides of join are retained\ninner_join(df1, df2, join_by(geoid == fips))\n\n# A tibble: 2 × 3\n  geoid county_name    population\n  &lt;chr&gt; &lt;chr&gt;               &lt;dbl&gt;\n1 01003 Baldwin County      29629\n2 01005 Barbour County    1609492\n\n\n\nWe see here that the result is only two rows, because only two rows had shared keys across both datasets (01003 and 01005).\nHere’s what the othr join result in.\n\n\n# join data such that only rows with values in key from left side of join are retained\nleft_join(df1, df2, join_by(geoid == fips))\n\n# A tibble: 3 × 3\n  geoid county_name    population\n  &lt;chr&gt; &lt;chr&gt;               &lt;dbl&gt;\n1 01001 Autauga County         NA\n2 01003 Baldwin County      29629\n3 01005 Barbour County    1609492\n\n\n\n# join data such that only rows with values in key from right side of join are retained\nright_join(df1, df2, join_by(geoid == fips))\n\n# A tibble: 3 × 3\n  geoid county_name    population\n  &lt;chr&gt; &lt;chr&gt;               &lt;dbl&gt;\n1 01003 Baldwin County      29629\n2 01005 Barbour County    1609492\n3 01057 &lt;NA&gt;               203921\n\n\n\n# join data such that all rows are maintained from bothdata frames, regardless of key matches\nfull_join(df1, df2, join_by(geoid == fips))\n\n# A tibble: 4 × 3\n  geoid county_name    population\n  &lt;chr&gt; &lt;chr&gt;               &lt;dbl&gt;\n1 01001 Autauga County         NA\n2 01003 Baldwin County      29629\n3 01005 Barbour County    1609492\n4 01057 &lt;NA&gt;               203921\n\n\n\nIf you know SQL, here are the analogs to SQL joins, as tidyr’s join syntax was inspired by SQL.\n\n\n\nWe also can join across multiple variables using similar syntax. \n\ndf1\n\n# A tibble: 3 × 3\n  state county county_name   \n  &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;         \n1 01    001    Autauga County\n2 01    003    Baldiwn County\n3 01    005    Barbour County\n\ndf2\n\n# A tibble: 3 × 3\n  state_code fips  population\n  &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;\n1 01         005      1609492\n2 01         003        29629\n3 01         057       203921\n\n# do inner join with two columns\ninner_join(df1, df2, join_by(state == state_code, \n                             county == fips))\n\n# A tibble: 2 × 4\n  state county county_name    population\n  &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;               &lt;dbl&gt;\n1 01    003    Baldiwn County      29629\n2 01    005    Barbour County    1609492\n\n\n\n\nUsing the tidylog package\nI have not yet mentioned this package, and yet it is one of my favorite packages in R. The tidylog package prints to the console some helpful information whenever we do certain tidyverse functions. It is especially helpful with joins because we can see how many observations were joined and not joined on each side.\nWe load tidylog after we load tidyverse to use it correctly.\n\n\nlibrary(tidylog)\n\n\n# do inner join with two columns\ninner_join(df1, df2, join_by(state == state_code, \n                             county == fips))\n\ninner_join: added one column (population)\n            &gt; rows only in df1 (1)\n            &gt; rows only in df2 (1)\n            &gt; matched rows      2\n            &gt;                  ===\n            &gt; rows total        2\n\n\n# A tibble: 2 × 4\n  state county county_name    population\n  &lt;chr&gt; &lt;chr&gt;  &lt;chr&gt;               &lt;dbl&gt;\n1 01    003    Baldiwn County      29629\n2 01    005    Barbour County    1609492\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThe join_by() function is relatively new so the latest version of tidylog on CRAN may not have updated yet to incorporate it. To use the join_by() function with tidylog, first install the remotes package, then type remotes::install_github(\"elbersb/tidylog\") into the console."
+  },
+  {
+    "objectID": "lesson_code/05_lesson/05_exercise_15.html",
+    "href": "lesson_code/05_lesson/05_exercise_15.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/05_lesson/03_exercise_14.html",
+    "href": "lesson_code/05_lesson/03_exercise_14.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/05_lesson/07_exercise_16.html",
+    "href": "lesson_code/05_lesson/07_exercise_16.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/05_lesson/06_iteration.html",
+    "href": "lesson_code/05_lesson/06_iteration.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/03_r_basics.html",
+    "href": "lesson_code/01_lesson/03_r_basics.html",
+    "title": "R Basics",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/03_r_basics.html#comments",
+    "href": "lesson_code/01_lesson/03_r_basics.html#comments",
+    "title": "R Basics",
+    "section": "Comments",
+    "text": "Comments\nComments in R are created with the # character. We use comments to give the reader of code (which is sometimes yourself in 6 months) an indication of what you are doing and why. Use them frequently to explain what you are doing to those reading your code.\nFor multi-line comments, highlight the lines you would like to comment and Shift + CTRL + C.\n\n\n# This is a comment\n\n# This comment\n# is multi-line"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/03_r_basics.html#assignment",
+    "href": "lesson_code/01_lesson/03_r_basics.html#assignment",
+    "title": "R Basics",
+    "section": "Assignment",
+    "text": "Assignment\nWe’ve already discussed that we can use R like a calculator.\n\n\n# use R like a calculator\n3 + 4\n\n[1] 7\n\n\n\nThe &lt;- operator allows you to assign whateer is on the right hand side to an object name on the left hand side in the format of &lt;obj_name&gt; &lt;- &lt;expr&gt;. This does two things:\n\n\nCreates an object. You can think of an object like you would in real life, but in the virtual world (basically any kind of noun).\nCreates a name that points to that object.\n\n\nThis allows you to reference the object that the object name points to without needing to type in the values again.\n\n\n#assign values to an object reference\nvar &lt;- 3 + 4\n\nvar\n\n[1] 7\n\n\n\nThe &lt;- operator is used as opposed to most programming languages where the default assignment is =. In R, = does work for assignment, but it is best practice to use &lt;-.\n\n\n\n\n\n\n\nNote\n\n\n\nIf you type th eobject name without assignment, it wil print the result automatically.\n\n\n\n\nValid Names\nObject name must consist of letters, digits, and _. They cannot begin with a _ or a digit.\nR will not let hyou use names that are reserved, like if or function. It is also bad practice to overwrite base functions or other functions that you would like to use (like mean())."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/08_dplyr_basics.html",
+    "href": "lesson_code/01_lesson/08_dplyr_basics.html",
+    "title": "dplyr Basics",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/08_dplyr_basics.html#the-starwars-data-frame",
+    "href": "lesson_code/01_lesson/08_dplyr_basics.html#the-starwars-data-frame",
+    "title": "dplyr Basics",
+    "section": "The starwars data frame",
+    "text": "The starwars data frame\nLet’s take a look at some fiunctions within dplyr in more detail.\nWe’ll be using the dplyr::starwars tibble, a dataset about the characters in the starwars universe.\nYou can view it in our environment window if you assign it to itself.\n\n\n# assign starwars to itself to view it in the environment window\n\nstarwars &lt;- starwars"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/08_dplyr_basics.html#take-a-look-at-the-data-with-glimpse",
+    "href": "lesson_code/01_lesson/08_dplyr_basics.html#take-a-look-at-the-data-with-glimpse",
+    "title": "dplyr Basics",
+    "section": "Take a look at the data with glimpse()",
+    "text": "Take a look at the data with glimpse()\nTo get some metadata about the data frame, we can use the glimpse() function.\n\n\nglimpse(starwars)\n\nRows: 87\nColumns: 14\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Darth Vader\", \"Leia Or…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2…\n$ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brown, grey\", \"brown\", N…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\", \"light\", \"light\", \"…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"brown\", \"blue\", \"blue\",…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, …\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female\", \"male\", \"female\",…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"femini…\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatooine\", \"Alderaan\", \"T…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Human\", \"Human\", \"Huma…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Back\", \"Return of the J…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike\"&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, \"Imp…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;, \"TIE Advanced x1\",…\n\n\n\nThis function tells us the number of rows and columns of the data frame, the variable names, their type, and the first few observations."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/08_dplyr_basics.html#add-new-variables-with-mutate",
+    "href": "lesson_code/01_lesson/08_dplyr_basics.html#add-new-variables-with-mutate",
+    "title": "dplyr Basics",
+    "section": "Add new variables with mutate()",
+    "text": "Add new variables with mutate()\nmutate() creates new variables or edits existing variables.\nThe syntax for mutate() is:\n\nmutate(.data = &lt;df_name&gt;, \n       &lt;new_var_1&gt; = &lt;expr_1&gt;, \n       &lt;new_var_2&gt; = &lt;expr_2&gt;\n      )\n\n\nFor example, let’s say we want to create a new height variable that is half of the original height (editing an existing variable), and we wanted to add a varaible called type with a constant “movie_character”.\n\n\nstarwars_1 &lt;- mutate(.data = starwars, \n                     height = height / 2, # edit existing varaible\n                     type = \"movie character\"\n                     )\n\nglimpse(starwars_1)\n\nRows: 87\nColumns: 15\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Darth Vader\", \"Leia Or…\n$ height     &lt;dbl&gt; 86.0, 83.5, 48.0, 101.0, 75.0, 89.0, 82.5, 48.5, 91.5, 91.0…\n$ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brown, grey\", \"brown\", N…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\", \"light\", \"light\", \"…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"brown\", \"blue\", \"blue\",…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, …\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female\", \"male\", \"female\",…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"femini…\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatooine\", \"Alderaan\", \"T…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Human\", \"Human\", \"Huma…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Back\", \"Return of the J…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike\"&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, \"Imp…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;, \"TIE Advanced x1\",…\n$ type       &lt;chr&gt; \"movie character\", \"movie character\", \"movie character\", \"m…\n\n\n\nWe’ll get to more complicated variable generations next class."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/08_dplyr_basics.html#remove-observations-with-filter",
+    "href": "lesson_code/01_lesson/08_dplyr_basics.html#remove-observations-with-filter",
+    "title": "dplyr Basics",
+    "section": "Remove observations with filter()",
+    "text": "Remove observations with filter()\nOne very common task is removing observations from a dataset. If we want to limit observations based off of information in the dataset, we can use the filter() function.\nWe use a logical vector that we can either create in the filter() function call or access already in the dataset (if it exists as a variable already).\nFor example, let’s keep only observations where the height is less than 100 cm.\n\n\n# create logical vector in filter() function call \n\nfilter(.data = starwars, \n       height &lt; 100)\n\n# A tibble: 7 × 14\n  name      height  mass hair_color skin_color eye_color birth_year sex   gender\n  &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; \n1 R2-D2         96    32 &lt;NA&gt;       white, bl… red               33 none  mascu…\n2 R5-D4         97    32 &lt;NA&gt;       white, red red               NA none  mascu…\n3 Yoda          66    17 white      green      brown            896 male  mascu…\n4 Wicket S…     88    20 brown      brown      brown              8 male  mascu…\n5 Ratts Ty…     79    15 none       grey, blue unknown           NA male  mascu…\n6 Dud Bolt      94    45 none       blue, grey yellow            NA male  mascu…\n7 R4-P17        96    NA none       silver, r… red, blue         NA none  femin…\n# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,\n#   vehicles &lt;list&gt;, starships &lt;list&gt;\n\n\n\nThere is no logical vector in the starwars data frame yet, but we’ll create one soon.\nYou can use logical operators, | (or) and “&” (and), as well.\n\n\n# filter observations with height &lt; 100 OR species equal to \"Droid\" \n\nfilter(.data = starwars, \n       height &lt; 100 | species == \"Droid\")\n\n# A tibble: 10 × 14\n   name     height  mass hair_color skin_color eye_color birth_year sex   gender\n   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; \n 1 C-3PO       167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…\n 2 R2-D2        96    32 &lt;NA&gt;       white, bl… red               33 none  mascu…\n 3 R5-D4        97    32 &lt;NA&gt;       white, red red               NA none  mascu…\n 4 Yoda         66    17 white      green      brown            896 male  mascu…\n 5 IG-88       200   140 none       metal      red               15 none  mascu…\n 6 Wicket …     88    20 brown      brown      brown              8 male  mascu…\n 7 Ratts T…     79    15 none       grey, blue unknown           NA male  mascu…\n 8 Dud Bolt     94    45 none       blue, grey yellow            NA male  mascu…\n 9 R4-P17       96    NA none       silver, r… red, blue         NA none  femin…\n10 BB8          NA    NA none       none       black             NA none  mascu…\n# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,\n#   vehicles &lt;list&gt;, starships &lt;list&gt;\n\n\n\n\n# filter observations with height &lt; 100 AND species equal to \"Droid\" \n\nfilter(.data = starwars, \n       height &lt; 100 & species == \"Droid\")\n\n# A tibble: 3 × 14\n  name   height  mass hair_color skin_color  eye_color birth_year sex   gender  \n  &lt;chr&gt;   &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   \n1 R2-D2      96    32 &lt;NA&gt;       white, blue red               33 none  masculi…\n2 R5-D4      97    32 &lt;NA&gt;       white, red  red               NA none  masculi…\n3 R4-P17     96    NA none       silver, red red, blue         NA none  feminine\n# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,\n#   vehicles &lt;list&gt;, starships &lt;list&gt;\n\n\n\nYou can do the same thing, which is include multiple conditions that all must be TRUE for observations to be retained, by separating conditions with a comma.\n\n\n# filter observations with height &lt; 100 AND species equal to \"Droid\"\n\nfilter(.data = starwars,\n       height &lt; 100, \n       species == \"Droid\")\n\n# A tibble: 3 × 14\n  name   height  mass hair_color skin_color  eye_color birth_year sex   gender  \n  &lt;chr&gt;   &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt;   \n1 R2-D2      96    32 &lt;NA&gt;       white, blue red               33 none  masculi…\n2 R5-D4      97    32 &lt;NA&gt;       white, red  red               NA none  masculi…\n3 R4-P17     96    NA none       silver, red red, blue         NA none  feminine\n# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,\n#   vehicles &lt;list&gt;, starships &lt;list&gt;"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/08_dplyr_basics.html#remove-rename-and-reorder-columns-with-select",
+    "href": "lesson_code/01_lesson/08_dplyr_basics.html#remove-rename-and-reorder-columns-with-select",
+    "title": "dplyr Basics",
+    "section": "Remove, rename, and reorder columns with select()",
+    "text": "Remove, rename, and reorder columns with select()\nselect() drops columns from a data frame and/or reorders the columns in a data frame. The arguments after the name of the data frame should be the names of columns you wish to keep, without quotes. All other columns not listed are dropped.\nTo rename a variable, use the syntax &lt;new_name&gt;  = &lt;old_name&gt;.\n\n\n# remove, rename, and/or reorder variables\n\nselect(.data = starwars, \n       name, \n       height,\n       eye_color,\n       year = birth_year)\n\n# A tibble: 87 × 4\n   name               height eye_color  year\n   &lt;chr&gt;               &lt;int&gt; &lt;chr&gt;     &lt;dbl&gt;\n 1 Luke Skywalker        172 blue       19  \n 2 C-3PO                 167 yellow    112  \n 3 R2-D2                  96 red        33  \n 4 Darth Vader           202 yellow     41.9\n 5 Leia Organa           150 brown      19  \n 6 Owen Lars             178 blue       52  \n 7 Beru Whitesun Lars    165 blue       47  \n 8 R5-D4                  97 red        NA  \n 9 Biggs Darklighter     183 brown      24  \n10 Obi-Wan Kenobi        182 blue-gray  57  \n# ℹ 77 more rows\n\n\n\nThe tidyselect::everything() function lets us refer to all other varaibles not explitly already defined in the select() function. This helps when we want to reorder some variables and leave the rest alone.\n\n\nstarwars_1 &lt;- select(.data = starwars, \n                     name, \n                     height,\n                     eye_color,\n                     year = birth_year,\n                     everything())\n\nglimpse(starwars_1)\n\nRows: 87\nColumns: 14\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Darth Vader\", \"Leia Or…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"brown\", \"blue\", \"blue\",…\n$ year       &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, …\n$ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brown, grey\", \"brown\", N…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\", \"light\", \"light\", \"…\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female\", \"male\", \"female\",…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"femini…\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatooine\", \"Alderaan\", \"T…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Human\", \"Human\", \"Huma…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Back\", \"Return of the J…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike\"&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, \"Imp…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;, \"TIE Advanced x1\",…"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/08_dplyr_basics.html#sort-rows-with-arrange",
+    "href": "lesson_code/01_lesson/08_dplyr_basics.html#sort-rows-with-arrange",
+    "title": "dplyr Basics",
+    "section": "Sort rows with arrange()",
+    "text": "Sort rows with arrange()\narrange() sorts rows of a data frame, similar to how sort() sorts an individual vector. The data frame is sortd by the first variable first and then each subsequent variable. desc(&lt;var_name&gt;) is used to reverse the sort of a given variable.\n\nstarwars_1 &lt;- arrange(.data = starwars, desc(height))\n\nglimpse(starwars_1)\n\nRows: 87\nColumns: 14\n$ name       &lt;chr&gt; \"Yarael Poof\", \"Tarfful\", \"Lama Su\", \"Chewbacca\", \"Roos Tar…\n$ height     &lt;int&gt; 264, 234, 229, 228, 224, 216, 213, 206, 206, 202, 200, 198,…\n$ mass       &lt;dbl&gt; NA, 136, 88, 112, 82, 159, NA, NA, 80, 136, 140, 82, 102, 6…\n$ hair_color &lt;chr&gt; \"none\", \"brown\", \"none\", \"brown\", \"none\", \"none\", \"none\", \"…\n$ skin_color &lt;chr&gt; \"white\", \"brown\", \"grey\", \"unknown\", \"grey\", \"brown, white\"…\n$ eye_color  &lt;chr&gt; \"yellow\", \"blue\", \"black\", \"blue\", \"orange\", \"green, yellow…\n$ birth_year &lt;dbl&gt; NA, NA, NA, 200.0, NA, NA, NA, NA, NA, 41.9, 15.0, 92.0, NA…\n$ sex        &lt;chr&gt; \"male\", \"male\", \"male\", \"male\", \"male\", \"male\", \"female\", \"…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"mascul…\n$ homeworld  &lt;chr&gt; \"Quermia\", \"Kashyyyk\", \"Kamino\", \"Kashyyyk\", \"Naboo\", \"Kale…\n$ species    &lt;chr&gt; \"Quermian\", \"Wookiee\", \"Kaminoan\", \"Wookiee\", \"Gungan\", \"Ka…\n$ films      &lt;list&gt; \"The Phantom Menace\", \"Revenge of the Sith\", \"Attack of th…\n$ vehicles   &lt;list&gt; &lt;&gt;, &lt;&gt;, &lt;&gt;, \"AT-ST\", &lt;&gt;, \"Tsmeu-6 personal wheel bike\", &lt;&gt;…\n$ starships  &lt;list&gt; &lt;&gt;, &lt;&gt;, &lt;&gt;, &lt;\"Millennium Falcon\", \"Imperial shuttle\"&gt;, &lt;&gt;,…"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/08_dplyr_basics.html#tabulate-frequencies-with-count",
+    "href": "lesson_code/01_lesson/08_dplyr_basics.html#tabulate-frequencies-with-count",
+    "title": "dplyr Basics",
+    "section": "Tabulate frequencies with count()",
+    "text": "Tabulate frequencies with count()\nThe count() function tabulates frequencies by category. If you include multiple varaibles, it creates a long data frame with each unique combination of variables.\n\n\n# tabulate by one variable\n\ncount(starwars, gender)\n\n# A tibble: 3 × 2\n  gender        n\n  &lt;chr&gt;     &lt;int&gt;\n1 feminine     17\n2 masculine    66\n3 &lt;NA&gt;          4\n\n\n\n\n# tabulate by more than one variable\n\ncount(starwars, \n      gender,\n      species)\n\n# A tibble: 42 × 3\n   gender    species        n\n   &lt;chr&gt;     &lt;chr&gt;      &lt;int&gt;\n 1 feminine  Clawdite       1\n 2 feminine  Droid          1\n 3 feminine  Human          9\n 4 feminine  Kaminoan       1\n 5 feminine  Mirialan       2\n 6 feminine  Tholothian     1\n 7 feminine  Togruta        1\n 8 feminine  Twi'lek        1\n 9 masculine Aleena         1\n10 masculine Besalisk       1\n# ℹ 32 more rows"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/08_dplyr_basics.html#group-data-with-group_by",
+    "href": "lesson_code/01_lesson/08_dplyr_basics.html#group-data-with-group_by",
+    "title": "dplyr Basics",
+    "section": "Group data with group_by()",
+    "text": "Group data with group_by()\ngroup_by() groups data frame so subsequent functions will be evaluated by group instead of on all observations as a whole. We can combine group_by() with most dplyr functions that affect rows. Note that grouping by itself will not materially change the rows and columns of the data frame.\n\n\ngrouped &lt;- group_by(.data = starwars, \n                    species)\n\nglimpse(grouped)\n\nRows: 87\nColumns: 14\nGroups: species [38]\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Darth Vader\", \"Leia Or…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2…\n$ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brown, grey\", \"brown\", N…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\", \"light\", \"light\", \"…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"brown\", \"blue\", \"blue\",…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, …\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female\", \"male\", \"female\",…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"femini…\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatooine\", \"Alderaan\", \"T…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Human\", \"Human\", \"Huma…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Back\", \"Return of the J…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike\"&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, \"Imp…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;, \"TIE Advanced x1\",…\n\n\n\nIf you use glimpse() after grouping, it tells you tht the data frame is grouped by the specific variables and the number of groups.\nYou can add multiple groups and they will act in the same way as the count() function - the groups will be the unique combinations of the values in the grouped variables.\n\ngrouped &lt;- group_by(.data = starwars, \n                    species, \n                    gender)\n\nglimpse(grouped)\n\nRows: 87\nColumns: 14\nGroups: species, gender [42]\n$ name       &lt;chr&gt; \"Luke Skywalker\", \"C-3PO\", \"R2-D2\", \"Darth Vader\", \"Leia Or…\n$ height     &lt;int&gt; 172, 167, 96, 202, 150, 178, 165, 97, 183, 182, 188, 180, 2…\n$ mass       &lt;dbl&gt; 77.0, 75.0, 32.0, 136.0, 49.0, 120.0, 75.0, 32.0, 84.0, 77.…\n$ hair_color &lt;chr&gt; \"blond\", NA, NA, \"none\", \"brown\", \"brown, grey\", \"brown\", N…\n$ skin_color &lt;chr&gt; \"fair\", \"gold\", \"white, blue\", \"white\", \"light\", \"light\", \"…\n$ eye_color  &lt;chr&gt; \"blue\", \"yellow\", \"red\", \"yellow\", \"brown\", \"blue\", \"blue\",…\n$ birth_year &lt;dbl&gt; 19.0, 112.0, 33.0, 41.9, 19.0, 52.0, 47.0, NA, 24.0, 57.0, …\n$ sex        &lt;chr&gt; \"male\", \"none\", \"none\", \"male\", \"female\", \"male\", \"female\",…\n$ gender     &lt;chr&gt; \"masculine\", \"masculine\", \"masculine\", \"masculine\", \"femini…\n$ homeworld  &lt;chr&gt; \"Tatooine\", \"Tatooine\", \"Naboo\", \"Tatooine\", \"Alderaan\", \"T…\n$ species    &lt;chr&gt; \"Human\", \"Droid\", \"Droid\", \"Human\", \"Human\", \"Human\", \"Huma…\n$ films      &lt;list&gt; &lt;\"A New Hope\", \"The Empire Strikes Back\", \"Return of the J…\n$ vehicles   &lt;list&gt; &lt;\"Snowspeeder\", \"Imperial Speeder Bike\"&gt;, &lt;&gt;, &lt;&gt;, &lt;&gt;, \"Imp…\n$ starships  &lt;list&gt; &lt;\"X-wing\", \"Imperial shuttle\"&gt;, &lt;&gt;, &lt;&gt;, \"TIE Advanced x1\",…\n\n\nTo remove the grouping, use the ungroup() function.\nNow you can call functions on the grouped data frame."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/08_dplyr_basics.html#summarise-data-with-summarise",
+    "href": "lesson_code/01_lesson/08_dplyr_basics.html#summarise-data-with-summarise",
+    "title": "dplyr Basics",
+    "section": "Summarise data with summarise()",
+    "text": "Summarise data with summarise()\nThe summarise() function summarizes data to one row per grouping. If there are no grouping variables, the output will have a single row summarising all observations.\nWe can use the n() function to count the number of observations within the group.\n\n\nsummarise(.data = starwars, \n          my_mean = mean(height, na.rm = TRUE), \n          my_sd = sd(height,na.rm = TRUE), \n          total_count = n())\n\n# A tibble: 1 × 3\n  my_mean my_sd total_count\n    &lt;dbl&gt; &lt;dbl&gt;       &lt;int&gt;\n1    175.  34.8          87\n\n\n\nNow let’s see what that looks like with the grouped data.\n\n\nsummarise(.data = grouped, \n          my_mean = mean(height, na.rm = TRUE), \n          my_sd = sd(height, na.rm = TRUE), \n          total_count = n())\n\n`summarise()` has grouped output by 'species'. You can override using the\n`.groups` argument.\n\n\n# A tibble: 42 × 5\n# Groups:   species [38]\n   species   gender    my_mean my_sd total_count\n   &lt;chr&gt;     &lt;chr&gt;       &lt;dbl&gt; &lt;dbl&gt;       &lt;int&gt;\n 1 Aleena    masculine      79  NA             1\n 2 Besalisk  masculine     198  NA             1\n 3 Cerean    masculine     198  NA             1\n 4 Chagrian  masculine     196  NA             1\n 5 Clawdite  feminine      168  NA             1\n 6 Droid     feminine       96  NA             1\n 7 Droid     masculine     140  52.0           5\n 8 Dug       masculine     112  NA             1\n 9 Ewok      masculine      88  NA             1\n10 Geonosian masculine     183  NA             1\n# ℹ 32 more rows"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/02_getting_started.html",
+    "href": "lesson_code/01_lesson/02_getting_started.html",
+    "title": "Getting Started",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/02_getting_started.html#r-projects",
+    "href": "lesson_code/01_lesson/02_getting_started.html#r-projects",
+    "title": "Getting Started",
+    "section": "R projects",
+    "text": "R projects\n\nOpening an R project will open up an RStudio window and change our current directory to the folder the project is saved in.\nR projects are meant to store your code, data, and results all in one place. They allow for fast collaboration with others on code, as all files are referenced through relative file paths relative to the project directory. Others will be able to quickly reproduce your work.\nI recommend to always use R projects whenever working in R. Using relative file paths (relative to the project directory) such as data/raw_data.csv instead of absolute filepaths like C:/Users/davischr/proj/intro-to-r/data/raw_data.csv can help share code ina more collaborative way - others don’t have to change your code to run it. To reference a folder above the current directory with relative file paths, use ../."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/02_getting_started.html#becoming-familiar-with-rstudio",
+    "href": "lesson_code/01_lesson/02_getting_started.html#becoming-familiar-with-rstudio",
+    "title": "Getting Started",
+    "section": "Becoming Familiar With RStudio",
+    "text": "Becoming Familiar With RStudio\nLet’s take a look around the RStudio GUI.\n\n\nConsole\nThis is where we can run R code in an interactive session.\nR Can do simple mathematical calculations as you would on a calculator.\n\n\n\n\nEnvironment Pane\nThis pane will show you what objects you have loaded in memory. More on what these difference objects mean later. You can think of this as our workspace, which is where our objects are saved in memory.\n\n\n\n\nSource pane and R Scripts\nThe Source pane is where we are able to edit various code-related files, such as R scripts, R Markdown documents, or Quarto documents. For now, we will use R Scripts for our exercises. You can create a new R Script to save the code you have worked on my going to the File &gt; New File &gt; R Script.\n\n\n\n\nOutput pane\nThe Output pane contains many panes; I will highlight three:\n\nFiles pane: where you can see files in your working directory and other folders\nPlots pane: where graph output can go to view graphs\nHelp pane: where function descriptions, argument information, and examples are shown. You can get the metadata for functions in R by typing help(&lt;function_name&gt;) or ?&lt;function_name&gt; into the console.\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThroughout this course, I will use the &lt;some text here&gt; syntax to refer to text that the user puts in. So, for example, if I write mean(&lt;some object here&gt;), you might type mean(x) or mean(y)."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/07_data_frames_and_tibble.html",
+    "href": "lesson_code/01_lesson/07_data_frames_and_tibble.html",
+    "title": "Data Frames and tibble",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/07_data_frames_and_tibble.html#accessing-columns",
+    "href": "lesson_code/01_lesson/07_data_frames_and_tibble.html#accessing-columns",
+    "title": "Data Frames and tibble",
+    "section": "Accessing Columns",
+    "text": "Accessing Columns\nYou can access specific columns in a dataframe by using &lt;dataframe&gt;$&lt;variable&gt; syntax.\n\n\niris_abr$Sepal.Length\n\n[1] 5.1 4.9 4.7 4.6 5.0 5.4\n\n\nYou can do the same with the [ , \"&lt;col_name\"] syntax.\n\niris_abr[, \"Sepal.Length\"]\n\n[1] 5.1 4.9 4.7 4.6 5.0 5.4"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/07_data_frames_and_tibble.html#subsetting-data-frames",
+    "href": "lesson_code/01_lesson/07_data_frames_and_tibble.html#subsetting-data-frames",
+    "title": "Data Frames and tibble",
+    "section": "Subsetting Data Frames",
+    "text": "Subsetting Data Frames\nYou can remove observations in a data frame similarly to how you would in a vector, with [] and a logical vector.\n\n\niris_abr[iris_abr$Sepal.Length &lt; 4.8, ]\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n\n\n\nThis syntax can be cumbersome, as we need to reference the dataset twice to make it work. We are about to examine a better way of working with data frames."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/07_data_frames_and_tibble.html#tidy-data",
+    "href": "lesson_code/01_lesson/07_data_frames_and_tibble.html#tidy-data",
+    "title": "Data Frames and tibble",
+    "section": "tidy data",
+    "text": "tidy data\nIn this class we will be using the tidyverse universe of packages, which are built upon the principles of tidy data.\n\n\n\nThe core principle is to tidy data into a format that is standardized and more efficient to work with. Then, we use tools optimiszed to work with that kind of data."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/07_data_frames_and_tibble.html#loading-tidyverse",
+    "href": "lesson_code/01_lesson/07_data_frames_and_tibble.html#loading-tidyverse",
+    "title": "Data Frames and tibble",
+    "section": "Loading tidyverse",
+    "text": "Loading tidyverse\nFor this section, let’s start a script and load the tidyverse package.\n\n\n\n\n\n\nNote\n\n\n\nRemember, you need to install the packages first in the console by typing install.packages(\"tidyverse\") if you haven’t already. You only need to do this once.\n\n\n\n\nlibrary(tidyverse)\n\nThere are many packages within the tidyverse umbrella.\n\ntibble, for tibbles, a modern take on data frames\ndplyr, for data manipulation\ntidyr, for data tidying\nreadr, for data import\nstringr, for working with strings\nforcats, for working with factors (categorical variables with restricted labels)\nggplot2, for data visualization\npurrr, for iteration and functional programming\n\n\nWe will be using the tibble and dplyr packages today."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/07_data_frames_and_tibble.html#tibble",
+    "href": "lesson_code/01_lesson/07_data_frames_and_tibble.html#tibble",
+    "title": "Data Frames and tibble",
+    "section": "tibble",
+    "text": "tibble\ntibble is a data frame with some slightly adjusted features to make them work better. They:\n\nNever change the type of inputs when they are read in (data frames can for certain inputs)\nPrint to the console with better user-friendly information\nNever creates row.names()\nDo not adjust the names of variables\n\nYou can convert a dataframe to a tibble with the as_tibble() function.\n\n\nas_tibble(iris)\n\n# A tibble: 150 × 5\n   Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n          &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt; &lt;fct&gt;  \n 1          5.1         3.5          1.4         0.2 setosa \n 2          4.9         3            1.4         0.2 setosa \n 3          4.7         3.2          1.3         0.2 setosa \n 4          4.6         3.1          1.5         0.2 setosa \n 5          5           3.6          1.4         0.2 setosa \n 6          5.4         3.9          1.7         0.4 setosa \n 7          4.6         3.4          1.4         0.3 setosa \n 8          5           3.4          1.5         0.2 setosa \n 9          4.4         2.9          1.4         0.2 setosa \n10          4.9         3.1          1.5         0.1 setosa \n# ℹ 140 more rows\n\n\n\nA tibble is a data frame, but not all data frames are necessarily tibbles.\n\n# the class function determines what kind of object the object is \n\nclass(as_tibble(iris))\n\n[1] \"tbl_df\"     \"tbl\"        \"data.frame\"\n\n\n\n\nclass(iris)\n\n[1] \"data.frame\""
+  },
+  {
+    "objectID": "lesson_code/01_lesson/10_exercise_2.html",
+    "href": "lesson_code/01_lesson/10_exercise_2.html",
+    "title": "Exercise 2",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/10_exercise_2.html#exercise-2.1",
+    "href": "lesson_code/01_lesson/10_exercise_2.html#exercise-2.1",
+    "title": "Exercise 2",
+    "section": "Exercise 2.1",
+    "text": "Exercise 2.1\n\npanel-tabset\n\n\nProblem\n\nPart 1: Sort the starwars dataset, descending by height. Assign the new dataset to starwars_1.\n\n\nPart 2: Based on the values of height, filter() starwars_1 such that it only contains 10 observations. Assign the new dataset to starwars_2.\n\n\nPart 3: Get the average height in the starwars_2 tibble.\n\n\n\n\n\n\n\nNote\n\n\n\nYou may need to set na.rm = TRUE in the mean() function.\n\n\n\n\n\n\nSolution\n\nPart 1: Sort the starwars dataset, descending, by height. Assign the new dataset to starwars_1.\n\nstarwars_1 &lt;- starwars |&gt; \n  arrange(desc(height))\n\n\n\nPart 2: Based on the values of height, filter() starwars_1 such that it only contains 10 observations. Assign the new dataset to starwars_2.\n\nstarwars_2 &lt;- starwars_1 |&gt; \n  filter(height &gt;= 202)\n\n\n\nPart 3: Get the average height in the starwars_2 tibble.\n\nstarwars_2 |&gt; \n  summarise(mean_height = mean(height, na.rm = TRUE))\n\n# A tibble: 1 × 1\n  mean_height\n        &lt;dbl&gt;\n1        222.\n\n\n\n:::"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/01_welcome.html",
+    "href": "lesson_code/03_lesson/01_welcome.html",
+    "title": "Welcome Back",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/01_welcome.html#recap",
+    "href": "lesson_code/03_lesson/01_welcome.html#recap",
+    "title": "Welcome Back",
+    "section": "Recap",
+    "text": "Recap\n\nData Import and Export\n\nread_* functions\nwrite_* functions\nFeather and Parquet files\njanitor::clean_names()\n\nVectorized Conditions\n\nif_else() function\ncase_when() function\n\nStrings\n\nstr_*() functions\n\nAttributes\n\nFactors\nDates\n\nReshaping Data\n\npivot_wider()\npivot_longer()\n\nCombining Data Frames\n\nbind_rows(), bind_cols()\ninner_join(), full_join(), left_join(), right_join()\ntidylog"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/04_layers.html",
+    "href": "lesson_code/03_lesson/04_layers.html",
+    "title": "Layers",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/04_layers.html#bar-charts",
+    "href": "lesson_code/03_lesson/04_layers.html#bar-charts",
+    "title": "Layers",
+    "section": "Bar Charts",
+    "text": "Bar Charts\nThe bar chart is one of the most common data visualizations, which makes it more intuitive for readers as they are able to quickly understand the plot and what it means. There are two ways to create a bar chart in ggplot2.\n\ngeom_bar()\ngeom_bar() makes the height of the bar proportional to the number of cases in each group of the x-axis. In other words, geom_bar() will tabulate frequencies for you based on a categorical variable, without needing to do so yourself, and will visualize those frequencies in a bar chart.\n\n\nggplot(diamonds, mapping = aes(color)) + \n  geom_bar(fill = \"cornflowerblue\")\n\n\n\n\n\n\n\ngeom_col()\ngeom_col(), on the other hand, create the bars based on values within the data for both x and y. To create the above chart with geom_col(), we could use the count() function first to tabulate the data by color from the diamonds data frame. color is the name of a variable in the diamonds data frame that identifies how clear a diamond is in rating.\n\n\ndiamonds |&gt;\n  count(color, name = \"count\") |&gt; # name = just changes the name of the output from n to the value in the quotation marks  \n  ggplot(mapping = aes(x = color, \n                       y = count)) + \n  geom_col(fill = \"cornflowerblue\")\n\n\n\n\n\nI often prefer to use geom_col() because I like to visually see my data when I’m using it. Plus, when using other variables to modify the graph, it is helpful to have a dataset that is at the observation-level that we are visualizing as opposed to the uncounted raw data.\n\n\n\nArranging Bars\nOne very common visualization need is to arrange the bars in ascending or descending order. We can do so by modifying the data first with forcats::fct_reorder().\n\n\ndiamonds |&gt; \n  count(color, name = \"count\") |&gt; # tzbulate by color variable \n  mutate(color = fct_reorder(.f = color, \n                             .x = count,\n                             .desc = TRUE)) |&gt; # reorder color variable based on the count \n  ggplot(mapping = aes(x = color, \n                       y = count)) + # create plot\n  geom_col(fill = \"cornflowerblue\") # visualize bar chart layer\n\n\n\n\n\n\n\nMultiple Categories\nWe sometimes want to visualize multiple categories on the same graph. For example, in the diamonds dataset, we might want to examine the frequencies of cut by color for only Ideal or Premium cuts.\n\nStacked Bar Chart\nWe can do this by adding a fill aesthetic to the graph. We also need to do some data manipulation first to create a count by cut and color. To arrange the graph such that the graph is still descending by color, we also need to add a count by color, which we can do with the group_by() and mutate() functions.\n\n\ndiamonds |&gt; \n  filter(cut %in% c(\"Ideal\", \n                    \"Premium\")) |&gt; # keep only rows where cut is Ideal or Premium\n  count(color, cut, name = \"count\") |&gt; # tabulate by color and cut, counting by each unique combination\n  group_by(color) |&gt; # group by color\n  mutate(color_count = sum(count)) |&gt; # aggregate by color, but adding a variable so observation level stays the same\n  ungroup() |&gt; # remove grouping\n  mutate(color = fct_reorder(.f = color, \n                             .x = color_count, \n                             .desc = TRUE)) |&gt; # reorder color to be descending based on count of color \n  ggplot(mapping = aes(x = color, \n                       y = count, \n                       fill = cut)) + # create graph\n  geom_col() # plot layer\n\n\n\n\n\n\n\nStacked Bar Chart, Standardized Vertically\nIf we wanted a stacked bar chart that represents the proportion of a category made up by another category, we could do this with the position aesthetic.\n\n\ndiamonds |&gt; \n  filter(cut %in% c(\"Ideal\", \n                    \"Premium\")) |&gt; # keep only rows where cut is Ideal or Premium\n  count(color, cut, name = \"count\") |&gt; # tabulate by color and cut, counting by each unique combination\n  group_by(color) |&gt; # group by color\n  mutate(color_count = sum(count)) |&gt; # aggregate by color, but adding a variable so observation level stays the same\n  ungroup() |&gt; # remove grouping\n  mutate(color = fct_reorder(.f = color, \n                             .x = color_count, \n                             .desc = TRUE)) |&gt; # reorder color to be descending based on count of color \n  ggplot(mapping = aes(x = color, \n                       y = count, \n                       fill = cut)) + # create graph\n  geom_col(position = \"fill\") # plot layer such that there are standardized bars\n\n\n\n\n\nWe will discuss later how to change the scales to be percent.\n\n\n\nDodged Bar Chart\nLet’s say instead we wanted to visualize the genders present in the data frame with colors side by side. We can do this by setting the position aesthetic equal to \"dodge\".\n\n\ndiamonds |&gt; \n  filter(cut %in% c(\"Ideal\", \n                    \"Premium\")) |&gt; # keep only rows where cut is Ideal or Premium\n  count(color, cut, name = \"count\") |&gt; # tabulate by color and cut, counting by each unique combination\n  group_by(color) |&gt; # group by color\n  mutate(color_count = sum(count)) |&gt; # aggregate by color, but adding a variable so observation level stays the same\n  ungroup() |&gt; # remove grouping\n  mutate(color = fct_reorder(.f = color, \n                             .x = color_count, \n                             .desc = TRUE)) |&gt; # reorder color to be descending based on count of color \n  ggplot(mapping = aes(x = color, \n                       y = count, \n                       fill = cut)) + # create graph\n  geom_col(position = \"dodge\") # change position such that it is a chart with side by side columns\n\n\n\n\n\nIf we wanted to reorder the bars such that Ideal goes first, we could use the forcats::fct_rev() function, which reverses the levels in a factor.\n\n\ndiamonds |&gt; \n  filter(cut %in% c(\"Ideal\", \n                    \"Premium\")) |&gt; # keep only rows where cut is Ideal or Premium\n  count(color, cut, name = \"count\") |&gt; # tabulate by color and cut, counting by each unique combination\n  group_by(color) |&gt; # group by color\n  mutate(color_count = sum(count)) |&gt; # aggregate by color, but adding a variable so observation level stays the same\n  ungroup() |&gt; # remove grouping\n  mutate(color = fct_reorder(.f = color, \n                             .x = color_count, \n                             .desc = TRUE)) |&gt; # reorder color to be descending based on count of color \n  ggplot(mapping = aes(x = color, \n                       y = count, \n                       fill = fct_rev(cut))) + # create graph with factor reversed\n  geom_col(position = \"dodge\") # change position such that it is a chart with side by side columns"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/04_layers.html#lollipop-chart",
+    "href": "lesson_code/03_lesson/04_layers.html#lollipop-chart",
+    "title": "Layers",
+    "section": "Lollipop Chart",
+    "text": "Lollipop Chart\nAnother way of visualizing bar-chart like data is the lollipop chart. I like this chart when there are a lot of categories, like if we’re using state-level data. We can create a lollipop chart with the geom_segment() and geom_point() functions.\n\n\nstate.x77 |&gt; \n  data.frame() |&gt; # converts this data into a data frame\n  rownames_to_column(var = \"state\") |&gt; # converts the state row names into a column\n  mutate(state = fct_reorder(state, Murder)) |&gt; # reorder by Murder so chart is ascending\n  ggplot(mapping = aes(x = Murder, y = state)) + # create plot with mapped aesthetics of murder rate on x-axis, state on y-axis\n  geom_segment(mapping = aes(x = 0,  # create segment that starts at 0\n                              xend = Murder, # that ends at the Murder Rate\n                              y = state,  # begins at each state\n                              yend = state)) + # ends at each state \n  geom_point()"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/04_layers.html#scatter-plot",
+    "href": "lesson_code/03_lesson/04_layers.html#scatter-plot",
+    "title": "Layers",
+    "section": "Scatter Plot",
+    "text": "Scatter Plot\nWe can make a simple scatter plot with geom_point(data = &lt;your data&gt;, mapping = aes(x = &lt;var1&gt;, y = &lt;var2&gt;)).\n\n\nggplot(data = diamonds, mapping = aes(x = carat, y = price)) + \n  geom_point()"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/04_layers.html#line-plot",
+    "href": "lesson_code/03_lesson/04_layers.html#line-plot",
+    "title": "Layers",
+    "section": "Line Plot",
+    "text": "Line Plot\nA line plot works similarly to a scatter plot in its construction. Line plots typically display values over a specified time interval. We generally want one line per group we would like to visualize over time, so the data should be constructed in that manner.\n\n\n# create data\n\nset.seed(0) # set randomization so that this is reproducible \nmy_years &lt;- 2000:2020 # create sequential years between 2000 and 2020\nrandom_numbers&lt;- rnorm(n = 21, \n                       mean = 50, \n                       sd = 25) # create random numbers with mean of 50 and sd of 25\n\n# create tibble\nmy_df &lt;- tibble(my_years, random_numbers)\n\n# line plot\n\nggplot(data = my_df, mapping = aes(my_years, random_numbers)) + \n  geom_point() + \n  geom_line()"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/04_layers.html#histograms",
+    "href": "lesson_code/03_lesson/04_layers.html#histograms",
+    "title": "Layers",
+    "section": "Histograms",
+    "text": "Histograms\nWe create histograms with the geom_histogram() function.\n\n\nggplot(diamonds) + \n  geom_histogram(mapping = aes(carat), \n                 bins = 50) # set number of bins"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/04_layers.html#density-plots",
+    "href": "lesson_code/03_lesson/04_layers.html#density-plots",
+    "title": "Layers",
+    "section": "Density Plots",
+    "text": "Density Plots\nRelatedly, you can create a density plot with geom_density().\n\n\nggplot(diamonds) + \n  geom_density(mapping = aes(carat))"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/04_layers.html#box-plots",
+    "href": "lesson_code/03_lesson/04_layers.html#box-plots",
+    "title": "Layers",
+    "section": "Box Plots",
+    "text": "Box Plots\nWe create box plots with the geom_boxplot() function.\n\n\nggplot(diamonds) + \n  geom_boxplot(mapping = aes(x = carat))\n\n\n\n\n\nIf you want to create a box plot by category, you can include the category in one of the axes.\n\n\nggplot(diamonds) + \n  geom_boxplot(mapping = aes(x = carat, \n                             y = cut))"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/07_exercise_9.html",
+    "href": "lesson_code/03_lesson/07_exercise_9.html",
+    "title": "Exercise 9",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/07_exercise_9.html#exercise-9.1",
+    "href": "lesson_code/03_lesson/07_exercise_9.html#exercise-9.1",
+    "title": "Exercise 9",
+    "section": "Exercise 9.1",
+    "text": "Exercise 9.1\n\nProblemSolution\n\n\n\nInstall the gapminder package and load it.\nFilter the gapminder data frame for rows that have a country of \"United States\". Assign it to something other than gapminder.\nGraph the population of the United States over time using both points and lines.\nIncrease the size of the points on the graph. Change the shape of the points to \"diamond filled\". Make the lines blue, the line of the points red, and the inside of the points green. Set the theme to theme_minimal().\n\n\n\n\nInstall the gapminder package and load it.\n\n\n\n# install.packages(\"gapminder)  \nlibrary(gapminder)\n\n\n\nFilter the gapminder data frame for rows that have a country of \"United States\". Assign it to something other than gapminder.\n\n\n\nus &lt;- gapminder |&gt; \n  filter(country == \"United States\")\n\n\n\nGraph the population of the United States over time using both points and lines.\n\n\n\nggplot(data = us, mapping = aes(year, pop)) + \n  geom_point() + \n  geom_line()\n\n\n\n\n\n\nIncrease the size of the points on the graph. Change the shape of the points to \"diamond filled\". Make the lines blue, the line of the points red, and the inside of the points green. Set the theme to theme_minimal().\n\n\nggplot(data = us, \n       mapping = aes(year, pop)) + \n  geom_point(size = 1, \n             shape = \"diamond filled\", \n             color = \"red\", \n             fill = \"green\") + \n  geom_line(color = \"blue\") + \n  theme_minimal()"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/07_exercise_9.html#exercize-9.2---challenge",
+    "href": "lesson_code/03_lesson/07_exercise_9.html#exercize-9.2---challenge",
+    "title": "Exercise 9",
+    "section": "Exercize 9.2 - Challenge",
+    "text": "Exercize 9.2 - Challenge\n\nProblemSolution\n\n\n\nStarting with the gapminder data frame, visualize countries in the Americas’ life expectancy over time on the same graph, using the color aesthetic.\nDo the same thing, except do not use color to designate individual countries. Find a different way to separate out the groups.\n\n\n\n\nStarting with the gapminder data frame, visuaolize countries in the Americas’ life expectancy over time on the same graph, using the color aesthetic.\n\n\n\ngapminder |&gt; \n  filter(continent == \"Americas\") |&gt; \n  ggplot(mapping = aes(x = year, y = lifeExp, color = country)) + \n  geom_point() + \n  geom_line()\n\n\n\n\n\n\nDo the same thing, except do not use color to designate individaul countries. Find a different way to sparate out the groups.\n\n\ngapminder |&gt; \n  filter(continent == \"Americas\") |&gt; \n  ggplot(mapping = aes(x = year, y = lifeExp, group = country)) + \n  geom_point() + \n  geom_line()"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/10_text.html",
+    "href": "lesson_code/03_lesson/10_text.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/03_exercise_7.html",
+    "href": "lesson_code/03_lesson/03_exercise_7.html",
+    "title": "Exercise 7",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/03_exercise_7.html#exercise-7.1",
+    "href": "lesson_code/03_lesson/03_exercise_7.html#exercise-7.1",
+    "title": "Exercise 7",
+    "section": "Exercise 7.1",
+    "text": "Exercise 7.1\n\nProblemSolution\n\n\n\nCreate a scatter plot using the diamonds data frame between carat and depth.\nAdd mapping = aes(color = cut) inside of the geom_point() function. What does this do?\nRemove color=cut and right outside of the aes() function, put , color = \"blue\". What do you think the difference is from putting an attribute inside the aes() function vs. outside of it? Why would we do each one?\nIs there any difference in output between putting color = cut inside of the aes() function within the ggplot() function vs. putting it inside of the aes() function within the geom_point() function?\n\n\n\n\nCreate a scatter plot using the diamonds data frame between carat and depth.\n\n\nggplot(data = diamonds, mapping = aes(x = carat, y = depth)) + \n  geom_point()\n\n\n\n\n\nAdd mapping = aes(color = cut) inside of the geom_point() function. What does this do?\n\n\nggplot(data = diamonds, mapping = aes(x = carat, y = depth)) + \n  geom_point(mapping = aes(color = cut))\n\n\n\n\nThis colors the points by the category cut in the data.\n\nRemove color=cut and right outside of the aes() function, put , color = \"blue\". What do you think the difference is from putting an attribute inside the aes() function vs. outside of it? Why would we do each one?\n\n\nggplot(data = diamonds, mapping = aes(x = carat, y = depth)) + \n  geom_point(mapping = aes(), color = \"blue\")\n\n\n\n\nWhen the attribute is inside the aes() function, we are trying to map data elements from our data frame onto the plot. When attributes are outside of the aes() function, we are just assigning the value as a constant across all observations. We would do the former if we wanted to color our plot by a category in our data, and we would do the latter if we wanted to assign a color for all observations.\n\nIs there any difference in output between putting color = cut inside of the aes() function within the ggplot() function vs. putting it inside of the aes() function within the geom_point() function?\n\nThere is no difference.\n\n\n\n\n\n\nNote\n\n\n\nThis is because subsequent functions have their data and aethstic mappings inherited from the main ggplot() call. However, users could also separately define the data and aesthetic mappings within th elayer functions difrectly. We might do this if we, say, wanted to visualize data from two data frames on the same plot."
+  },
+  {
+    "objectID": "lesson_code/03_lesson/02_ggplot.html",
+    "href": "lesson_code/03_lesson/02_ggplot.html",
+    "title": "The ggplot2 package",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/02_ggplot.html#key-components",
+    "href": "lesson_code/03_lesson/02_ggplot.html#key-components",
+    "title": "The ggplot2 package",
+    "section": "Key Components",
+    "text": "Key Components\nThe three key components of a ggplot2 plot are data, aesthetic mappings, and layers.\n\nData\nOf course if we are creating a data visualization, we must have data. The data works best with the ggplot2 package if it is in the tidy format.\nThe first step of creating a plot is the ggplot() function. We often use the data as the first argument in this function.\n\n\nggplot(data = diamonds)\n\n\n\n\n\nBy itself, the function only produces a blank plot.\n\n\nAesthetic Mappings\nEach ggplot plot should have a set of aesthetic mappings that map variables in the data to visual properties, By mapping do not think land map - mapping refers to aligning data to visual properties in graphs.\nFor example, we might want to map our x axis to carat and our y axis to price from the diamonds data frame.\n\nggplot(data = diamonds, mapping = aes(x = carat, y = price))\n\n\n\n\n\n\n           Note that the plot still does not include observation-level data, but the x and y axes are defined. To add data related to observations in a data frame, we must choose a layer to add on to our data.\n\nThe columns of our data frame that we want to map to aesthetic features in the aes() function in the mapping argumnet.\n&lt;br.\n\n\nLayers\nThe layers take the mapped data and display it in a way that humans can understand as a representation of dta. We can think of a layer as determining the geometry by which data are displayed, where a piece of data is displaed, and what kinds of statistical transformations are needed to display the data.\n\n\nggplot(data = diamonds, mapping = aes(x = carat, y = price)) + \n  geom_point() + # add point layer\n  geom_smooth(formula = y ~ x, method = \"lm\")\n\n\n\n\n\n\n           Note the + between functions within a ggplot() call. This is different than a |&gt;, in that the result of the left-hand side is not added as the first argument on the right-hand side. Instead, we use it to add layers, scales, facets, coordaintes, and themes for ggplot objects.\n\n\n\n\n\n\nTip\n\n\n\nWe will most often be using the geom_*() functions as our layers in this course. Type geom_ into the consoler (after loading tidyverse) and hover over it to see some exmples of geom_*() functions."
+  },
+  {
+    "objectID": "lesson_code/03_lesson/02_ggplot.html#additional-features",
+    "href": "lesson_code/03_lesson/02_ggplot.html#additional-features",
+    "title": "The ggplot2 package",
+    "section": "Additional Features",
+    "text": "Additional Features\n\nScales\nScales are responsible for updating the limits of a plot, setting the breaks, formatting the labels, and possibly applying a transformation.\nTo use scales, one can use one of the scale functions that are patterned as scale_&lt;aesthetic&gt;_type() functions where &lt;aesthetic&gt; is one of the pairings mde in the mapping part of a plot. For example, to change the y-axis of the graph, we might use the scale_y_continuous() function.\n\nggplot(data = diamonds, mapping = aes(x = carat, y = price)) + \n  geom_point() + #add point layer\n  scale_y_continuous(limits = c(0, 20000), # set y axis limits\n                     breaks = seq(0, 20000, 2000), # set tic marks\n                     labels = scales::dollar  # change the format of the labels to show $\n                     ) + \n  scale_color_hue()  # add color theme\n\n\n\n\n\n\n\nFacets\nFacets can creat multiple plots based on categories or subsets of data. We can quickly split data up to look at relationships within a category or other kinds of patterns.\nFacets must be given as a formula, designated by the ~ operator in R.\nLet’s plot the same plot from before except using a facet instead of examining cut by color.\n\n\nggplot(data = diamonds, mapping = aes(x = carat, y = price)) + \n  geom_point() + #add point layer\n  scale_y_continuous(limits = c(0, 20000), # set y axis limits\n                     breaks = seq(0, 20000, 2000), # set tic marks\n                     labels = scales::dollar  # change the format of the labels to show $\n                     )  + \n  facet_wrap(~cut) # add facet by the cut category\n\n\n\n\n\n\n\nCoordiantes\nCoordinates are how the plot interprets position aesthetics. Typically Cartesian coordinates are used, which is what we use for our standard graphs. However, there are other coordinate systems, which we will discuss in more detail next lesson when we start creating geographic maps.\nWe can use coordinates to flip our x and y axes for the graph. The coord_flip() function flips Cartesian coordinates so that horizontal becomes vertical and vertical, horizontal.\nI like this especially for bar charts.\n\n\nggplot(data = diamonds, mapping = aes(x = cut)) + \n  geom_bar() + \n   scale_y_continuous(limits = c(0, 20000), # set y axis limits\n                     breaks = seq(0, 20000, 2000), # set tic marks\n                     labels = scales::dollar  # change the format of the labels to show $\n                     )  + \n  coord_flip()\n\nWarning: Removed 1 row containing missing values or values outside the scale range\n(`geom_bar()`).\n\n\n\n\n\n\n\n\nThemes\nThemes control aspects about visuals for the plot that do not have to do with the data. We can use the themes for a variety of attributes, including location of legends, backbground color for the plot, axes attributes, etc.\nWe modify theme attributes with the theme() function.\n\n\nggplot(data = diamonds, mapping = aes(x = cut)) + \n  geom_bar() + \n  scale_y_continuous(limits = c(0, 20000), # set y axis limits\n                     breaks = seq(0, 20000, 2000), # set tic marks\n                     labels = scales::dollar  # change the format of the labels to show $\n                     )  + \n  coord_flip() + \n  theme(panel.background = element_rect(fill = \"white\"), # change background color to white \n        panel.grid.major = element_blank(), # remove grid lines\n        panel.grid.minor = element_blank()) # remove grid lines\n\nWarning: Removed 1 row containing missing values or values outside the scale range\n(`geom_bar()`).\n\n\n\n\n\n\nThere are also a number of theme_*() functions that essentially have modified many of these options about these attributes already and bundled them into one function.\n\n\nggplot(data = diamonds, mapping = aes(x = cut)) + \n  geom_bar() + \n  scale_y_continuous(limits = c(0, 20000), # set y axis limits\n                     breaks = seq(0, 20000, 2000), # set tic marks\n                     labels = scales::dollar  # change the format of the labels to show $\n                     )  + \n  coord_flip() + # flip the x and y axis\n  theme_minimal() # use a minimal theme\n\nWarning: Removed 1 row containing missing values or values outside the scale range\n(`geom_bar()`).\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nI am in the process of developing an fhfatheme package for creating visuals with consistent theming across FHFA products created in R. I’ll follow up with everyone when that is released."
+  },
+  {
+    "objectID": "lesson_code/03_lesson/11_themes.html",
+    "href": "lesson_code/03_lesson/11_themes.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/08_scales.html",
+    "href": "lesson_code/03_lesson/08_scales.html",
+    "title": "Scales",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/08_scales.html#scales_axis_continuous",
+    "href": "lesson_code/03_lesson/08_scales.html#scales_axis_continuous",
+    "title": "Scales",
+    "section": "scales_<axis>_continuous()",
+    "text": "scales_&lt;axis&gt;_continuous()\nscale_x_continuous() and scale_y_continuous() modify the x and y axes respectively when we are using variables.\nThey take in the same parameters.\nSome of the most used parameters are:\n\nbreaks\nlimits\nlabels\nexpand\n\nggplot() will create default scales created from the data.\n\nggplot(data = diamonds, mapping = aes(carat, price)) + \n  geom_point()\n\n\n\n\nLet’s see how each parameter might change how the graph looks.\n\nbreaks\nbreaks assigns where tic marks go on scale. Most often we’ll use a numeric vector to specify breaks.\n\nggplot(data = diamonds, mapping = aes(carat, price)) + \n  geom_point() + \n  scale_y_continuous(breaks = seq(0, 20000, 2000))\n\n\n\n\n\n\nlimits\nlimits cuts off the scale at specified points. Most often we’ll use c(&lt;from&gt;, &lt;to&gt;) syntax to modify limits.\n\nggplot(data = diamonds, mapping = aes(carat, price)) + \n  geom_point() + \n  scale_y_continuous(breaks = seq(0, 20000, 2000), \n                    limits = c(0, 10000))\n\nWarning: Removed 5222 rows containing missing values or values outside the scale range\n(`geom_point()`).\n\n\n\n\n\n\n\nlabels\nlabels modifies text for the tic marks in the scale. Most often we’ll use scales::percent"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/09_exercise_10.html",
+    "href": "lesson_code/03_lesson/09_exercise_10.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/12_exercise_11.html",
+    "href": "lesson_code/03_lesson/12_exercise_11.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/06_aesthetics.html",
+    "href": "lesson_code/03_lesson/06_aesthetics.html",
+    "title": "Aesthetics",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/06_aesthetics.html#x-and-y",
+    "href": "lesson_code/03_lesson/06_aesthetics.html#x-and-y",
+    "title": "Aesthetics",
+    "section": "x and y",
+    "text": "x and y\n\nx: The most common aesthetic - the variable that is mapped to the x axis.\ny: Variable that is mapped to the y axis. Should usually be present when creating a multivariate plot.\n\n\n\nggplot() + \n  geom_point(data = diamonds, \n             mapping = aes(x = carat, \n                           y = price))"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/06_aesthetics.html#alpha",
+    "href": "lesson_code/03_lesson/06_aesthetics.html#alpha",
+    "title": "Aesthetics",
+    "section": "alpha",
+    "text": "alpha\nalpha maps the transparancy of objects. It ranges from a scale of 0 to 1, where lower values correspond to more transparant colors.\n\n\nggplot() + \n  geom_point(data = diamonds, \n             mapping = aes(x = carat, \n                           y = price), \n             alpha = .1) # set transparency"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/06_aesthetics.html#color-and-fill",
+    "href": "lesson_code/03_lesson/06_aesthetics.html#color-and-fill",
+    "title": "Aesthetics",
+    "section": "color and fill",
+    "text": "color and fill\n\ncolor maps the color of lines and points (that are not explicit shapes 21-25).\nfill: maps the color for inside the lines of polygons (such as bars, geographic maps, etc.)\n\n\n\nggplot() + \n  geom_bar(data = diamonds, \n           mapping = aes(x = cut, \n                         fill = cut), # set color within the bar polygon\n           color = \"red\") # set color of lines of the bar polygon\n\n\n\n\n\nThese are the default colors in ggplot2. We will see how to change these defaults when we look at scale_*() functions."
+  },
+  {
+    "objectID": "lesson_code/03_lesson/06_aesthetics.html#shape",
+    "href": "lesson_code/03_lesson/06_aesthetics.html#shape",
+    "title": "Aesthetics",
+    "section": "shape",
+    "text": "shape\nshape changes what an object looks like when visualized, usually for the geom_point() function. Here is a list of possible values.\n\n\nshape can reference these values as numeric instead, but I won’t supply those here because I do not recommend that - it is better for the reader if you spell out which one you’re using."
+  },
+  {
+    "objectID": "lesson_code/03_lesson/06_aesthetics.html#size-and-stroke",
+    "href": "lesson_code/03_lesson/06_aesthetics.html#size-and-stroke",
+    "title": "Aesthetics",
+    "section": "size and stroke",
+    "text": "size and stroke\nThe shapes that are filled with red in the graph above have both a color and a fill. The size of the filed part is controlled by size, while the size of the lined part is controlled by stroke."
+  },
+  {
+    "objectID": "lesson_code/03_lesson/06_aesthetics.html#linetype",
+    "href": "lesson_code/03_lesson/06_aesthetics.html#linetype",
+    "title": "Aesthetics",
+    "section": "linetype",
+    "text": "linetype\nlinetype can be specified with one of the following character strings:\n\n\n\n\n\n\n\nThere are other manual ways to specify how far away each tick is using hexadecimal characters. I will not go over this."
+  },
+  {
+    "objectID": "lesson_code/03_lesson/06_aesthetics.html#linewidth",
+    "href": "lesson_code/03_lesson/06_aesthetics.html#linewidth",
+    "title": "Aesthetics",
+    "section": "linewidth",
+    "text": "linewidth\nlinewidth changes the width of a line, go figure.\nDue to a historical error, the default value for linewidth is 0.75.\nHere’s the default.\n\n\n# Plot\nggplot(data = my_data, aes(x = xValue, y = yValue)) + \n  geom_point() + \n  geom_line()\n\n\n\n\nHere’s a width of 1.\n\n# Plot\nggplot(data = my_data, aes(x=xValue, y=yValue)) + \n  geom_point() + \n  geom_line(linewidth = 1)\n\n\n\n\n\nHere’s a width of 2.\n\n\n# Plot\nggplot(data = my_data, aes(x=xValue, y=yValue)) + \n  geom_point() + \n  geom_line(linewidth = 2)"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/06_aesthetics.html#group",
+    "href": "lesson_code/03_lesson/06_aesthetics.html#group",
+    "title": "Aesthetics",
+    "section": "group",
+    "text": "group\nThe group aesthetic by default is set to the interaction of all discrete variables in the plot. This usually works correctly, but when it does not, we need to explicitly define the group.\nThe Oxboys data frame from the nlme package contains the height and age variables, by Subject.\n\n\ntibble(nlme::Oxboys)\n\n# A tibble: 234 × 4\n   Subject     age height Occasion\n   &lt;ord&gt;     &lt;dbl&gt;  &lt;dbl&gt; &lt;ord&gt;   \n 1 1       -1        140. 1       \n 2 1       -0.748    143. 2       \n 3 1       -0.463    145. 3       \n 4 1       -0.164    147. 4       \n 5 1       -0.0027   148. 5       \n 6 1        0.247    150. 6       \n 7 1        0.556    152. 7       \n 8 1        0.778    153. 8       \n 9 1        0.994    156. 9       \n10 2       -1        137. 1       \n# ℹ 224 more rows\n\n\n\nHowever, if you tried to map the height and age variables but not subject, we’d get a wonky graph.\n\n\nggplot(nlme::Oxboys, mapping = aes(age, height)) + \n  geom_line()\n\n\n\n\n\nThis looks weird.\nWe could solve this by incorporating an aesthetic to make every grouping unlie, like color.\n\n\nggplot(nlme::Oxboys, mapping = aes(age, height, color = Subject)) + \n  geom_line()\n\n\n\n\n\nBut, if we didn’t want to have different colors for each line, we could use the group parameter instead.\n\n\nggplot(nlme::Oxboys, \n       mapping = aes(age, height, group = Subject)) + \n  geom_line()"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/05_exercise_8.html",
+    "href": "lesson_code/03_lesson/05_exercise_8.html",
+    "title": "Exercise 8",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/05_exercise_8.html#exercise-8.1",
+    "href": "lesson_code/03_lesson/05_exercise_8.html#exercise-8.1",
+    "title": "Exercise 8",
+    "section": "Exercise 8.1",
+    "text": "Exercise 8.1\n\nProblemSolution\n\n\n\nCreate two bar graphs of class from the mpg data frame. For one of them, use geom_col() and the other, use geom_bar().\nCreate three bar graphs of class and trans from the mpg data frame. For one of them, create a stacked graph. For the second, create a graph where the bars for class are the same length. For the last, create a plot where the bars are next to each other, but are colored differently by the second category.\n\n\n\n\nCreate two bar graphs of class from the mpg data frame. For one of them, use geom_col() and the other, use geom_bar().\n\n\nggplot(data = mpg, mapping = aes(class)) + \n  geom_bar()\n\n\n\n\n\nmpg |&gt; \n  count(class) |&gt; # count mpg by class\n  ggplot(mapping = aes(class, n)) + \n  geom_col()\n\n\n\n\n\nCreate three bar graphs of class and trans from the mpg data frame. For one of them, create a stacked graph. For the second, create a graph where the bars for class are the same length. For the last, create a plot where the bars are next to each other, but are colored differently by the second category.\n\n\n# Stacked \n mpg |&gt; \n  count(class, trans) |&gt; \n  ggplot(mapping = aes(class, n, fill = trans)) + \n  geom_col()\n\n\n\n\n\n# Stacked with same length\nmpg |&gt; \n  count(class, trans) |&gt; \n  ggplot(mapping = aes(class, n, fill = trans)) + \n  geom_col(position = \"fill\")\n\n\n\n\n\n# Dodged bar chart\nmpg |&gt; \n  count(class, trans) |&gt; \n  ggplot(mapping = aes(class, n, fill = trans)) + \n  geom_col(position = \"dodge\")"
+  },
+  {
+    "objectID": "lesson_code/03_lesson/05_exercise_8.html#exercise-8.2---challenge",
+    "href": "lesson_code/03_lesson/05_exercise_8.html#exercise-8.2---challenge",
+    "title": "Exercise 8",
+    "section": "Exercise 8.2 - Challenge",
+    "text": "Exercise 8.2 - Challenge\n::: panel-tabset\n\nProblem\n\nArrange the bars in the last plot by the total number of observations in each class, descending.\nArrange the bars in the last plot by the total number of observations in each class, descending, and each trans, descending.\n\n\n\nSolution\n\nArrange the bars in the last plot by the total number of observations in each class, descending.\n\n\n# Dodged bar chart\nmpg |&gt; \n  count(class, trans) |&gt; \n  group_by(class) |&gt; \n  mutate(class_count = sum(n)) |&gt; \n  ungroup() |&gt; \n  mutate(class = fct_reorder(class, class_count, .desc = TRUE)) |&gt; # reorder bars by total number of observations in each class\n  ggplot(mapping = aes(class, n, fill = trans)) + \n  geom_col(position = \"dodge\")\n\n\n\n\n\nArrange the bars in the last plot by the total number of observations in each class, descending, and each trans, descending.\n\n\n# Dodged bar chart\nmpg |&gt; \n  count(class, trans) |&gt; \n  group_by(class) |&gt; \n  mutate(class_count = sum(n)) |&gt; \n  ungroup() |&gt; \n  group_by(trans) |&gt; \n  mutate(trans_count = sum(n)) |&gt; \n  ungroup() |&gt;\n  mutate(class = fct_reorder(class, class_count, .desc = TRUE),  # reorder bars by total number of observations in each trans\n         trans = fct_reorder(trans, trans_count, .desc = TRUE)) |&gt; # reorder bars by total number of observations in each trans\n  ggplot(mapping = aes(class, n, fill = trans)) + \n  geom_col(position = \"dodge\")"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/05_exercise_1.html",
+    "href": "lesson_code/01_lesson/05_exercise_1.html",
+    "title": "Exercise 1",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/05_exercise_1.html#exercise-1.1",
+    "href": "lesson_code/01_lesson/05_exercise_1.html#exercise-1.1",
+    "title": "Exercise 1",
+    "section": "Exercise 1.1",
+    "text": "Exercise 1.1\n\nProblemSolution\n\n\n\nCreate the following vectors:\n\nx: with values 1, 3, 5, 4, 5\n\ny: with values 2, 3, 1, 1, 6\n\nCalculate the length of x. Calculate the length of y.\nCalculate the sum of x and y such that each element of x is added to the corresponding element of y.\nPrint the second elemend of x using an index.\nPrint that same element using a comparison operator to subset instead. Hint: use the value in the second element.\nPrint all elements of y less than 3.\nPrint all elements of x less than 5 and greater than 1.\n\n\n\n\nCreate the following vectors:\n\nx: with values 1, 3, 5, 4, 5\n\ny: with values 2, 3, 1, 1, 6\n\n\n\n\n# create x and y\n\nx &lt;- c(1, \n       3, \n       5, \n       4, \n       5)\n\ny &lt;- c(2, \n       3, \n       1, \n       1, \n       6)\n\n\n\nCalculate the length of x. Calculate the length of y.\n\n\n# print length of x\nlength(x)\n\n[1] 5\n\n# print length of y\nlength(y)\n\n[1] 5\n\n\n - Calculate the sum of x and y such that each element of x is added to the corresponding element of y.\n\n# calculate sum of x and y, vectorized\nx + y\n\n[1]  3  6  6  5 11\n\n\n\n\nPrint the second elemend of x using an index.\n\n\n\n# print second element\nx[2]\n\n[1] 3\n\n\n\n\nPrint that same element using a comparison operator to subset instead. Hint: use the value in the second element.\n\n\n# print if x is 3\nx[x==3]\n\n[1] 3\n\n\n\n\nPrint all elements of y less than 3.\n\n\n# print if x is less than 3\nx[x&lt;3]\n\n[1] 1\n\n\n\n\nPrint all elements of x less than 5 and greater than 1.\n\n\n# print if x is greater than 5 and less than 1\nx[x &lt; 5 & x &gt; 1]\n\n[1] 3 4"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/05_exercise_1.html#exercise-1.2---challenge",
+    "href": "lesson_code/01_lesson/05_exercise_1.html#exercise-1.2---challenge",
+    "title": "Exercise 1",
+    "section": "Exercise 1.2 - Challenge",
+    "text": "Exercise 1.2 - Challenge\n::: panel-tabset\n\nProblem\n\nCreate a numeric vector z with elements 1, 3, NA, 4, 6, NA.\nRemove the missing values within z and print the result.\n\n\n\n\nSolution\n\nCreate a numeric vector z with elements 1, 3, NA, 4, 6, NA. \n\n\n# create z\n\nz &lt;- c(1, \n       3, \n       NA,\n       4,\n       6,\n       NA)\n\n\n\nRemove the missing values within z and print the result.\n\n\n# remove missing values\n\nz&lt;- z[!is.na(z)]\n\nz\n\n[1] 1 3 4 6"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/06_packages_and_libraries.html",
+    "href": "lesson_code/01_lesson/06_packages_and_libraries.html",
+    "title": "Packages and Libraries",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/06_packages_and_libraries.html#installing-packages",
+    "href": "lesson_code/01_lesson/06_packages_and_libraries.html#installing-packages",
+    "title": "Packages and Libraries",
+    "section": "Installing Packages",
+    "text": "Installing Packages\nYou can install packages with the install.packages(\"&lt;package_name&gt;\") command. It is recommended that you do so in the console as opposed to writing it in a script (like a .R, .qmd, or .Rmd file). You generally do not want to install a package each time you run a script."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/06_packages_and_libraries.html#installing-tidyverse",
+    "href": "lesson_code/01_lesson/06_packages_and_libraries.html#installing-tidyverse",
+    "title": "Packages and Libraries",
+    "section": "Installing tidyverse",
+    "text": "Installing tidyverse\nTry installing the tidyverse set of packages by typing `install.packages(“tidyverse”) into your console."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/06_packages_and_libraries.html#loading-packages",
+    "href": "lesson_code/01_lesson/06_packages_and_libraries.html#loading-packages",
+    "title": "Packages and Libraries",
+    "section": "Loading Packages",
+    "text": "Loading Packages\nYou can load packages with library(&lt;package_name&gt;) or library(\"&lt;package_name&gt;\"). Often we go with the former because it’s less typing, but up to you.\nGenerally, we want to load all packages for a script at the top of the script (or a separate script). This makes the dependencies for a script easier to find in one place. After adding comments describing the purpose of a script, loading packages is generally the first thing we do in a script.\n\n\n\n\n\n\n\nLoading tidyverse\n\n\n\nTry loading the tidyverse set of packages by typing library(tidyverse) into your console.\n\n\n\nYou can reference individual functions in packages without loading the library with the :: operator.\n\n\ntidyverse::tidyverse_packages()\n\n [1] \"broom\"         \"conflicted\"    \"cli\"           \"dbplyr\"       \n [5] \"dplyr\"         \"dtplyr\"        \"forcats\"       \"ggplot2\"      \n [9] \"googledrive\"   \"googlesheets4\" \"haven\"         \"hms\"          \n[13] \"httr\"          \"jsonlite\"      \"lubridate\"     \"magrittr\"     \n[17] \"modelr\"        \"pillar\"        \"purrr\"         \"ragg\"         \n[21] \"readr\"         \"readxl\"        \"reprex\"        \"rlang\"        \n[25] \"rstudioapi\"    \"rvest\"         \"stringr\"       \"tibble\"       \n[29] \"tidyr\"         \"xml2\"          \"tidyverse\""
+  },
+  {
+    "objectID": "lesson_code/01_lesson/09_pipes.html",
+    "href": "lesson_code/01_lesson/09_pipes.html",
+    "title": "The pipe operator: |>",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/09_pipes.html#using",
+    "href": "lesson_code/01_lesson/09_pipes.html#using",
+    "title": "The pipe operator: |>",
+    "section": "Using |>",
+    "text": "Using |&gt;\n|&gt; passes the left side of the pipe as the first argument in the subsequent function on the right side of the pipe.\nConsider this fake code example from Hadley Wickham:\n\n\nI |&gt; \n  tumble(out_of = \"bed\") |&gt; \n  stumble(to = \"the kitchen\") |&gt; \n  pour(who = \"myself\", unit = \"cup\", what = \"ambition\") |&gt; \n  yawn() |&gt; \n  stretch() |&gt; \n  try(come_to_life())\n\n\nEach line here represents a unique function or action taken, and the preceding output is put into the next function."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/09_pipes.html#rewriting-our-code",
+    "href": "lesson_code/01_lesson/09_pipes.html#rewriting-our-code",
+    "title": "The pipe operator: |>",
+    "section": "Rewriting our code",
+    "text": "Rewriting our code\nWe can rewrite our code from before with pipes instead.\n\n\nstarwars |&gt; \n  mutate(height = height / 2 ) |&gt; # add a variable with mutate \n  filter(height &lt; 100) |&gt; # remove observations with filter\n  select(height, eye_color, gender) |&gt; # remove columns with select\n  arrange(height) |&gt; # sort rows with arrange\n  group_by(gender) |&gt; # group data with group by \n  summarise(my_mean = mean(height, na.rm = TRUE)) # aggregate data by group with summarise\n\n# A tibble: 3 × 2\n  gender    my_mean\n  &lt;chr&gt;       &lt;dbl&gt;\n1 feminine     81.6\n2 masculine    84  \n3 &lt;NA&gt;         87.5\n\n\nThis centers focus for the reader on the functions applied to the input. You can think of the |&gt; as an and then statement. We take the data frame starwars and then we mutate() (add a variable), and then we filter() (remove observations), etc."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/01_welcome.html",
+    "href": "lesson_code/01_lesson/01_welcome.html",
+    "title": "Welcome",
+    "section": "",
+    "text": "Developed by Christopher Davis\n\n\n\n\n\nWelcome\n Welcome to the Introduction to R Class!\n\nStep 1: If you haven’t already, please download the class materials from the GitHub Repository.\nStep 2: Open up the intro-to-r.Rprojfile to open up the R project related to this class."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/04_vectors.html",
+    "href": "lesson_code/01_lesson/04_vectors.html",
+    "title": "Vectors",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/04_vectors.html#atomic-vectors",
+    "href": "lesson_code/01_lesson/04_vectors.html#atomic-vectors",
+    "title": "Vectors",
+    "section": "Atomic Vectors",
+    "text": "Atomic Vectors\nAll elements within an atomic vector must have the same type. You can create a vector with the c() function with elements separated by ,.\nThere are four primary commonly-used atomic vectors.\n\n\n\nSource: Advanced R by Wickham\n\n\n\n\nnumeric Vectors: integer and double\nLike the name denotes, integer vectors all must be whole numbers. double vectors can have any number of decimals.\nMost functions we’ll use treat integer vectors and double vectors similarly. For example:\n\n\n# *digit*L is the way to identify integers in R\ninteger_vector &lt;- c(2L, \n                    4L, \n                    1L, \n                    3L)\n\nmean(integer_vector)\n\n[1] 2.5\n\n\n\ngives the same result as:\n\n\n# can reference double with just the digits\ndouble_vector &lt;- c(2, \n                   4, \n                   1, \n                   3)\n\nmean(double_vector)\n\n[1] 2.5\n\n\n\nFor our purposes, we will think of both of these types of vectors as numeric and treat them similarly.\n\n\nSorting vectors\nYou can sort any vector with the sort() function.\n\nsort(double_vector)\n\n[1] 1 2 3 4\n\n\n\n\nnumeric vectors in a sequence\nTo create a numeric vector with sequential numbers, use the syntax &lt;from&gt;:&lt;to&gt;.\n\n\n# create a sequential numeric vector from 1 to 5\nsequential &lt;- 1:5\n\nsequential\n\n[1] 1 2 3 4 5\n\n\n\nIf you want to increment by smoething else, use the seq() function.\nThis function takes int he following arguments:\n\n\nfrom: starting value\n\nto: ending value\n\nby: increment of the sequence\n\n\n\n# create sequence, increment by 3\n\nby_3 &lt;- seq(from = 1, \n            to = 25, \n            by = 3)\n\nby_3\n\n[1]  1  4  7 10 13 16 19 22 25\n\n\n\n\n\nArithmetic operators\nYou can use arthmetic operators with numeric vectors as well as with single elements.\nHere is a list of arithmetic operators:\n\n\n\n\n\n\nOperator\nName\nExample\n\n\n\n\n+\nAddition\nx + y\n\n\n-\nSubtraction\nx - y\n\n\n*\nMultiplication\nx * y\n\n\n/\nDivision\nx / y\n\n\n^\nExponent\nx ^ y\n\n\n%%\nModulus (Remainder from division)\nx %% y\n\n\n&&\nInteger Division\nx&&y\n\n\n\n\n\nSource: W3Schools\n\nThese operators are vectorized, which means the operation will occur for each element of the vector.\nFor example, remember the sequential vector:\n\n\n# sequence, incremented by 1\nsequential\n\n[1] 1 2 3 4 5\n\n\n\nWe can create a new vector with an arithmetic operator:\n\n\n# add 1\n\nsequential_plus_1 &lt;- sequential + 1\n\nsequential_plus_1\n\n[1] 2 3 4 5 6\n\n\n\nEach element of the vector was changed.\nWe can also use vectors of the same length on either side of the arithmetic opertor:\n\n\ncharacter_vector &lt;- c(\"This\", \n                      \"is\", \n                      \"a\",\n                      \"string\")\n\ncharacter_vector\n\n[1] \"This\"   \"is\"     \"a\"      \"string\"\n\n\n You can concatenate strings in base R with the paste() function. \n\n# initialize strings\n\nstring_1 &lt;- \"This is\"\nstring_2 &lt;- \"a string\"\n\n# use paste function with multiple strings\npaste(string_1, \n      string_2, \n      sep = \" \") # use sep argument to add separater between strings\n\n[1] \"This is a string\"\n\n\n You can concatenate strings in the same vector with the collapse argument. \n\n# concatenate strings in the same vector \npaste(character_vector, collapse = \" \")\n\n[1] \"This is a string\"\n\n\n You can count the number of characters in each element of a character vector with the nchar() function. \n\n# get length of each element\nnum_chars &lt;- nchar(character_vector)\n\nnum_chars\n\n[1] 4 2 1 6\n\n\n To get the total number of elements of any vector, you can use the length() function. \n\n# get length of vector\nlength_num &lt;- length(num_chars)\n\nlength_num\n\n[1] 4\n\n\n\n\n\n\nlogical Vectors\nLogical vectors are limited to binary TRUE and FALSE values.\n\n\n# this is a logical vector\n\nlogical_vector &lt;- c(TRUE, \n                    TRUE, \n                    FALSE, \n                    TRUE)\n\nlogical_vector\n\n[1]  TRUE  TRUE FALSE  TRUE\n\n\n\nLogical vectors are extremely useful in R, as they can be used to flag and subset values.\n\n\nComparison Operators\nComparison opertors are used to compare two values.\n\n\n\n\n\n\nOperator\nName\nExample\n\n\n\n\n==\nEqual\nx == y\n\n\n!=\nNot equal\nx != y\n\n\n&gt;\nGreater than\nx &gt; y\n\n\n&lt;\nLess than\nx &lt; y\n\n\n&gt;=\nGreater than or equal to\nx &gt;= y\n\n\n&lt;=\nLess than or equal to\nx &lt;= y\n\n\n%in%\nHave values within\nx %in% y\n\n\n\n\n\n\nYou can use a comprison of two values, one on each side, and it will provide 1 logical result.\n\n\n# what values in sequential are equal to 4? \n\nsequential == 4\n\n[1] FALSE FALSE FALSE  TRUE FALSE\n\n\n\nOr, you can have vectors on both sides.\n\n\n# my name with old middle initial before marriage \nold_me &lt;- c(\"Christopher\", \n            \"W\", \n            \"Davis\")\n\n# my name with new middle initial after marriage\n\nnew_me &lt;- c(\"Christopher\", \n            \"P\", \n            \"Davis\")\n\n# test what elements are the same \nold_me == new_me\n\n[1]  TRUE FALSE  TRUE\n\n\n For this to work correctly, both sides of the comparison must have an equal length().\nOther operations work as you might expect.\n\n\n# test less than operator\n\nvalues &lt;- c(1, \n            3, \n            2, \n            5, \n            2)\n\nvalues &lt; 3\n\n[1]  TRUE FALSE  TRUE FALSE  TRUE\n\n\n\n\n# test greater than or equal to operator \n\nvalues &gt;= 4\n\n[1] FALSE FALSE FALSE  TRUE FALSE\n\n\n\n\nThe %in% operator\nThe %in% opertor returns TRUE for each element on the left hand side tht is within an element on the right hand side. It has the same length() as the elements on the left hand side.\n\n\n# test if each element of sequential is either two or three\n\nvalues %in% c(2, 3)\n\n[1] FALSE  TRUE  TRUE FALSE  TRUE\n\n\n\n\n\n\nLogical Operators\nLogical operators are used to combine conditional statements.\n\n\n\n\n\n\n\n\n\n\n\nOperator\nName\nExample\n\n\n\n\n&\nAND operator. Returns TRUE if both elements are TRUE\nx == y & a == b\n\n\n|\nOR operator. Returns TRUE if either elements are TRUE\nx == y | a == b\n\n\n!\nNOT operator. Returns TRUE if the condition is not TRUE\n!(x == y"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/04_vectors.html#subsetting-vectors",
+    "href": "lesson_code/01_lesson/04_vectors.html#subsetting-vectors",
+    "title": "Vectors",
+    "section": "Subsetting Vectors",
+    "text": "Subsetting Vectors\nYou can pull out an element of a vector with the [] operator.\n\n\n# create double vector again \ndouble_vector &lt;- c(2, \n                   4, \n                   1, \n                   3)\n# pull out the first element of a vector \ndouble_vector[1]\n\n[1] 2\n\n\n\nYou can pull out multiple elements of a vector by providing a vector instead of a number in the [] brackets. These numbers represent the indicies of the vector; i.e., element 1, element 2, element 3, ect.\n\n\n# create full vector\nfull_vector &lt;- c(1, \n                 4, \n                 1, \n                 2, \n                 10, \n                 2, \n                 1)\n\n# create vector to represent indicies to pull out \nsubset_vector &lt;- c(1, \n                   3,\n                   4)\n\n# pull out first, third, and fourth element\nfull_vector[subset_vector]\n\n[1] 1 1 2\n\n\n\nYou can also subset with logical vector.\n\n\n# get only the elements that are equal to 1\n\nfull_vector[full_vector == 1]\n\n[1] 1 1 1\n\n\n\n\n# get only the elements that are less than 5\n\nfull_vector[full_vector &lt; 5]\n\n[1] 1 4 1 2 2 1"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/04_vectors.html#missing-values",
+    "href": "lesson_code/01_lesson/04_vectors.html#missing-values",
+    "title": "Vectors",
+    "section": "Missing Values",
+    "text": "Missing Values\nR represents missing, or unknown, values with NA (short for not applicable). Missing values tend to be infectious: most computations involving a missing value will return another missing value.\n\nsome_values_na &lt;- c(2, \n                    NA, \n                    3, \n                    NA,\n                    5)\n\nsome_values_na &lt; NA\n\n[1] NA NA NA NA NA\n\n\n\n\nsome_values_na == NA\n\n[1] NA NA NA NA NA\n\n\n\nTherefore, to check if values are missing or not, use the is.na() function.\n\n\nis.na(some_values_na)\n\n[1] FALSE  TRUE FALSE  TRUE FALSE"
+  },
+  {
+    "objectID": "lesson_code/01_lesson/04_vectors.html#type-assessment",
+    "href": "lesson_code/01_lesson/04_vectors.html#type-assessment",
+    "title": "Vectors",
+    "section": "Type Assessment",
+    "text": "Type Assessment\n\ntypeof() function\nYou can check what type an atomic vector is with the typeof() function.\n\n# get type of vector\n\ntypeof(double_vector)\n\n[1] \"double\"\n\n\n\n# get type of vector\n\ntypeof(character_vector)\n\n[1] \"character\"\n\n\n\n# get type of vector\n\ntypeof(logical_vector)\n\n[1] \"logical\"\n\n\n\n\nis_&lt;type&gt; functions\nWe sometimes wnt to be able to identify whether variables are numeric, character, or logical. We can do this with the is_&lt;type&gt;() functions.\n\n\nnumeric_vector &lt;- c(3, \n                    5, \n                    1, \n                    7, \n                    2)\n\nis.numeric(numeric_vector)\n\n[1] TRUE\n\n\n\n\ncharacter_vector &lt;- c(3, \n                      5, \n                      1, \n                      \"not a number\")\n\nis.character(character_vector)\n\n[1] TRUE\n\n\n\n\n\n\n\n\nNote\n\n\n\nWhen both character elements and numeric elements are put into the c() function, it evaluates to a character vector."
+  },
+  {
+    "objectID": "lesson_code/01_lesson/04_vectors.html#type-conversion",
+    "href": "lesson_code/01_lesson/04_vectors.html#type-conversion",
+    "title": "Vectors",
+    "section": "Type Conversion",
+    "text": "Type Conversion\nOne fucntionality we have not talked about in R is when we want to convert from one kind of variable to another. We can do this with the as.numeric(), as.character(), andas.logical()` functions.\n\nas.character(numeric_vector)\n\n[1] \"3\" \"5\" \"1\" \"7\" \"2\"\n\n\n\nas.numeric(character_vector)\n\nWarning: NAs introduced by coercion\n\n\n[1]  3  5  1 NA\n\n\n\n\n\n\n\n\nNote\n\n\n\nWhen converting from character to numeric, if there is an element with at least one character that would not evaluate to a numeric, that element is cast to NA (missing)."
+  },
+  {
+    "objectID": "lesson_code/05_lesson/02_functions.html",
+    "href": "lesson_code/05_lesson/02_functions.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/05_lesson/04_across.html",
+    "href": "lesson_code/05_lesson/04_across.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/05_lesson/01_welcome.html",
+    "href": "lesson_code/05_lesson/01_welcome.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/functions.html",
+    "href": "lesson_code/functions.html",
+    "title": "Untitled",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/functions.html#lesson-01---data-wrangling-1",
+    "href": "lesson_code/functions.html#lesson-01---data-wrangling-1",
+    "title": "Untitled",
+    "section": "Lesson 01 - Data Wrangling 1",
+    "text": "Lesson 01 - Data Wrangling 1\n\nGetting Started\n\nhelp() : Opens up help documentation for packages and functions. ?&lt;function_name&gt; does the same.\n\n\n\nR Basics.\n\n\\&lt;- : Assign a value to a name.\n\n\n\nVectors.\n\nc() : Generic function which combines its arguments. The default method combines its arguments to form a vector. All arguments are coerced to a common type which is the type of the returned value, and all attributes except names removed.\nmean() : Generic function for the (trimmed) arithmetic mean.\nsort() : Sort (or order) a vector or factor into ascending or descending order.\n&lt;from&gt;:&lt;to&gt; : Generate regular sequences.\nseq() : Generate regular sequences (with more options than :).\npaste() : Concatenate vectors after converting to character.\nnchar() : Takes a character vector as an argument and returns a vector whose elements contain the sizes of the corresponding elements of x.\nlength() : Get or set the length of vectors (including lists) and factors, and of any other R object for which a method has been defined.\n[] : Operator that acts on vectors, matrices, arrays, and lists to extract or replace parts.\nNA : NA is a logical constant of length ` which contains a missing value indicator.\nis.na() : Indicates which elements of a vector are missing. Returns TRUE if missing, otherwise FALSE.\ntypeof() : Determined the (R internal) type or storage mode of any object.\nis.numeric() : Determines if a vector is of a class numeric or not.\nis.logical() : Determines if a vector is of type logical or not.\nis.character() : Determines if a vector is of type character or not.\nas.numeric() : Converts vector to numeric.\nas.logical() : Converts vector to logical.\nas.character() : Converts vector to character.\n\n\nArithmetic Operators\nYou can use arithmetic operators with numeric vectors as well as with single elements.\nHere is a list of arithmetic operators:\n\n\n\n\n\n\nOperator\nName\nExample\n\n\n\n\n+\nAddition\nx + y\n\n\n-\nSubtraction\nx - y\n\n\n*\nMultiplication\nx * y\n\n\n/\nDivision\nx / y\n\n\n^\nExponent\nx ^ y\n\n\n%%\nModulus (Remainder from division)\nx %% y\n\n\n&&\nInteger Division\nx&&y\n\n\n\n\n\nSource: W3Schools\n\n\nComparison Operators\nComparison operators are used to compare two values.\n\n\n\n\n\n\nOperator\nName\nExample\n\n\n\n\n==\nEqual\nx == y\n\n\n!=\nNot equal\nx != y\n\n\n&gt;\nGreater than\nx &gt; y\n\n\n&lt;\nLess than\nx &lt; y\n\n\n&gt;=\nGreater than or equal to\nx &gt;= y\n\n\n&lt;=\nLess than or equal to\nx &lt;= y\n\n\n%in%\nHave values within\nx %in% y\n\n\n\n\n\n\n\n\nLogical Operators\nLogical operators are used to combine conditional statements.\n\n\n\n\n\n\n\n\n\n\n\nOperator\nName\nExample\n\n\n\n\n&\nAND operator. Returns TRUE if both elements are TRUE\nx == y & a == b\n\n\n|\nOR operator. Returns TRUE if either elements are TRUE\nx == y | a == b\n\n\n!\nNOT operator. Returns TRUE if the condition is not TRUE\n!(x == y\n\n\n\n\n\n\n\n\n\nPackages and Libraries\n\n\ninstall.packages() : Download and install packages from CRAN-like repositories or from local files.\nlibrary() : Attach add-on packages.\n:: : Accessing exported and internal variables i.e. R objects (including lazy loaded datasets) in a namespace.\n\n\n\n\nData Frames and tibble\n\n\nhead() : Returns the first or last parts of a vector, matrix, table, data frame, or function.\ntibble::as_tibble() : Turns an existing object, such as a data frame or matrix, into a so-called tibble, a data frame with class tbl_df.\nclass() : For objects which have a formal class, its name is returned. R posseses a simple generic function mechanism which can be used for an object-oriented style of programming.\n\n\n\n\ndplyr Basics\n\n\ndplyr::glimpse() : Prints information about a data frame or tibble to the console.\ndplyr::mutate() : Creates new columns that are functions of existing variables. It can also modify (if the name is the same as an existing column) and delete columns (by setting their value to NULL).\ndplyr::filter() : Used to subset a data frame, retaining all rows that satisfy your conidtions. To be retained, the row must produce a value of TRUE for all conditions. Note that when a condition evaluates to NA the row will be dropped, unlike base subsetting with [.\ndplyr::select() : Select (and optionally rename) variables in a data frame, using a concise mini-language that makes it easy to refer to varaibles based on their name (e.g. &lt;a&gt;:&lt;f&gt; selects all columns from a on the left to f on the right) or type (e.g. where(is.numeric) selects all numeric columns).\ntidyselect::everything() : Selects all variables. It is also useful in ocmbination with other tidyselect operators.\ndplyr::arrange() : Orders the rows of a dta frame by the values of selected columns.\ndplyr::count() : Lets you quickly count the unique values of one or more variables.\ndplyr::group_by() : Most data operations are done on groups defined by variables. group_by() takes an existing tbl and converts it into a grouped tbl where operations are performed “by group”.\ndplyr::ungroup() : Removes grouping.\ndplyr::summarise() : Returns on row for each combination of grouping variables; if there are no grouping variables, the output will have a single row summarasing all ovservations in the input. It will contain one column for each grouping variable and one column for each of the summary statistics that you have specified. summarise() and summarize() are synonyms.\n\n\n\nThe pipe operator: |&gt;\n\n|&gt; : Passes, or pipes, the result of the left-hand side expression to the right-hand side expression. If the right-hand side expression is a function call, then the left-hand-side is inserted as the first argument in the call."
+  },
+  {
+    "objectID": "lesson_code/functions.html#lesson-02---data-wrangling-2",
+    "href": "lesson_code/functions.html#lesson-02---data-wrangling-2",
+    "title": "Untitled",
+    "section": "Lesson 02 - Data Wrangling 2",
+    "text": "Lesson 02 - Data Wrangling 2\n\nData Import and Export\n\nreadr::read_csv(): Read in .csv files.\nreadxl::read_excel(): Read in .xlsx or .xls files.\nhaven::read_sas() : Read in .sas7bdat or .sas7bcat files.\nhaven::read_xpt() : Read in SAS trasnfer files (.xpt).\nhaven::read_stata() : Read in .dta files.\nreadRDS() : Read in native .RDS files.\narrow::read_feather() : Read in .feather files.\narrow::read_parquet() : Read in .parquet files.\n[data.table::fread()](https://www.rdocumentation.org/packages/data.table/versions/1.15.0/topics/fread) : Read in.csv` files faster.\nreadxl::excel_sheets() : Read in excel sheets form a .xlsx or .xls file.\nreadr::write_csv() : Write out .csv files.\nhaven::write_sas() : Write out .sas7bdat or .sas7bcat files.\nhaven::write_dta() : Write out .dta files.\nsaveRDS() : Save native .RDS files.\narrow::write_feather(): Write out .feather files.\narrow::write_parquet(): Write out .parqeut files.\njanitor::clean_names() : Clean up messy variable names.\ndplyr::if_else() : Takes in logical condition - if TRUE, output the value in the true argument, otherwise output the value in the false argument.\ndplyr::case_when() : Takes in multiple logical conditions - basically use when you want to do multiple if/else statements. Each case is evaluated sequentially and the first match for each element determines the correspending value in the output vector.\nstringr::str_c() : Concatenates a string.\nstringr::str_length() : Provides the length of each element of a string.\ndplyr::pull() : Extracts a clumn from a data frame.\n\nstringr::str_detect() : Returns TRUE if pattern is matched in string. `FALSE`` otherwise.\nstringr::str_pad() : Pads a string to be a specified width.\nstringr::str_trim() : Removes whitespace from the start or end of a string.\nstringr::str_sub() : Subset a string based on indices.\nstringr::str_to_lower() : Converts strings to lower case (asdfjl).\nstringr::str_to_upper() : Converts strings to upper case (ASDFJL).\nstringr::str_to_title() : Converts strings to title case (This Is A Title).\nstringr::str_to_sentence() : Converts strings to sentence case (This is a sentence.).\n\n\n\nAttributes\n\nattributes() : Returns the attributes of an R object.\nnames() : Returns the names attribute within an R object. Can also assign with names(x)&lt;-.\nclass() : Returns the S3 object class of an R object.\nfactor() : Creates a factor variable.\nas.Date() : Converts character or numeric to the Date class.\nlubridate::ymd() : Flexibly convert data to Date, with format “year”, “month”, “day”.\nlubridate::ydm() : Flexibly convert data to Date, with format “year”, “day”, “month”.\nlubridate::myd() : Flexibly convert data to Date, with format “month”, “year”, “day”.\nlubridate::mdy() : Flexibly convert data to Date, with format “month”, “day”, “year”.\nlubridate::dmy() : Flexibly convert data to Date, with format “day”, “month”, “year”.\nlubridate::dym() : Flexibly convert data to Date, with format “dau”, “year”, “month”.\nlubridate::year() : Extract year from date.\nlubridate::month() : Extract month from date.\nlubridate::day() : Extract day from date.\nlubridate::wday() : Extract weekday from date.\nlubridate::quarter() : Extract quarter from date.\n\n\n\nReshaping Data\n\ntidyr::pivot_longer(): Reshapes data longer.\ntidyr::pivot_wider : Reshapes data wider.\n\n\n\nCombining Data Frames\n\ndplyr::bind_rows() : Appends data frames together.\ndplyr::bind_cols() : Joins toether by column with no keys. Not recommended under most conditions.\ndplyr::inner_join : Joins together by key, returns obsevation if key is present on both sides.\ndplyr::full_join : Joins together by key, returns observation if key is present on either side.\ndplyr::left_join : Joins together by key, returns observation if key is present on left side.\ndplyr::right_join : Joins together by key, returns observation if key is present on right side.\ndplyr::join_by() : Helper function for assigning by within join functions.\n\n\n\nLesson 03 - Data Visualization 1\n\nThe ggplot2 package\n\nggplot2::ggplot() : Initializes a ggplot object and creates an empty plot. Can also optionally set aesthetics that are inherited by later functions.\nggplot2::aes() : Aesthetic mappings describe how variables in the data are mapped to visual properties of geoms. Set in ggplot() and individaul layers.\nggplot2::geom_point() : Layer used to create scatterplots or points on a line graph.\nggplot2::geom_smooth() : Layer used to create a trend line over an existing plot.\nggplot2::scale_&lt;axis&gt;_continuous() : Scale used with continuous axis can set limits, breaks, and labels (among other things).\nggplot2::scale_&lt;color or fill&gt;_hue() : Maps each elvel to an evenly spaced hue on the color wheel.\nggplot2::facet_wrap() : Graphs multiple panels of data in a rectangular strcuture. Use a &lt;var&gt; syntax to generate panels by &lt;var&gt;.\nggplot2::geom_bar() : Layer that creates a bar plot with one varaible.\nggplot2::coord_flip() : Flips the X and Y axes.\nggplot2::theme() : Customize non-data components of plot.\nggplot2::element_rect() : Modify rectangular theme element.\nggplot2::element_blank() : Remove element from theme.\nggplot2::theme_minimal() : Complete theme that draws minimal lines and ticks.\n\n\n\n\nLayers\n\nggplot2::geom_col() : Layer that creates a bar plot with two variables (minimum).\nforcats::fct_reorder() : Reorders a factor on the order of another variable.\nggplot2::geom_segment() : Layer that draws a straight line between points. We can use it with geom_point() to create a lollipop chart.\nggplot2::geom_line() : Layer that creates a line graph.\nggplot2::geom_histogram() : Layer that creates a histogram.\nggplot2::geom_density() : Layer that creates a density plot.\nggplot2::geom_boxplot() : Layer that creates a box plot.\n\n\n\nAesthetics\nNo new functions! See the Aesthetic specifics ggplot2 vignette.\n\n\nScales\n\nggplot2::expansion() : Generate scale expansion vectors for the expand argument in a scale.\nggplot2::scale_y_reverse() : Transform y axis from high to low instead of low to high.\nggplot2::scale_&lt;aesthetic&gt;_manual() : Scale that allows you to specific mappings from levels in the data to aesthetic values (like colors).\nggplot2::scale_&lt;color or fill&gt;_brewer() : Maps values in data to an existing color pallete.\n\n\n\nText and Annotations\n\nggplot2::labs() : Modify axis, legend, and plot labels.\nggplot2::geom_text() : Layer that adds text from the data. No rectangle present behind text.\nggplot2::geom_label() : Layer that adds text from the data. Rectangle present behind text.\ndplyr::slice() : Filtrs rows by their integer index locations.\nggplot2::annotate() : Add text (or another geom) to a graph not stemming from the data.\n\n\n\nThemes\n\nggplot2::theme_gray() : This is the default ggplot2 complete theme that we’ve already seen.\nggplot2::theme_bw() : A dark on-light ggplot2 theme, which may work better for presentations displayed with a projecter.\nggplot2::theme_linedraw() : Another dark-on-light ggeplot2 theme, which may work better for presentations displayed with an old-timey projecter.\nggplot2::theme_light() : Light theme. Because of its light grey lines and axes, it focuses more attention on the data.\nggplot2::theme_dark() : Similar to theme_light() but the dark version. Good if you want to show colors with a dark background.\nggplot2::theme_minimal : A minimilastic theme. I quite like minimalistic themes as we focus more on the data.\nggplot2::theme_classic() : Also a minimalistic theme, with solid axes but no gridlines.\nggplot2::theme_void() : A completely empty theme. Good if you don’t want any axes or gridlines."
+  },
+  {
+    "objectID": "lesson_code/functions.html#lesson-04---data-visualization-2",
+    "href": "lesson_code/functions.html#lesson-04---data-visualization-2",
+    "title": "Untitled",
+    "section": "Lesson 04 - Data Visualization 2",
+    "text": "Lesson 04 - Data Visualization 2\n\nSpatial Features and Mapping\n\ntigris::states() : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by state.\ntigris::core_based_statistical_areas() : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by Census Core-Based Statistical Area (Containing both metropolitan area and micropolitan area).\ntigris::congresional_districts() : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by congressional district.\ntigris::counties() : Downlods TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by county.\ntigris::urban_areas() : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by Urban Area designation.\ntigris::places(() : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by census place (cities).\ntigris::zctas() : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by Zip Code Tbulation Area (ZCTA).\ntigris::voting_districts() : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by voting district.\ntigris::tracts() : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by census tract.\ntigris::block_groups() : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by block group.\ntigris::blocks() : Downloads TIGER/Line Census or cartographic boundary (with simplified geographies) shapefiles by census block.\nsf::st_read() : Reads in shapefile data and convert to sf object.\nsf::st_as_sf() : Converts foreign object to an sf object.\nsf::st_crs() : Retrieve coordinate reference system from object.\nsf::st_transform() : Transform or convert coordiante of simple feature.\ntigris::shift_geometry() : Shift and rescale Alaska, Hawaii, and Puerto Rico in a US-wide sf object.\n\n\n\nChoropleth Maps\n\nggplot2::geom_sf_text() Add text related to sf objects.\ntidycensus::load_variables() : Load Decennial and ACS variable names.\ntidycensus::get_decennial : Obtain data and feature geometry for the decennial US Census.\ntidycensus::get_acs() : Obtain data and feature geometry for the American Community Survey.\ntidycensus::get_estimates() : Obtain data and feature geometry for the Population Estimates.\ntidycensus::get_pums() : Load data from the American Community Survey Public Use Microdata Series API.\ntidycensus::get_flows() : Obtain data and feature geometry for American Community Survey Migration Flows.\nbase::cut() : Divides the range of x into intervals and code the values in x to categorical vriable accoding to which interval they fall.\nggplot2::cut_number() : Makes a categorical variable with n groups with approximately equal numbers of observations.\nbase::source() : Reads in an R file and runs it.\n\n\n\nOther Data Visualization Packages\n\ngghighlight::gghighlight() : Highlights geoms according to the given predicates.\ngganimate::transition_time() : Creates an animation that transitions with a trqnsition length related to the actual time difference between given time values.\nplotly::plot_ly() : Maps R objects to plotly.js, a web-based interactive charting library.\nplotly::ggplotly() : Converts a ggplot object to a plotly object.\nleaflet::colorNumeric() : maps data values to colors according to a given palette.\nleaflet::leaflet() : Create a Leaflet map widget using htmlwidgets. The widget can be rendered on HTML paes.\nleaflet::addTiles() : Add basemaps to a graph.\nleaflet::addPolygons() : Add polygons to a graph.\nleaflet::addLegend() : Add a custom legend to a graph."
+  },
+  {
+    "objectID": "lesson_code/functions.html#functions-and-iteration",
+    "href": "lesson_code/functions.html#functions-and-iteration",
+    "title": "Untitled",
+    "section": "Functions and Iteration",
+    "text": "Functions and Iteration\n\nCreating Functions\n\nset.seed() : Sets a random number state such that randomly created numbers can be created in a reproducible manner.\nrnorm() : Creates random numbers with n, mean, and standard deviation that follow a normal distribution.\nfunction() : Defines new functions in the R language.\nreturn() : returns an output within a function, exiting the function.\nif() : checks if condition is TRUE, if so evaluates next statement.\nelse()) : after an if statement, this function will evaluate the proceeding expression if the preceding expression is FALSE\nstop() : throws an error with an error message.\nwarning() : throws a warning with a warning message.\n\n\n\nWorking with Multiple Columns\n\ndplyr::across() : applies a function across multiple columns in a data frame within a mutate() or summarise() function.\ntidyselect::everything() : Matches all variables in a selection.\ntidyselect::starts_with() : Matches columns that start with a specific prefix.\ntidyselect::ends_with() : Matches columns that end with a specific suffix.\ntidyselect::contains() : Matches columns that contain a specific string.\ntidyselect::matches() : Matches a regular expression (see page 2 of the stringr cheat sheet)\n&lt;from:&lt;to&gt; : for selecting a range of consecutive variables. &lt;from&gt; and &lt;to&gt; can be numeric indicies of the position of the column or variable names (e.g.; carat:clarity).\n! : (in selection context), for taking all variables but the ones identified afterwards (e.g.: !carat:clarity would identify all variables but those between and including carat and clarity positionally in the dataframe).\nc() : (in selection context) combine selections together.\ntidyselect::all_of() and tidyselect::any_of() : Matches variable names given a character vector. These are the same except no error is thrown for any_of() if names don’t exist, but an error is thrown for all_of().\ntidyselect::where() : applies a function to all varaibles and selects those for which the function returns TRUE.\ndplyr::rename_with() : renames columns using a function.\ndplyr::if_any() : apply the same function to a selection of columns and combine the result into a single logical vector. if_any() returns TRUE when the predicate is TRUE for any of the selected columns.\ndplyr::if_all() : apply the same function to a selection of columns and combine the result into a single logical vector. if_all() returns TRUE when the predicate is TRUE for all of the selected columns.\nlist.files() : produces a character vector of the files in the specified directory.\npurrr::map() : transform input by applying a function to each element of a list or atomic vector. Always returns a list.\npurrr::list_rbind() : combines list elements into a data frame by row-binding them together.\nreadr::parse_number() : extracts the first number it finds, dropping any non numeric characters before and after.\nrlang::set_names() : sets the names on an object and returns the object.\nbasename() : removes all of the path up to and including the last path separator.\npurrr::walk() : calls a function but does not return an output.\npurrr::walk2() : calls a function that does not return an output with two inputs of the same length.\npurrr::map2() : calls a function that returns a list object with two inputs of the same length."
+  },
+  {
+    "objectID": "lesson_code/02_lesson/11_exercise_6.html",
+    "href": "lesson_code/02_lesson/11_exercise_6.html",
+    "title": "Exercise 6",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/11_exercise_6.html#exercise-6.1",
+    "href": "lesson_code/02_lesson/11_exercise_6.html#exercise-6.1",
+    "title": "Exercise 6",
+    "section": "Exercise 6.1",
+    "text": "Exercise 6.1\n\nProblem\n\n\n\nInstall the nycflights13 package and load it.\nThe flights data frame in that package records data related to flights, like their departure time, their scheduled departure time, distance between airports, etc. The planes data frame records data about each plane. Identify the shared key among these two datasets.\nDo a join such that all records on both sides end up in the result, even if there is no complementing key for it in on the other data frame. Assign the result to joined.\nNote that there are now the variables year.x and year.y in the data frame. Why might this be the case? ### Solution\nInstall the nycflights13 package and load it.\n\n\n\n# run in the console\ninstall.packages(\"nycflights13\")\n\n# load the library\nlibrary(nycflights13)\n\n\n\nThe flights data frame in that package records data related to flights, like their departure time, their scheduled departure time, distance between airports, etc. The planes data frame records data about each plane. Identify the shared key among these two datasets.\n\nThe shared key is tailnum. It occurs in both data frames and has the same format.\n\nDo a join such that all records on both sides end up in the result, even if there is no complementing key for it in on the other data frame. Assign the result to joined.\n\n\n\njoined &lt;- full_join(flights, planes, join_by(tailnum))\n\n\n\nNote that there are now the variables year.x and year.y in the data frame. Why might this be the case? \n\nyear exists in both data frames but was not included in the by condition because they reference different years. Unlike SAS, in R when you merge two data frames that have the same variable, the variables are renamed with suffixes and are both maintained in teh result."
+  },
+  {
+    "objectID": "lesson_code/02_lesson/11_exercise_6.html#exercise-6.2---challenge",
+    "href": "lesson_code/02_lesson/11_exercise_6.html#exercise-6.2---challenge",
+    "title": "Exercise 6",
+    "section": "Exercise 6.2 - Challenge",
+    "text": "Exercise 6.2 - Challenge\n::: panel-tabset\n\nProblem\n\nLoad the tidylog package and do the join again. How many observations did we not find a key for on each side?\nWith the results of 6.1 (joined), identify the manufacturer for the plane of the flight that occurs first temporally in the data frame.\nLook up the semi_join() and anti_join() function documentation.\nUnder what circumstances would you use these functions?\n\n\n\nSolution\n\nLoad the tidylog package and do the join again. How many observations did we not find a key for on each side?\n\n\nlibrary(tidylog)\n\n\njoined &lt;- full_join(flights, planes, join_by(tailnum))\n\nfull_join: added 9 columns (year.x, year.y, type, manufacturer, model, …)\n           &gt; rows only in flights   52,606\n           &gt; rows only in planes         0\n           &gt; matched rows          284,170\n           &gt;                      =========\n           &gt; rows total            336,776\n\n\n\n52,606 observations in flights do not have a record in planes but 0 records in planes do not have a record in flights.\n\n\nWith the results of 6.1 (joined), identify the manufacturer for the plane of the flight that occurs first temporally in the data frame.\n\n\n\njoined |&gt; \n  arrange(year.x, \n          month, \n          day, \n          dep_time) |&gt; \n  head(1) |&gt; \n  pull(manufacturer)\n\n[1] \"BOEING\"\n\n\n\n\nLook up the semi_join() and anti_join() function documentation.\n\n\n\nhelp(semi_join)\nhelp(anti_join)\n\n\n\nUnder what circumstances would you use these functions?\n\nsemi_join() - When you want to filter a data frame based on if a key exists in another data frame.\nanti_join() - When you want to filter a dataframe based on if a key does not exist in another data frame. :::"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/07_attributes.html",
+    "href": "lesson_code/02_lesson/07_attributes.html",
+    "title": "Attributes",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/07_attributes.html#names",
+    "href": "lesson_code/02_lesson/07_attributes.html#names",
+    "title": "Attributes",
+    "section": "Names",
+    "text": "Names\nAny vector can have the names attribute added onto it. \n\n# create numeric vector\n\nnumeric_vector &lt;- c(2, \n                    4, \n                    6, \n                    1, \n                    2)\n\n# assign names to numeric vector\nnames(numeric_vector) &lt;- c(\"these\", \n                           \"names\", \n                           \"are\", \n                           \"arbitrarily\", \n                           \"given\")\n\n# print numeric vector\nnumeric_vector\n\n      these       names         are arbitrarily       given \n          2           4           6           1           2 \n\n\n We can see that the names attribute was added for tht vector. \n\nattributes(numeric_vector)\n\n$names\n[1] \"these\"       \"names\"       \"are\"         \"arbitrarily\" \"given\"      \n\n\n For data frames, the names attribute represents the column names of the data frame."
+  },
+  {
+    "objectID": "lesson_code/02_lesson/07_attributes.html#class",
+    "href": "lesson_code/02_lesson/07_attributes.html#class",
+    "title": "Attributes",
+    "section": "Class",
+    "text": "Class\nClass is used to implement the S3 object oriented system and identifies the kind of S3 object an object is. Objects are able to be used in functions to behave differently for different classes of input and generally share characterstics between objects of the same class. I won’t go too much into object-oriented programmin gin this course due to time constraints.\nWe’ve already worked with some objects that have formal classes, like data frames and tibbles.\n\n\nclass(starwars)\n\n[1] \"tbl_df\"     \"tbl\"        \"data.frame\""
+  },
+  {
+    "objectID": "lesson_code/02_lesson/07_attributes.html#augmented-vectors",
+    "href": "lesson_code/02_lesson/07_attributes.html#augmented-vectors",
+    "title": "Attributes",
+    "section": "Augmented Vectors",
+    "text": "Augmented Vectors\nAtomic vectors are the building blocks for other important vector types like factors and dates. These augmented vectors have a class, so they behave differently than the atomic vector on which they are built.\n\nFactors\nFactors are designed to represent categorical data. They take a fixed set of possible values that can be ordered or unordered.\nThey are built on top of integer (not character).\nHere’s an example from Hadley Wickam’s R for Data Science.\n\n\n# create factor\nx &lt;- factor(c(\"ab\", \"cd\", \"ab\"), levels = c(\"ab\", \"cd\", \"ef\"))\n\n# get type of variable\ntypeof(x)\n\n[1] \"integer\"\n\n# get attributes of variable \nattributes(x)\n\n$levels\n[1] \"ab\" \"cd\" \"ef\"\n\n$class\n[1] \"factor\"\n\n\n The levels attribute identifies the unique values the factor can have. We see that the class is of type factor.\nFactors are important when we want to limit categorical variables to having only certin values, or when we want to arrnage a variable by a particular set of levels.\nTo take another example from Mr. Wickham: \n\n# set unique month levels in order\nmonth_levels &lt;- c(\"Jan\", \n                  \"Feb\", \n                  \"Mar\", \n                  \"Apr\", \n                  \"May\", \n                  \"Jun\", \n                  \"Jul\", \n                  \"Aug\", \n                  \"Sep\", \n                  \"Oct\", \n                  \"Nov\", \n                  \"Dec\")\n\n# create character vector\nx1 &lt;- c(\"Dec\", \"Apr\", \"Jan\", \"Mar\")\n\n# convert character vector to factor\ny1 &lt;- factor(x1, levels = month_levels)\n\n# print factor\ny1\n\n[1] Dec Apr Jan Mar\nLevels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec\n\n# print sorted factor \nsort(y1)\n\n[1] Jan Mar Apr Dec\nLevels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec\n\n\n Any values not in the set will be converted to NA. \n\n# create factor with noncorming input\nfactor(c(\"Jan\", \"Not Jan\"), \n       levels = month_levels)\n\n[1] Jan  &lt;NA&gt;\nLevels: Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec\n\n\n Factors will be especially helpful in data visualization, which we will be doing later in this course. \n\n\nDates\nDates are another common extension of an atomic vector. Dates are built upon numeric vectors. \n\nbefore &lt;- as.Date(\"1969-01-01\")\n\ntypeof(before)\n\n[1] \"double\"\n\nattributes(before)\n\n$class\n[1] \"Date\"\n\n\n\n\nlubridate package\nThe lubridate package has a bunch of functions to more easily work with Dates in R.\nThe ymd(), ydm(), mdy(), myd(), dmy(), and dym() functions all flexibly take in a wide variety of input formats bsed on the function, where y means year, m means month, and d means day. \n\nmdy(\"April 10th, 2024\")\n\n[1] \"2024-04-10\"\n\nmdy(\"Wednesday, 04-10-2024\")\n\n[1] \"2024-04-10\"\n\nymd(\"2024/04/10\")\n\n[1] \"2024-04-10\"\n\n\n Once a vector has been converted to a date object, we can then use functions like:\n\nyear(): extract year from date\nmonth(): extract month from date\nday(): extract day from date\nwday(): extract weekday from date\nquarter(): extract quarter from date\n\nto extract what we need from a date."
+  },
+  {
+    "objectID": "lesson_code/02_lesson/08_reshaping.html",
+    "href": "lesson_code/02_lesson/08_reshaping.html",
+    "title": "Reshaping Data",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/08_reshaping.html#reshaping-data-1",
+    "href": "lesson_code/02_lesson/08_reshaping.html#reshaping-data-1",
+    "title": "Reshaping Data",
+    "section": "Reshaping data",
+    "text": "Reshaping data\nLet’s take a look at the following data frame.\n\n\ntable_1\n\n# A tibble: 6 × 4\n  state       year  units population\n  &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;\n1 Alabama     1990 139046    1119918\n2 Alabama     2000 139163    1531404\n3 California  1990 128574    1328816\n4 California  2000 119428    1198167\n5 Wyoming     1990 139871    1233838\n6 Wyoming     2000 104444    1135912\n\n\n\nEach column represents a distinct point of informtion and each ovservation represents a state at given point in time.\nBut, what if the data looked like this instead? \n\ntable_2\n\n# A tibble: 12 × 4\n   state       year name         value\n   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;\n 1 Alabama     1990 units       139046\n 2 Alabama     1990 population 1119918\n 3 Alabama     2000 units       139163\n 4 Alabama     2000 population 1531404\n 5 California  1990 units       128574\n 6 California  1990 population 1328816\n 7 California  2000 units       119428\n 8 California  2000 population 1198167\n 9 Wyoming     1990 units       139871\n10 Wyoming     1990 population 1233838\n11 Wyoming     2000 units       104444\n12 Wyoming     2000 population 1135912\n\n\n\nWhat if we had units data that looked like this?\n\n\ntable_3\n\n# A tibble: 3 × 3\n  state      `1990` `2000`\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;\n1 Alabama    139046 139163\n2 California 128574 119428\n3 Wyoming    139871 104444"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/08_reshaping.html#pivot_-functions",
+    "href": "lesson_code/02_lesson/08_reshaping.html#pivot_-functions",
+    "title": "Reshaping Data",
+    "section": "pivot_*() functions",
+    "text": "pivot_*() functions\nWe can use the pivot_wider() and pivot_longer() functions to reshape wide and long.\n\npivot_wider()\nThe pivot_wider() function can tqke in the names_from argument and the values_from argument. The column(s) we put in names_from will be the column names of the new data, nd the column(s) we put in values_from will be the values.\n\n\ntable_2\n\n# A tibble: 12 × 4\n   state       year name         value\n   &lt;chr&gt;      &lt;dbl&gt; &lt;chr&gt;        &lt;dbl&gt;\n 1 Alabama     1990 units       139046\n 2 Alabama     1990 population 1119918\n 3 Alabama     2000 units       139163\n 4 Alabama     2000 population 1531404\n 5 California  1990 units       128574\n 6 California  1990 population 1328816\n 7 California  2000 units       119428\n 8 California  2000 population 1198167\n 9 Wyoming     1990 units       139871\n10 Wyoming     1990 population 1233838\n11 Wyoming     2000 units       104444\n12 Wyoming     2000 population 1135912\n\n\n\ntable_2 |&gt; \n  pivot_wider(names_from = name, \n              values_from = value)\n\n# A tibble: 6 × 4\n  state       year  units population\n  &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;      &lt;dbl&gt;\n1 Alabama     1990 139046    1119918\n2 Alabama     2000 139163    1531404\n3 California  1990 128574    1328816\n4 California  2000 119428    1198167\n5 Wyoming     1990 139871    1233838\n6 Wyoming     2000 104444    1135912\n\n\n\n\n\npivot_longer()\nThe pivot_longer() function can take in the columnst hat we want to reshape long with the cols argumnet. You can also supply the names_to argument to provide the name of the column tht held the data in the names (in our case year), and the values_to argument to give a names to the column for the values.\n\n\ntable_3 \n\n# A tibble: 3 × 3\n  state      `1990` `2000`\n  &lt;chr&gt;       &lt;dbl&gt;  &lt;dbl&gt;\n1 Alabama    139046 139163\n2 California 128574 119428\n3 Wyoming    139871 104444\n\ntable_3 |&gt; \n  pivot_longer(cols = c(`1990`, \n                        `2000`), \n               names_to = \"year\", \n               values_to = \"units\")\n\n# A tibble: 6 × 3\n  state      year   units\n  &lt;chr&gt;      &lt;chr&gt;  &lt;dbl&gt;\n1 Alabama    1990  139046\n2 Alabama    2000  139163\n3 California 1990  128574\n4 California 2000  119428\n5 Wyoming    1990  139871\n6 Wyoming    2000  104444\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nBecause the variable names for table_3 are invalid names, you need to use the ` keys to access them. These are the unshifted version of the ~ character.\n\n\n\nHere’s a more complicated pivot_longer() use case.\n\ntable_4\n\n# A tibble: 3 × 5\n  state      population_1990 population_2000 units_1990 units_2000\n  &lt;chr&gt;                &lt;dbl&gt;           &lt;dbl&gt;      &lt;dbl&gt;      &lt;dbl&gt;\n1 Alabama            1119918         1531404     139046     139163\n2 California         1328816         1198167     128574     119428\n3 Wyoming            1233838         1135912     139871     104444\n\n\n\nTo pivot this long, we can use the names_sep argument to identify that information is being stored in our columns in two places, and that they are separated by the _ character.\n\ntable_4 |&gt; \n  pivot_longer(cols = -state, # select all columns minus the state\n               names_to = c(\"variable\", \"year\"),  # multiple column names to convert to\n               values_to = \"value\",  # what to name column with values\n               names_sep = \"_\") # separator for current variable names\n\n# A tibble: 12 × 4\n   state      variable   year    value\n   &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;   &lt;dbl&gt;\n 1 Alabama    population 1990  1119918\n 2 Alabama    population 2000  1531404\n 3 Alabama    units      1990   139046\n 4 Alabama    units      2000   139163\n 5 California population 1990  1328816\n 6 California population 2000  1198167\n 7 California units      1990   128574\n 8 California units      2000   119428\n 9 Wyoming    population 1990  1233838\n10 Wyoming    population 2000  1135912\n11 Wyoming    units      1990   139871\n12 Wyoming    units      2000   104444\n\n\nWe can then pivot it back to a tidy dataset using pivot_wider().\n\ntable_4 |&gt;\n    pivot_longer(cols = -state, # select all columns minus the state\n               names_to = c(\"variable\", \"year\"),  # multiple column names to convert to\n               values_to = \"value\",  # what to name column with values\n               names_sep = \"_\" # separator for current variable names\n    ) |&gt; \n  pivot_wider(names_from = variable, # column for where the names will come from for new columns\n              values_from = value) # column for where values will come from \n\n# A tibble: 6 × 4\n  state      year  population  units\n  &lt;chr&gt;      &lt;chr&gt;      &lt;dbl&gt;  &lt;dbl&gt;\n1 Alabama    1990     1119918 139046\n2 Alabama    2000     1531404 139163\n3 California 1990     1328816 128574\n4 California 2000     1198167 119428\n5 Wyoming    1990     1233838 139871\n6 Wyoming    2000     1135912 104444\n\n\n```"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/06_exercise_4.html",
+    "href": "lesson_code/02_lesson/06_exercise_4.html",
+    "title": "Exercise 4",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/06_exercise_4.html#exercise-4.1",
+    "href": "lesson_code/02_lesson/06_exercise_4.html#exercise-4.1",
+    "title": "Exercise 4",
+    "section": "Exercise 4.1",
+    "text": "Exercise 4.1\n\nProblemSolution\n\n\n\nRead in data at “lesson_code/02_lesson/data/alabama_fips.csv” and assign to alabama.\nCreate a variable in alabama called alpha_type that is “Low Alphabetically” if the county_code is &lt;= 65 and “High Alphabetically” otherwise. Overwrite alabama.\nFix the leading zeros in state_code and county_code with str_pad().\nCreate the full county code by concatenating the 2-digit state code and 3-digit county code. Call the new variable geoid.\n\n\n\n\nRead in data at “lesson_code/02_lesson/data/alabama_fips.csv” and assign to alabama.\n\n\n\nalabama &lt;- read_csv(\"lesson_code/02_lesson/data/alabama_fips.csv\")\n\n\n\nCreate a variable in alabama called alpha_type that is “Low Alphabetically” if the county_code is &lt;= 65 and “High Alphabetically” otherwise. Overwrite alabama.\n\n\nalabama &lt;- alabama |&gt; \n  mutate(alpha_type = if_else(county_code &lt;= 65, \n                              \"Low Alphabetically\", \n                              \"High Alphabetically\"))\n\n\n\nFix the leading zderios in state_code and county_code with str_pad().\n\n\nalabama &lt;- alabama |&gt; \n  mutate(state_code = str_pad(state_code, \n                              2, \n                              \"left\", \n                              \"0\"), \n         county_code = str_pad(county_code, \n                               3, \n                               \"left\", \n                               \"0\"))\n\n\n\nCreate the full county code by concatenating the 2-digit state code and 3-digit county code. Call the new variable geoid.\n\n\nalabama &lt;- alabama |&gt; \n  mutate(geoid = str_c(state_code, county_code))\n\nalabama\n\n# A tibble: 67 × 7\n   state state_code state_name county_code county          alpha_type      geoid\n   &lt;chr&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;       &lt;chr&gt;           &lt;chr&gt;           &lt;chr&gt;\n 1 AL    01         Alabama    001         Autauga County  Low Alphabetic… 01001\n 2 AL    01         Alabama    003         Baldwin County  Low Alphabetic… 01003\n 3 AL    01         Alabama    005         Barbour County  Low Alphabetic… 01005\n 4 AL    01         Alabama    007         Bibb County     Low Alphabetic… 01007\n 5 AL    01         Alabama    009         Blount County   Low Alphabetic… 01009\n 6 AL    01         Alabama    011         Bullock County  Low Alphabetic… 01011\n 7 AL    01         Alabama    013         Butler County   Low Alphabetic… 01013\n 8 AL    01         Alabama    015         Calhoun County  Low Alphabetic… 01015\n 9 AL    01         Alabama    017         Chambers County Low Alphabetic… 01017\n10 AL    01         Alabama    019         Cherokee County Low Alphabetic… 01019\n# ℹ 57 more rows"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/06_exercise_4.html#exercise-4.2---challenge",
+    "href": "lesson_code/02_lesson/06_exercise_4.html#exercise-4.2---challenge",
+    "title": "Exercise 4",
+    "section": "Exercise 4.2 - Challenge",
+    "text": "Exercise 4.2 - Challenge\n\nProblemSolution\n\n\n\nRead in the alabama dataset anew.\nCreate your own binned categories based on the county_code (alphabetically). Use at least 4 bins. Call the varaible alpha_type_2. Make sure no missing data is created.\nCount the frequency of alpha_type_2.\n\n\n\n\nRead in the alabama dataset anew.\n\n\n\nalabama &lt;- read_csv(\"lesson_code/02_lesson/data/alabama_fips.csv\")\n\n\n\nCreate your own binned categories based on the county_code (alphabetically). Use at least 4 bins. Call the varaible alpha_type_2. Make sure no missing data is created.\n\n\n\nalabama &lt;- alabama |&gt; \n  mutate(\n    alpha_type_2 = case_when(\n      county_code &lt; 34 ~ \"Very Low\", \n      county_code &gt;= 34 & county_code &lt; 68 ~ \"Medium Low\", \n      county_code &gt;= 68 & county_code &lt; 102 ~ \"Medium High\", \n      county_code &gt;= 102 ~ \"Very High\"\n    ))\n\n\n\nCount the frequency of alpha_type_2.\n\n\n\nalabama |&gt; \n  count(alpha_type_2)\n\n# A tibble: 1 × 2\n  alpha_type_2     n\n  &lt;chr&gt;        &lt;int&gt;\n1 Very Low        67"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/02_data_import.html",
+    "href": "lesson_code/02_lesson/02_data_import.html",
+    "title": "Data Import and Export",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/02_data_import.html#packages",
+    "href": "lesson_code/02_lesson/02_data_import.html#packages",
+    "title": "Data Import and Export",
+    "section": "Packages",
+    "text": "Packages\nIn this section, we will be using:\n\nreadr: part of tidyverse, for plain text files (.csv)\n\ndata.table: for large .csv files\nhaven: for SAS (.sas7bdat, .sas7bcat) and Stata (.dta) files\n\narrow: for .feather and .parquet files.\n\n\n\n\n\n\n\n\nTip\n\n\n\nRemember if you do not have these packages installed, call install.packages(\"&lt;package_name&gt;\") in the console. Load them in scripts or the console with library(&lt;package_name&gt;)."
+  },
+  {
+    "objectID": "lesson_code/02_lesson/02_data_import.html#reading-in-data",
+    "href": "lesson_code/02_lesson/02_data_import.html#reading-in-data",
+    "title": "Data Import and Export",
+    "section": "Reading in data",
+    "text": "Reading in data\nIn general, many of the functions used to read in data in R will have the read prefix.\n\nread::read_csv(): read in .csv files\nreadxl::read_excel(): read in .xlsx or .xls files\nhaven::read_sas() read in .sas7bdat or .sas7bcat files\nhaven::read_stata(): read in .dta files\nreadRDS(): read in native .RDS files\narrow::read_feather(): read in .feather files\narrow::read_parquet(): read in .parquet files\n\nThe data.table::fread() function is also available for readin gin large .csv files relatively fast.\n\n\nR paths\nThere are a few things you should know about paths in R.\n\nWith R paths, you must use / slashes to indicate folders within a path, not \\.\nYou can reference up a directory using relative file paths with ../.\nYou can change your current directory with the setwd(\"&lt;path&gt;\") function. I recommend not to do this, as it makes it more difficult to collaborate with others. Use getwd() to see your current directory (or look at the top of the console).\nEach of the read_* functions has arguments that can help read in the data. For example, some allow you to skip rows when reading in, only read in certain columns, set column types, and more.\n\n\n\n\nReading .csv files\nFor the simplest use cases, the various read functions will need just one argument: the path to the file you want to load.\n\n\nsepal &lt;- read_csv(\"data/iris.csv\")\n\n \nI encourage the use of relative filepaths like this, but you could use the aboslute file path if you would like as well.\n\n\nsepal &lt;- read_csv(\"C:/Users/christopherdavis/intro-to-r/lesson_code/02_lesson/data/iris.csv\")\n\n\nWe can now work with this data frame as we would any other.\n\n\nsepal |&gt; \n  filter(Species == \"setosa\")\n\n\n\nReading large .csv files\nOne function that may help speed up reading in large .csv files is the data.table::fread() function. It uses C++ under the hood to optimize reading in the data.\n\n\nsas_dat &lt;- read_sas(\"Data/UADAggs_nat_V3_0.sas7bdat\")\nstata_dat &lt;- read_stata(\"data/UADAggs_nat_V3_0.dta\")\n\n\nYou can also read in xpt SAS transfer files.\n\n\nxpt_dat &lt;- read_xpt(\"data/UADAggs_nat_V3_0.xpt\")\n\n\n\n\n\nReading Excel Files\nReading in Excel files is a little more complicated because there are sometimes more than one sheet to work with.\nTo find out the excel sheets in a particular excel file, use the readxl::excel_sheets() function.\n\n\nexcel_path &lt;- \"data/cars.xlsx\"\n\nmy_sheets &lt;- excel_sheets(excel_path)\n\nmy_sheets\n\n\nWe can then read in the data based on the excel sheet.\n\n\nread_excel(excel_path, \n           sheet = my_sheets[1])\n\n\nread_excel(excel_path, \n           sheet = my_sheets[2])\n\n\n\n\nNative .RDS files\nWe can read in native .RDS files with the readRDS() function.\n\n\nreadRDS(\"data/UADAggs_nat_V3_0.RDS\")\n\n\n.RDS files are files specific to R and are relatively small.\n\n\n\nArrow: .feather and .parquet\nFeather and Parquet formats are designed to be faster and more streamlined than other data formats, especially for big data (large data frames). Some estimates find them to take up at least 87 percent less space and be 34 times faster to read in as compared to .csv files. For reference, even .csv files are much faster to read into R than .sas7bdat files.\nTehse files achieve this with binary storge in columnar format as opposed to a row-based format. Each column holds values for a single attribute across all rows.\n\n\nSource:Medium\n\nHere’s the code to read in these files.\n\n\nread_feather(\"data/UADAggs_nat_V3_0.feather\")\nread_parquet(\"data/UADAggs_nat_V3_0.parquet\")\n\n\n\nFeather vs. Parquet\n\nBoth options are very fast, but Feather is faster.\nParquet is better for long-term storage and is smaller\nFeather is much larger as it isn’t natively compressed (it is still 6 times smaller than its .sas7bdat equivalent). It is also likely to change its features more often, so is less stable. It is more suitable for short-term storage or intermediary datasets.\n\n\n\n\n\n\n\nTip\n\n\n\nOne of the only drawbacks of using these files is that because they are in binary format, the raw data version of these files cannot be easily read by humans. That’s okay, though, we can just read them in!"
+  },
+  {
+    "objectID": "lesson_code/02_lesson/02_data_import.html#writing-out-data",
+    "href": "lesson_code/02_lesson/02_data_import.html#writing-out-data",
+    "title": "Data Import and Export",
+    "section": "Writing out data",
+    "text": "Writing out data\nYou can similarly write out data with the following functions.\n\nreadr::write_csv(): write out .csv files\nhaven::write_sas(): write out .sas7bdat or .sas7bcat files\nhaven::write_dta(): write_out .dta files\nsaveRDS(): save native .RDS files\narrow::write_feather(): write out .feather files\narrow::write_parquet(): write out .parquet files\n\n\nWriting out excel sheets is a little more complicated; we can set up a mini tutorial for that if folks are interested.\n\n\n\n\n\n\n\nNote\n\n\n\nThese functions invisibly return the data frame, so you can add one of these rite_* functions at the end of a pipe if you’d like to assign a data frame while you are saving it out."
+  },
+  {
+    "objectID": "lesson_code/02_lesson/02_data_import.html#the-janitorclean_names-function",
+    "href": "lesson_code/02_lesson/02_data_import.html#the-janitorclean_names-function",
+    "title": "Data Import and Export",
+    "section": "The janitor::clean_names() function",
+    "text": "The janitor::clean_names() function\nOne of the most helpful functions to use after reading in data frames is the clean_names() function from the janitor package. Variables often are read in unstandardized and are a pain to clean up.\nNames resulting from this function are unique and consist of only _, numbers, and letters.\nThey can be piped after reading in a data frame.\n\n\nread_feather(\"data/UADAggs_nat_V3_0.feather\") |&gt; \n  janitor::clean_names() |&gt; \n  glimpse()"
+  },
+  {
+    "objectID": "lesson_code/04_lesson/04_choropleth_tidycensus.html",
+    "href": "lesson_code/04_lesson/04_choropleth_tidycensus.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/04_lesson/03_exercise_12.html",
+    "href": "lesson_code/04_lesson/03_exercise_12.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/04_lesson/01_welcome.html",
+    "href": "lesson_code/04_lesson/01_welcome.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/06_lesson/05_exercise_18.html",
+    "href": "lesson_code/06_lesson/05_exercise_18.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/06_lesson/quarto_example.html",
+    "href": "lesson_code/06_lesson/quarto_example.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/06_lesson/02_quarto.html",
+    "href": "lesson_code/06_lesson/02_quarto.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  },
+  {
+    "objectID": "lesson_code/06_lesson/04_yaml.html",
+    "href": "lesson_code/06_lesson/04_yaml.html",
+    "title": "Introduction to R",
+    "section": "",
+    "text": "Developed by Christopher Davis"
+  }
+]
