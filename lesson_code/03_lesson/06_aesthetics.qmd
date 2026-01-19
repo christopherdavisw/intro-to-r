@@ -220,7 +220,7 @@ However, if you tried to map the `height` and `age` variables but not `subject`,
 
 ```{r}
 
-ggplot(nlme::Oxboys, mapping - aes(age, height)) + 
+ggplot(nlme::Oxboys, mapping = aes(age, height)) + 
   geom_line()
 
 ```  

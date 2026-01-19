@@ -19,10 +19,10 @@ website:
         menu: 
           - text: "Lesson 1 - Data Wrangling"
             href: lesson_code/01_lesson/01_welcome.qmd
-          #- text: "Lesson 2 - Data Wrangling 2"
-          #  href: lesson_code/02_lesson/01_welcome.qmd
-          # - text: "Lesson 3 - Data Visualization 1"
-          #   href: lesson_code/03_lesson/03_welcome.qmd
+          - text: "Lesson 2 - Data Wrangling 2"
+            href: lesson_code/02_lesson/01_welcome.qmd
+          - text: "Lesson 3 - Data Visualization 1"
+            href: lesson_code/03_lesson/01_welcome.qmd
           # - text: "Lesson 4 - Data Visualization 2"
           #   href: lesson_code/04_lesson/01_welcome.qmd
           # - text: "Lesson 5 - Functions and Iteration"
@@ -33,54 +33,52 @@ website:
         href: lesson_code/functions.qmd
     logo: images/my_logo.png
     
-    sidebar: 
+  sidebar: 
     - title: "Lesson 1"
       background: light
-    contents: 
-      - text: "Lesson 1 - Data Wrangling"
-        file: lesson_code/01_lesson/01_welcome.qmd
-      - text: "Getting Started"
-        file: lesson_code/01_lesson/02_getting_started.qmd
-      - href: lesson_code/01_lesson/03_r_basics.qmd
-      - href: lesson_code/01_lesson/04_vectors.qmd
-      - href: lesson_code/01_lesson/05_exercise_1.qmd
-      - href: lesson_code/01_lesson/06_packages_and_libraries.qmd
-      - href: lesson_code/01_lesson/07_data_frames_and_tibble.qmd
-      - href: lesson_code/01_lesson/08_dplyr_basics.qmd
-      - href: lesson_code/01_lesson/09_pipes.qmd
-      - href: lesson_code/01_lesson/10_exercise_2.qmd. 
-      
-    # - title: "Lesson 2"
-    #   background: light
-    #   contents: 
-    #   - href: lesson_code/02_lesson/01_welcome.qmd
-    #   - href: lesson_code/02_lesson/02_data_import.qmd
-    #   - href: lesson_code/02_lesson/03_exercise_3.qmd
-    #   - href: lesson_code/02_lesson/04_conditions.qmd
-    #   - href: lesson_code/02_lesson/05_stringr.qmd
-    #   - href: lesson_code/02_lesson/06_exercise_4.qmd
-    #   - href: lesson_code/02_lesson/07_attributes.qmd
-    #   - href: lesson_code/02_lesson/08_reshaping.qmd
-    #   - href: lesson_code/02_lesson/09_exercise_5.qmd
-    #   - href: lesson_code/02_lesson/10_joining.qmd
-    #   - href: lesson_code/02_lesson/11_exercise_6.qmd
+      contents: 
+        - text: "Lesson 1 - Data Wrangling"
+          file: lesson_code/01_lesson/01_welcome.qmd
+        - text: "Getting Started"
+          file: lesson_code/01_lesson/02_getting_started.qmd
+        - href: lesson_code/01_lesson/03_r_basics.qmd
+        - href: lesson_code/01_lesson/04_vectors.qmd
+        - href: lesson_code/01_lesson/05_exercise_1.qmd
+        - href: lesson_code/01_lesson/06_packages_and_libraries.qmd
+        - href: lesson_code/01_lesson/07_data_frames_and_tibble.qmd
+        - href: lesson_code/01_lesson/08_dplyr_basics.qmd
+        - href: lesson_code/01_lesson/09_pipes.qmd
+        - href: lesson_code/01_lesson/10_exercise_2.qmd. 
+    - title: "Lesson 2"
+      background: light
+      contents:
+        - href: lesson_code/02_lesson/01_welcome.qmd
+        - href: lesson_code/02_lesson/02_data_import.qmd
+        - href: lesson_code/02_lesson/03_exercise_3.qmd
+        - href: lesson_code/02_lesson/04_conditions.qmd
+        - href: lesson_code/02_lesson/05_stringr.qmd
+        - href: lesson_code/02_lesson/06_exercise_4.qmd
+        - href: lesson_code/02_lesson/07_attributes.qmd
+        - href: lesson_code/02_lesson/08_reshaping.qmd
+        - href: lesson_code/02_lesson/09_exercise_5.qmd
+        - href: lesson_code/02_lesson/10_joining.qmd
+        - href: lesson_code/02_lesson/11_exercise_6.qmd
+    - title: "Lesson 3"
+      background: light
+      contents:
+         - href: lesson_code/03_lesson/01_welcome.qmd
+         - href: lesson_code/03_lesson/02_ggplot.qmd
+         - href: lesson_code/03_lesson/03_exercise_7.qmd
+         - href: lesson_code/03_lesson/04_layers.qmd
+         - href: lesson_code/03_lesson/05_exercise_8.qmd
+         - href: lesson_code/03_lesson/06_aesthetics.qmd
+         - href: lesson_code/03_lesson/07_exercise_9.qmd
+         - href: lesson_code/03_lesson/08_scales.qmd
+         - href: lesson_code/03_lesson/09_exercise_10.qmd
+         - href: lesson_code/03_lesson/10_text.qmd
+         - href: lesson_code/03_lesson/11_themes.qmd.
+         - href: lesson_code/03_lesson/12_exercise_11.qmd
     
-    # - title: "Lesson 3"
-    #   background: light
-    #   contents: 
-    #   - href: lesson_code/03_lesson/01_welcome.qmd
-    #   - href: lesson_code/03_lesson/02_ggplot.qmd
-    #   - href: lesson_code/03_lesson/03_exercise_7.qmd
-    #   - href: lesson_code/03_lesson/04_layers.qmd
-    #   - href: lesson_code/03_lesson/05_exercise_8.qmd
-    #   - href: lesson_code/03_lesson/06_aesthetics.qmd
-    #   - href: lesson_code/03_lesson/07_exercise_9.qmd
-    #   - href: lesson_code/03_lesson/08_scales.qmd
-    #   - href: lesson_code/03_lesson/09_exercise_10.qmd
-    #   - href: lesson_code/03_lesson/10_text.qmd
-    #   - href: lesson_code/03_lesson/11_themes.qmd. 
-    #   - href: lesson_code/03_lesson/12_exercise_11.qmd
-    # 
     # - title: "Lesson 4"
     #   background: light
     #   contents: 

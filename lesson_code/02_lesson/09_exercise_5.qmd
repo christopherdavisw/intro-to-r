@@ -92,7 +92,7 @@ class_long |>
          final_exam,
          overall,
          attendance,
-         semster) # reorder columns
+         semester) # reorder columns
 ```
 <br>
 :::
@@ -114,7 +114,7 @@ class_long |>
 class_data |> 
   pivot_wider(names_from = c(class, 
                              semester), 
-              values_from - c(mid_term, 
+              values_from = c(mid_term, 
                               final_exam, 
                               overall, 
                               attendance))

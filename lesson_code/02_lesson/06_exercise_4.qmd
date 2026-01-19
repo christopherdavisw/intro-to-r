@@ -26,7 +26,7 @@ All exercises live in the `exercises/` folder. Navigate to that folder in the `F
 
 - Create a variable in `alabama` called `alpha_type` that is "Low Alphabetically" if the `county_code` is `<= 65` and "High Alphabetically" otherwise. Overwrite `alabama`. 
 
-- Fix the leading zderios in `state_code` and `county_code` with `str_pad()`. 
+- Fix the leading zeros in `state_code` and `county_code` with `str_pad()`. 
 
 - Create the full county code by concatenating the 2-digit state code and 3-digit county code. Call the new variable `geoid`.
 
@@ -147,7 +147,7 @@ alabama <- alabama |>
 <br>
 ```{r}
 alabama |> 
-  county(alpha_type_2)
+  count(alpha_type_2)
 ```
 <br>
 :::

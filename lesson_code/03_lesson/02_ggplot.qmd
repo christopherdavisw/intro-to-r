@@ -190,7 +190,7 @@ ggplot(data = diamonds, mapping = aes(x = cut)) +
   coord_flip() + 
   theme(panel.background = element_rect(fill = "white"), # change background color to white 
         panel.grid.major = element_blank(), # remove grid lines
-        panel.grid.minir = element_blank()) # remove grid lines
+        panel.grid.minor = element_blank()) # remove grid lines
 ```
 
 <br>

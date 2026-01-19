@@ -40,7 +40,7 @@ df2 <- tibble(a = c(4,
               c = c(4, 
                     5, 
                     6), 
-              df = second)
+              df = "second")
 ```
 
 ```{r}
@@ -196,7 +196,7 @@ df1 <- tibble(state = c("01",
                               "Baldiwn County", 
                               "Barbour County"))
 
-df2 <- tibble(state = c("01", 
+df2 <- tibble(state_code = c("01", 
                         "01", 
                         "01"), 
               fips = c("005", 
