@@ -20,7 +20,6 @@ With it, we can iteratively update a plot, changing a single feature at a time.
 
 Most of this information was ported from the [ggplot2 vignette](https://ggplot2.tidyverse.org/articles/ggplot2.html). 
 
-![](images/ggplot2.png)
 
 ## Key Components
 
