@@ -7,7 +7,7 @@ website:
   body-header: |
     <center>Developed by Christopher Davis</center>
   margin-header: |
-    ![](images/my_logo.png)
+    ![](images/my_logo.png){width=20%}
   search: false
   page-navigation: true
   title: "Introduction to R"
